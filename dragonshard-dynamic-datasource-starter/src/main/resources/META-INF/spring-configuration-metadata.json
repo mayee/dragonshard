@@ -1,0 +1,736 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "name": "dragonshard.dynamic-datasource",
+      "type": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "name": "dragonshard.dynamic-datasource.global-druid",
+      "type": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.stat",
+      "type": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidStatConfig"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall",
+      "type": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "name": "dragonshard.dynamic-datasource.global-hikari",
+      "type": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "name": "dragonshard.dynamic-datasource.datasource",
+      "description": "每一个数据源",
+      "type": "java.util.Map<java.lang.String,com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DataSourceProperty>"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.async-init",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.break-after-acquire-failure",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.clear-filters-enable",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.connection-error-retry-attempts",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.connection-properties",
+      "type": "java.util.Properties"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.fail-fast",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.filters",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.init-connection-sqls",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.init-global-variants",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.init-variants",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.initial-size",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.keep-alive",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.kill-when-socket-read-timeout",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.max-active",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.max-evictable-idle-time-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.max-pool-prepared-statement-per-connection-size",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.max-wait",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.max-wait-thread-count",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.min-evictable-idle-time-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.min-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.not-full-timeout-retry-count",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.phy-timeout-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.pool-prepared-statements",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.proxy-filters",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.proxy-filters",
+      "type": "java.util.List<java.lang.String>"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.public-key",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.reset-stat-enable",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.share-prepared-statements",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.stat-sql-max-size",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidStatConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.stat.log-slow-sql",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidStatConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.stat.merge-sql",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidStatConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.stat.slow-sql-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.test-on-borrow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.test-on-return",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.test-while-idle",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.time-between-eviction-runs-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.time-between-log-stats-millis",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.use-global-data-source-stat",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.use-unfair-lock",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.validation-query",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.validation-query-timeout",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.alter-table-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.block-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.call-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.case-condition-const-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.comment-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.commit-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.complete-insert-values-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.condition-and-alway-false-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.condition-and-alway-true-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.condition-double-const-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.condition-like-true-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.condition-op-bitwse-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.condition-op-xor-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.const-arithmetic-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.create-table-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.delete-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.delete-where-alway-true-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.delete-where-none-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.describe-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.dir",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.do-privileged-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.drop-table-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.function-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.hint-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.insert-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.insert-values-check-size",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.intersect-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.limit-zero-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.lock-table-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.merge-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.metadata-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.minus-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.multi-statement-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.must-parameterized",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.none-base-statement-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.object-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.rename-table-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.replace-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.rollback-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.schema-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-all-column-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-except-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-having-alway-true-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-intersect-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-into-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-into-outfile-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-limit",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-minus-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-union-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.select-where-alway-true-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.set-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.show-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.start-transaction-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.strict-syntax-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.table-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.tenant-column",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.tenant-table-pattern",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.truncate-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.update-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.update-where-alay-true-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.update-where-none-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.use-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.variant-check",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.druid.DruidWallConfig",
+      "name": "dragonshard.dynamic-datasource.global-druid.wall.wrap-allow",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.catalog",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.connection-init-sql",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.connection-test-query",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.connection-timeout",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.data-source-class-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.data-source-jndi-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.data-source-properties",
+      "type": "java.util.Properties"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.driver-class-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.health-check-properties",
+      "type": "java.util.Properties"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.idle-timeout",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.initialization-fail-timeout",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.is-allow-pool-suspension",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.is-auto-commit",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.is-isolate-internal-queries",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.is-read-only",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.is-register-mbeans",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.jdbc-url",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.leak-detection-threshold",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.max-lifetime",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.max-pool-size",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.min-idle",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.password",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.pool-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.schema",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.transaction-isolation-name",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.username",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.hikari.HikariCpConfig",
+      "name": "dragonshard.dynamic-datasource.global-hikari.validation-timeout",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "name": "dragonshard.dynamic-datasource.order",
+      "description": "aop切面顺序，默认优先级最高",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": false,
+      "name": "dragonshard.dynamic-datasource.p6spy",
+      "description": "是否使用p6spy输出，默认不输出",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": "master",
+      "name": "dragonshard.dynamic-datasource.primary",
+      "description": "必须设置默认的库,默认master",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "name": "dragonshard.dynamic-datasource.strategy",
+      "description": "多数据源选择算法clazz，默认负载均衡算法",
+      "type": "java.lang.Class<? extends com.baomidou.dynamic.datasource.strategy.DynamicDataSourceStrategy>"
+    },
+    {
+      "sourceType": "com.baomidou.dynamic.datasource.spring.boot.autoconfigure.DynamicDataSourceProperties",
+      "defaultValue": false,
+      "name": "dragonshard.dynamic-datasource.strict",
+      "description": "是否启用严格模式,默认不启动.\n 严格模式下未匹配到数据源直接报错,\n 非严格模式下则使用默认数据源primary所设置的数据源",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}

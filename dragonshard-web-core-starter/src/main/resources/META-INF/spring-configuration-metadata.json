@@ -1,0 +1,115 @@
+{
+  "hints": [],
+  "groups": [
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.WebCoreProperties",
+          "name": "dragonshard.web-core",
+          "type": "net.dragonshard.dsf.web.core.configuration.property.WebCoreProperties"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.WebCoreProperties",
+          "name": "dragonshard.web-core.jackson",
+          "sourceMethod": "getJackson()",
+          "type": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "name": "dragonshard.web-core.jackson",
+          "type": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.WebCoreProperties",
+          "name": "dragonshard.web-core.version",
+          "sourceMethod": "getVersion()",
+          "type": "net.dragonshard.dsf.web.core.configuration.property.VersionProperties"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.VersionProperties",
+          "name": "dragonshard.web-core.version",
+          "type": "net.dragonshard.dsf.web.core.configuration.property.VersionProperties"
+      }
+  ],
+  "properties": [
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.WebCoreProperties",
+          "defaultValue": true,
+          "name": "dragonshard.web-core.enabled",
+          "description": "是否开启",
+          "type": "java.lang.Boolean"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": true,
+          "name": "dragonshard.web-core.jackson.accept-empty-string-as-null-object",
+          "description": "配置为true表示mapper允许对null进行转换",
+          "type": "java.lang.Boolean"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": true,
+          "name": "dragonshard.web-core.jackson.accept-single-value-as-array",
+          "description": "配置为true表示mapper接受只有一个元素的数组的反序列化",
+          "type": "java.lang.Boolean"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": true,
+          "name": "dragonshard.web-core.jackson.allow-unquoted-control-chars",
+          "description": "是否允许JSON字符串包含非引号控制字符（值小于32的ASCII字符，包含制表符和换行符）",
+          "type": "java.lang.Boolean"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": "yyyy-MM-dd",
+          "name": "dragonshard.web-core.jackson.date-format-serializer",
+          "type": "java.lang.String"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": "yyyy-MM-dd HH:mm:ss",
+          "name": "dragonshard.web-core.jackson.date-time-format-serializer",
+          "type": "java.lang.String"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": "NON_NULL",
+          "name": "dragonshard.web-core.jackson.default-property-inclusion",
+          "description": "序列化设置\n <p>\n ALWAYS       默认\n NON_DEFAULT  属性为默认值不序列化\n NON_EMPTY    属性为 空（\"\"） 或者为 NULL 不序列化\n NON_NULL     属性为NULL 不序列化",
+          "type": "java.lang.String"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": true,
+          "name": "dragonshard.web-core.jackson.enabled",
+          "description": "是否开启",
+          "type": "java.lang.Boolean"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": false,
+          "name": "dragonshard.web-core.jackson.fail-on-unknown-properties",
+          "description": "反序列化时, 遇到未知属性时是否引起结果失败( 抛 JsonMappingException 异常 )\n false: 忽略\n true:  抛异常",
+          "type": "java.lang.Boolean"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": "HH:mm:ss",
+          "name": "dragonshard.web-core.jackson.time-format-serializer",
+          "type": "java.lang.String"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.JacksonProperties",
+          "defaultValue": true,
+          "name": "dragonshard.web-core.jackson.write-numbers-as-strings",
+          "description": "给所有数字加上引号",
+          "type": "java.lang.Boolean"
+      },
+      {
+          "sourceType": "net.dragonshard.dsf.web.core.configuration.property.VersionProperties",
+          "defaultValue": true,
+          "name": "dragonshard.web-core.version.enabled",
+          "description": "是否开启",
+          "type": "java.lang.Boolean"
+      }
+  ]
+}

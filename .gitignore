@@ -1,0 +1,35 @@
+*.class
+
+# macOS
+.DS_Store
+
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.log
+
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+dragonshard/dragonshard-core/targer/
+dragonshard/dragonshard-web-core-starter/targer/
+dragonshard/dragonshard-dynamic-datasource-starter/targer/
+dragonshard/dragonshard-data-mybatis/targer/
