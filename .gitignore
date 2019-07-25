@@ -29,7 +29,8 @@
 /dist/
 /nbdist/
 /.nb-gradle/
-dragonshard/dragonshard-core/targer/
-dragonshard/dragonshard-web-core-starter/targer/
-dragonshard/dragonshard-dynamic-datasource-starter/targer/
-dragonshard/dragonshard-data-mybatis/targer/
+dragonshard-core/target/
+dragonshard-data-mybatis/target/
+dragonshard-data-redis-starter/target/
+dragonshard-dynamic-datasource-starter/target/
+dragonshard-web-core-starter/target/
