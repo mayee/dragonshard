@@ -1,0 +1,25 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "net.dragonshard.dsf.data.redis.configuration.property.RedisProperties",
+      "name": "dragonshard.redis",
+      "type": "net.dragonshard.dsf.data.redis.configuration.property.RedisProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "net.dragonshard.dsf.data.redis.configuration.property.RedisProperties",
+      "defaultValue": true,
+      "name": "dragonshard.redis.enabled",
+      "description": "是否开启 true\/false",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.redis.configuration.property.RedisProperties",
+      "name": "dragonshard.redis.biz-prefix",
+      "description": "业务标识前缀",
+      "type": "java.lang.String"
+    }
+  ]
+}
