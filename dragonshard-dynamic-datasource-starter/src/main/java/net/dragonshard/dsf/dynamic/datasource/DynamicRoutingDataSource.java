@@ -65,7 +65,7 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource implemen
     }
 
     private DataSource determinePrimaryDataSource() {
-        log.debug("从默认数据源中返回数据 > {}", primary);
+        log.debug("Return data from the default datasource > {}", primary);
         return groupDataSources.containsKey(primary) ? groupDataSources.get(primary).determineDataSource() : dataSourceMap.get(primary);
     }
 
@@ -97,14 +97,14 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource implemen
         if (StringUtils.isEmpty(ds)) {
             return determinePrimaryDataSource();
         } else if (!groupDataSources.isEmpty() && groupDataSources.containsKey(ds)) {
-            log.debug("从 {} 组数据源中返回数据源", ds);
+            log.debug("Return from group datasource {}", ds);
             return groupDataSources.get(ds).determineDataSource();
         } else if (dataSourceMap.containsKey(ds)) {
-            log.debug("从 {} 单数据源中返回数据源", ds);
+            log.debug("Return from single datasource {}", ds);
             return dataSourceMap.get(ds);
         }
         if (strict) {
-            throw new RuntimeException("不能找到名称为" + ds + "的数据源");
+            throw new RuntimeException("Can not find datasource from the name as " + ds);
         }
         return determinePrimaryDataSource();
     }
@@ -130,12 +130,12 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource implemen
                     groupDatasource.addDatasource(dataSource);
                     groupDataSources.put(group, groupDatasource);
                 } catch (Exception e) {
-                    log.error("添加数据源失败", e);
+                    log.error("Load datasource failed!", e);
                     dataSourceMap.remove(ds);
                 }
             }
         }
-        log.info("动态数据源加载成功 > {}", ds);
+        log.info("Dynamic datasource load successed > {}", ds);
     }
 
     /**
@@ -153,9 +153,9 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource implemen
                     groupDataSources.get(group).removeDatasource(dataSource);
                 }
             }
-            log.info("动态数据源删除成功 > {}", ds);
+            log.info("Dynamic datasource remove successed > {}", ds);
         } else {
-            log.warn("动态数据源未找到 > {}", ds);
+            log.warn("Can not find dynamic datasource > {}", ds);
         }
     }
 
@@ -163,10 +163,10 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource implemen
         if (p6spy) {
             try {
                 Class.forName("com.p6spy.engine.spy.P6DataSource");
-                log.info("已开启 > p6spy");
+                log.info("Success to load > p6spy");
                 this.p6spy = true;
             } catch (Exception e) {
-                log.warn("加载失败 > p6spy");
+                log.warn("Failed to load > p6spy");
             }
         } else {
             this.p6spy = false;
@@ -175,7 +175,7 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource implemen
 
     @Override
     public void destroy() throws Exception {
-        log.info("正在关闭数据源...");
+        log.info("Closing datasource...");
         for (Map.Entry<String, DataSource> item : dataSourceMap.entrySet()) {
             DataSource dataSource = item.getValue();
             if (p6spy) {
@@ -188,7 +188,7 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource implemen
                 Method closeMethod = clazz.getDeclaredMethod("close");
                 closeMethod.invoke(dataSource);
             } catch (NoSuchMethodException e) {
-                log.warn("关闭数据源 {} 失败,", item.getKey());
+                log.warn("Closing datasource {} failed,", item.getKey());
             }
         }
     }
@@ -196,18 +196,18 @@ public class DynamicRoutingDataSource extends AbstractRoutingDataSource implemen
     @Override
     public void afterPropertiesSet() throws Exception {
         Map<String, DataSource> dataSources = provider.loadDataSources();
-        log.info("已加载 {} 个数据源", dataSources.size());
+        log.info("{} data sources loaded.", dataSources.size());
         //添加并分组数据源
         for (Map.Entry<String, DataSource> dsItem : dataSources.entrySet()) {
             addDataSource(dsItem.getKey(), dsItem.getValue());
         }
         //检测默认数据源设置
         if (groupDataSources.containsKey(primary)) {
-            log.info("默认数据源(组) > {} ，其下有 {} 个数据源", primary, groupDataSources.get(primary).size());
+            log.info("Default datasource (group) > {} ，{} datasource", primary, groupDataSources.get(primary).size());
         } else if (dataSourceMap.containsKey(primary)) {
-            log.info("默认数据源(单) > {}", primary);
+            log.info("Default datasource (single) > {}", primary);
         } else {
-            throw new RuntimeException("默认数据源配置异常,请检查: dragonshard.dynamic-datasource.primary");
+            throw new RuntimeException("Default datasource configuration fail, Please check: dragonshard.dynamic-datasource.primary");
         }
     }
 }
