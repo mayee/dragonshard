@@ -21,6 +21,7 @@
         <module>dragonshard-web-core-starter</module>
         <module>dragonshard-dynamic-datasource-starter</module>
         <module>dragonshard-data-mybatis</module>
+        <module>dragonshard-data-redis-starter</module>
     </modules>
 
     <parent>
