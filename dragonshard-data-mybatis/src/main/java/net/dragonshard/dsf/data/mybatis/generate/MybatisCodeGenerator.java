@@ -58,11 +58,11 @@ public class MybatisCodeGenerator {
     public MybatisCodeGenerator() {
         strategyConfig = new StrategyConfig()
                 //自定义实体父类
-                .setSuperEntityClass("dev.zhangchi.dsf.web.core.framework.model.BaseModel")
+                .setSuperEntityClass("net.dragonshard.dsf.web.core.framework.model.BaseModel")
                 // 自定义实体，公共字段
                 .setSuperEntityColumns("id")
                 // 自定义 controller 父类
-                .setSuperControllerClass("dev.zhangchi.dsf.data.mybatis.framework.controller.MyBatisController")
+                .setSuperControllerClass("net.dragonshard.dsf.data.mybatis.framework.controller.MyBatisController")
                 // 【实体】是否为lombok模型（默认 false）
                 .setEntityLombokModel(true)
                 // Boolean类型字段是否移除is前缀处理
@@ -97,7 +97,7 @@ public class MybatisCodeGenerator {
 
         packageConfig = new PackageConfig()
                 .setController("controller")
-                .setEntity("entity")
+                .setEntity("model.entity")
                 .setMapper("mapper")
                 .setService("service")
                 .setServiceImpl("service.impl");
@@ -112,7 +112,7 @@ public class MybatisCodeGenerator {
                 // XML columList
                 .setBaseColumnList(false)
                 .setOpen(false)
-                .setAuthor("Dragonshard");
+                .setAuthor("dragonshard.net");
 
     }
 
