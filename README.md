@@ -1,6 +1,6 @@
 
 
-![Logo](https://github.com/mayee/img-folder/blob/master/ds-logo-black.png)
+<img src="https://github.com/mayee/img-folder/blob/master/ds-logo_96.png" height="48px" alt="logo">
 
 
 ## What is Dragonshard?
