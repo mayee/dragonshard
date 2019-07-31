@@ -5,22 +5,22 @@
 
 ## What is Dragonshard?
 
-Based on the micro-service server framework, corresponding management tools are also provided. Be quickly applied to business systems.
+Dragonshard ( official site: [https://dragonshard.net](https://dragonshard.net) ) is an based on the micro-service server framework, corresponding management tools are also provided. Be quickly applied to business systems.
 
 ## Design Principles
 
 -   KISS(Keep it simple, sutpid)
 -   YAGNI(You aren’t gonna need it)
--   Fast implementation
--   Always think about ROI
--   Don't make fancy things
+-   Fast implementation.
+-   Always think about ROI.
+-   Don't make fancy things.
 
 ## Links
 
 -   [Documentation](https://dragonshard.net/doc)
--   [Samples](https://dragonshard.net/quickStart)
--   [Website](https://dragonshard.net)
--   [Code generator online](https://dragonshard.net/codeGenerator)
+-   [Quick Start](https://dragonshard.net/quickStart)
+-   [Official Site](https://dragonshard.net)
+-   [Code Generator Online](https://dragonshard.net/codeGenerator)
 
 ## Features
 
@@ -29,6 +29,12 @@ Based on the micro-service server framework, corresponding management tools are 
 -   Code generator online.
 -   Some commonly used out-of-the-box samples program.
 -   No cool features, simple and easy to use.
+
+## Latest version
+
+```xml
+<version>1.0</version>
+```
 
 ## License
 
