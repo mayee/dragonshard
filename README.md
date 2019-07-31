@@ -1,6 +1,6 @@
 
 
-
+![Logo](https://github.com/mayee/img-folder/blob/master/ds-logo-black.png)
 
 
 ## What is Dragonshard?
@@ -17,10 +17,10 @@ Based on the micro-service server framework, corresponding management tools are 
 
 ## Links
 
--   [Documentation](https://dragonshard.net/doc_introduction.html)
--   [Samples](https://)
+-   [Documentation](https://dragonshard.net/doc)
+-   [Samples](https://dragonshard.net/quickStart)
 -   [Website](https://dragonshard.net)
--   [Code generator online](https://dragonshard.net/code-generator.html)
+-   [Code generator online](https://dragonshard.net/codeGenerator)
 
 ## Features
 
@@ -28,7 +28,7 @@ Based on the micro-service server framework, corresponding management tools are 
 -   Auto configuration on startup.
 -   Code generator online.
 -   Some commonly used out-of-the-box samples program.
--   No cool features, only simple, simple and easy to use.
+-   No cool features, simple and easy to use.
 
 ## License
 
