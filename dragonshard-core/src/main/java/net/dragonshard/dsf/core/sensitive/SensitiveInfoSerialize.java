@@ -1,5 +1,5 @@
 /*
- *   Copyright 1999-2018 zhangchi.dev Holding Ltd.
+ *   Copyright 1999-2018 dragonshard.net.
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
  *   You may obtain a copy of the License at
@@ -34,8 +34,6 @@ import java.util.Objects;
  * 序列化类
  *
  * @author mayee
- * @date 2019-07-20
- *
  * @version v1.0
  **/
 @AllArgsConstructor
@@ -50,7 +48,7 @@ public class SensitiveInfoSerialize extends JsonSerializer<String> implements Co
     @Override
     public void serialize(final String origin, final JsonGenerator jsonGenerator,
                           final SerializerProvider serializerProvider) throws IOException, JsonProcessingException {
-        Preconditions.checkNotNull(type, "sensitive type enum should not be null.");
+        Preconditions.checkNotNull(type, "Sensitive type enum should not be null.");
         switch (type) {
             case CHINESE_NAME:
                 jsonGenerator.writeString(DesensitizedUtils.chineseName(origin));

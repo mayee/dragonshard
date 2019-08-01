@@ -1,5 +1,5 @@
 /*
- *   Copyright 1999-2018 zhangchi.dev Holding Ltd.
+ *   Copyright 1999-2018 dragonshard.net.
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
  *   You may obtain a copy of the License at
@@ -20,7 +20,6 @@ import java.util.Map;
  * 对象工具类
  *
  * @author hubin
- * @since 2018-06-05
  */
 public class ObjectUtils {
 

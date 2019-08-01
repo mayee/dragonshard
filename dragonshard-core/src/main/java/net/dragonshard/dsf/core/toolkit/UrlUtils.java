@@ -1,5 +1,5 @@
 /*
- *   Copyright 1999-2018 zhangchi.dev Holding Ltd.
+ *   Copyright 1999-2018 dragonshard.net.
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
  *   You may obtain a copy of the License at
@@ -17,6 +17,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 
 /**
+ * URL工具类
+ *
  * @author mayee
  * @version v1.0
  **/

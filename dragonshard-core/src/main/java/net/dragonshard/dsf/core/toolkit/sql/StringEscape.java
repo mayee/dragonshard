@@ -1,5 +1,5 @@
 /*
- *   Copyright 1999-2018 zhangchi.dev Holding Ltd.
+ *   Copyright 1999-2018 dragonshard.net.
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
  *   You may obtain a copy of the License at
@@ -16,7 +16,6 @@ package net.dragonshard.dsf.core.toolkit.sql;
  * StringEscape ，数据库字符串转义
  *
  * @author Caratacus
- * @since 2016-10-16
  */
 public class StringEscape {
 

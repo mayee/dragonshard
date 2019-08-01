@@ -1,5 +1,5 @@
 /*
- *   Copyright 1999-2018 zhangchi.dev Holding Ltd.
+ *   Copyright 1999-2018 dragonshard.net.
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
  *   You may obtain a copy of the License at
@@ -25,7 +25,6 @@ import static java.util.stream.Collectors.toList;
  * <p>使用请依赖 cglib 包</p>
  *
  * @author hubin HCL
- * @since 2018-06-12
  */
 public final class BeanUtils {
 

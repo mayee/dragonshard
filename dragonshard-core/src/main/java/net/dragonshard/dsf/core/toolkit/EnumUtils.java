@@ -1,5 +1,5 @@
 /*
- *   Copyright 1999-2018 zhangchi.dev Holding Ltd.
+ *   Copyright 1999-2018 dragonshard.net.
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
  *   You may obtain a copy of the License at
@@ -23,7 +23,6 @@ import java.util.Objects;
  * 枚举处理工具类
  *
  * @author hubin
- * @since 2017-10-11
  */
 public class EnumUtils {
 
@@ -34,7 +33,7 @@ public class EnumUtils {
      * @param value     枚举值
      * @param method    取值方法
      * @param <E>       对应枚举
-     * @return
+     * @return          枚举
      */
     public static <E extends Enum<?>> E valueOf(Class<E> enumClass, Object value, Method method) {
         E[] es = enumClass.getEnumConstants();

@@ -1,5 +1,5 @@
 /*
- *   Copyright 1999-2018 zhangchi.dev Holding Ltd.
+ *   Copyright 1999-2018 dragonshard.net.
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
  *   You may obtain a copy of the License at
@@ -19,8 +19,6 @@ import net.dragonshard.dsf.core.common.CoreConstants;
  * key工具类
  *
  * @author mayee
- * @date 2019-07-15
- *
  * @version v1.0
  **/
 public class KeyUtil {

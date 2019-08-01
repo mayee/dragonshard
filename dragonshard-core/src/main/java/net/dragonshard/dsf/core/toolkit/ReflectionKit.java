@@ -1,5 +1,5 @@
 /*
- *   Copyright 1999-2018 zhangchi.dev Holding Ltd.
+ *   Copyright 1999-2018 dragonshard.net.
  *   Licensed under the Apache License, Version 2.0 (the "License");
  *   you may not use this file except in compliance with the License.
  *   You may obtain a copy of the License at
@@ -12,27 +12,17 @@
  */
 package net.dragonshard.dsf.core.toolkit;
 
-import static java.util.function.Function.identity;
-import static java.util.stream.Collectors.toCollection;
-import static java.util.stream.Collectors.toMap;
+import lombok.extern.slf4j.Slf4j;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Modifier;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.Collections;
-import java.util.IdentityHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
+import java.lang.reflect.*;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import lombok.extern.slf4j.Slf4j;
+import static java.util.function.Function.identity;
+import static java.util.stream.Collectors.toCollection;
+import static java.util.stream.Collectors.toMap;
 
 /**
  * <p>
@@ -40,7 +30,6 @@ import lombok.extern.slf4j.Slf4j;
  * </p>
  *
  * @author Caratacus
- * @since 2016-09-22
  */
 @Slf4j
 public class ReflectionKit {
