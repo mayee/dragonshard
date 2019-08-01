@@ -678,7 +678,7 @@
                     <version>1.6.8</version>
                     <extensions>true</extensions>
                     <configuration>
-                        <serverId>ossrh</serverId>
+                        <serverId>sonatype-oss</serverId>
                         <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                         <autoReleaseAfterClose>true</autoReleaseAfterClose>
                     </configuration>
@@ -772,6 +772,10 @@
                             <goals>
                                 <goal>jar</goal>
                             </goals>
+                            <configuration>
+                                <skip>false</skip>
+                                <additionalJOption>-Xdoclint:none</additionalJOption>
+                            </configuration>
                         </execution>
                     </executions>
                 </plugin>
@@ -836,12 +840,12 @@
 
     <distributionManagement>
         <repository>
-            <id>sonatype-oss</id>
+            <id>sonatype-oss-release</id>
             <name>Nexus Release Repository</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
         </repository>
         <snapshotRepository>
-            <id>sonatype-oss</id>
+            <id>sonatype-oss-snapshots</id>
             <name>Sonatype Nexus Snapshots</name>
             <url>https://oss.sonatype.org/content/repositories/snapshots</url>
         </snapshotRepository>
