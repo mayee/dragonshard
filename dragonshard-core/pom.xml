@@ -18,10 +18,11 @@
     <parent>
         <artifactId>dragonshard</artifactId>
         <groupId>net.dragonshard</groupId>
-        <version>1.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>dragonshard-core</artifactId>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>dragonshard-core</name>

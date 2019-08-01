@@ -20,10 +20,11 @@
     <parent>
         <artifactId>dragonshard</artifactId>
         <groupId>net.dragonshard</groupId>
-        <version>1.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>dragonshard-data-redis-starter</artifactId>
+    <version>1.0.1</version>
     <packaging>jar</packaging>
 
     <name>dragonshard-data-redis-starter</name>
@@ -31,9 +32,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>dev.zhangchi</groupId>
+            <groupId>net.dragonshard</groupId>
             <artifactId>dragonshard-core</artifactId>
-            <version>1.0</version>
+            <version>1.0.1</version>
             <scope>compile</scope>
         </dependency>
 

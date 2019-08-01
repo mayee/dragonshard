@@ -12,11 +12,13 @@
  */
 package net.dragonshard.dsf.core.toolkit;
 
-import static java.util.stream.Collectors.toList;
-
-import java.util.*;
-
 import net.sf.cglib.beans.BeanMap;
+
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+import static java.util.stream.Collectors.toList;
 
 /**
  * Bean 转换工具类
@@ -80,23 +82,5 @@ public final class BeanUtils {
         }
         return maps.stream().map(e -> mapToBean(e, clazz)).collect(toList());
     }
-
-//    public static <T> Map<String, Object> beanToMapSpring(T bean) {
-//        Map<String, Object> map = new HashMap<String, Object>();
-//        if (bean != null) {
-//            BeanMap beanMap = BeanMap.create(bean);
-//            for (Object key : beanMap.keySet()) {
-//                map.put(key + "", beanMap.get(key));
-//            }
-//        }
-//
-//        return map;
-//    }
-//
-//    public static <T> T mapToBeanSpring(Map<String, Object> map, T bean) {
-//        BeanMap beanMap = BeanMap.create(bean);
-//        beanMap.putAll(map);
-//        return bean;
-//    }
 
 }
