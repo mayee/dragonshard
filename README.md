@@ -33,7 +33,7 @@ Dragonshard ( official site: [https://dragonshard.net](https://dragonshard.net) 
 ## Latest version
 
 ```xml
-<version>1.0</version>
+<version>1.0.1</version>
 ```
 
 ## License
