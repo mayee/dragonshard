@@ -21,7 +21,6 @@ import com.baomidou.mybatisplus.extension.service.additional.query.impl.LambdaQu
 import com.baomidou.mybatisplus.extension.service.additional.query.impl.QueryChainWrapper;
 import com.baomidou.mybatisplus.extension.service.additional.update.impl.LambdaUpdateChainWrapper;
 import com.baomidou.mybatisplus.extension.service.additional.update.impl.UpdateChainWrapper;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
 import java.util.Collection;
@@ -47,7 +46,6 @@ public interface IDsfService<T> {
      *
      * @param entityList 实体对象集合
      */
-    @Transactional(rollbackFor = Exception.class)
     default boolean saveBatch(Collection<T> entityList) {
         return saveBatch(entityList, 1000);
     }
@@ -65,7 +63,6 @@ public interface IDsfService<T> {
      *
      * @param entityList 实体对象集合
      */
-    @Transactional(rollbackFor = Exception.class)
     default boolean saveOrUpdateBatch(Collection<T> entityList) {
         return saveOrUpdateBatch(entityList, 1000);
     }
@@ -135,7 +132,6 @@ public interface IDsfService<T> {
      *
      * @param entityList 实体对象集合
      */
-    @Transactional(rollbackFor = Exception.class)
     default boolean updateBatchById(Collection<T> entityList) {
         return updateBatchById(entityList, 1000);
     }
