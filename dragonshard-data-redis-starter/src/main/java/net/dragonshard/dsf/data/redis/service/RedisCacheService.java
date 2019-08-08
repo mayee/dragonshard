@@ -13,6 +13,7 @@
 
 package net.dragonshard.dsf.data.redis.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.CollectionUtils;
@@ -26,11 +27,12 @@ import static net.dragonshard.dsf.core.toolkit.StringPool.ASTERISK;
  * 缓存的Redis实现
  *
  * @author mayee
- * @date 2019-06-28
- *
  * @version v1.0
+ * @date 2019-06-28
  **/
+@Slf4j
 public class RedisCacheService implements ICacheService {
+
     @Autowired
     private StringRedisTemplate redisTemplate;
 
@@ -43,19 +45,32 @@ public class RedisCacheService implements ICacheService {
         }
     }
 
+    @SuppressWarnings("unchecked")
     @Override
-    public String delete(String key) {
-        String value = get(key);
-        if (value != null) {
-            redisTemplate.opsForValue().getOperations().delete(key);
+    public void delete(String... key) {
+        if (key != null && key.length > 0) {
+            if (key.length == 1) {
+                redisTemplate.delete(key[0]);
+            } else {
+                redisTemplate.delete(CollectionUtils.arrayToList(key));
+            }
         }
-        return value;
     }
 
 
     @Override
     public String get(String key) {
         return redisTemplate.opsForValue().get(key);
+    }
+
+    @Override
+    public Boolean hasKey(String key) {
+        try {
+            return redisTemplate.hasKey(key);
+        } catch (Exception e) {
+            log.error(key, e);
+            return false;
+        }
     }
 
     @Override
@@ -66,4 +81,21 @@ public class RedisCacheService implements ICacheService {
         }
     }
 
+    @Override
+    public Boolean expire(String key, long time) {
+        try {
+            if (time > 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
+            return true;
+        } catch (Exception e) {
+            log.error(key, e);
+            return false;
+        }
+    }
+
+    @Override
+    public Long getExpire(String key) {
+        return redisTemplate.getExpire(key, TimeUnit.SECONDS);
+    }
 }

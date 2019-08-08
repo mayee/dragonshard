@@ -8,6 +8,9 @@
         <module>dragonshard-dynamic-datasource-starter</module>
         <module>dragonshard-data-mybatis</module>
         <module>dragonshard-data-redis-starter</module>
+        <module>dragonshard-data-secret-starter</module>
+        <module>dragonshard-limit-starter</module>
+        <module>dragonshard-id-generator-starter</module>
     </modules>
 
     <parent>
@@ -63,7 +66,7 @@
     </distributionManagement>
 
     <properties>
-        <revision>1.0.1</revision>
+        <revision>1.1</revision>
 
         <!-- The spring-boot version should be the same as the parent version above -->
         <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
@@ -180,6 +183,11 @@
             <dependency>
                 <groupId>net.dragonshard</groupId>
                 <artifactId>dragonshard-web-core-starter</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>net.dragonshard</groupId>
+                <artifactId>dragonshard-data-redis-starter</artifactId>
                 <version>${revision}</version>
             </dependency>
 

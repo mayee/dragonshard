@@ -1,0 +1,56 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "net.dragonshard.dsf.limit.configuration.property.LimitProperties",
+      "name": "dragonshard.limit",
+      "type": "net.dragonshard.dsf.limit.configuration.property.LimitProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.limit.configuration.property.LimitProperties",
+      "name": "dragonshard.limit.aop",
+      "sourceMethod": "getAop()",
+      "type": "net.dragonshard.dsf.limit.configuration.property.AopProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.limit.configuration.property.AopProperties",
+      "name": "dragonshard.limit.aop",
+      "type": "net.dragonshard.dsf.limit.configuration.property.AopProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "net.dragonshard.dsf.limit.configuration.property.AopProperties",
+      "defaultValue": false,
+      "name": "dragonshard.limit.aop.exception-ignore",
+      "description": "是否无视aop异常, 默认 false",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.limit.configuration.property.AopProperties",
+      "name": "dragonshard.limit.aop.scan-packages",
+      "description": "扫描的包路径",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.limit.configuration.property.LimitProperties",
+      "defaultValue": false,
+      "name": "dragonshard.limit.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.limit.configuration.property.LimitProperties",
+      "defaultValue": "DsfLimit",
+      "name": "dragonshard.limit.prefix",
+      "description": "前缀, 默认 DsfLimit",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.limit.configuration.property.LimitProperties",
+      "name": "dragonshard.limit.type",
+      "description": "限流类型, local 或 redis",
+      "type": "java.lang.String"
+    }
+  ]
+}

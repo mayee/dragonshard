@@ -1,0 +1,85 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.SecretProperties",
+      "name": "dragonshard.secret",
+      "type": "net.dragonshard.dsf.data.secret.configuration.property.SecretProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.AESProperties",
+      "name": "dragonshard.secret.aes",
+      "type": "net.dragonshard.dsf.data.secret.configuration.property.AESProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.SecretProperties",
+      "name": "dragonshard.secret.aes",
+      "sourceMethod": "getAes()",
+      "type": "net.dragonshard.dsf.data.secret.configuration.property.AESProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.SecretProperties",
+      "name": "dragonshard.secret.rsa",
+      "sourceMethod": "getRsa()",
+      "type": "net.dragonshard.dsf.data.secret.configuration.property.RSAProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.RSAProperties",
+      "name": "dragonshard.secret.rsa",
+      "type": "net.dragonshard.dsf.data.secret.configuration.property.RSAProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.AESProperties",
+      "name": "dragonshard.secret.aes.associated-data",
+      "description": "相关数据",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.AESProperties",
+      "defaultValue": true,
+      "name": "dragonshard.secret.aes.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.AESProperties",
+      "name": "dragonshard.secret.aes.key",
+      "description": "密钥",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.SecretProperties",
+      "defaultValue": true,
+      "name": "dragonshard.secret.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.RSAProperties",
+      "defaultValue": true,
+      "name": "dragonshard.secret.rsa.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.RSAProperties",
+      "name": "dragonshard.secret.rsa.modulus",
+      "description": "系数",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.RSAProperties",
+      "name": "dragonshard.secret.rsa.private-key",
+      "description": "私钥",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.data.secret.configuration.property.RSAProperties",
+      "name": "dragonshard.secret.rsa.public-key",
+      "description": "公钥",
+      "type": "java.lang.String"
+    }
+  ]
+}

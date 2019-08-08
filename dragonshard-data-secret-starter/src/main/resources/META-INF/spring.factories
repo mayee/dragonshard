@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  net.dragonshard.dsf.data.secret.configuration.SecretAutoConfiguration

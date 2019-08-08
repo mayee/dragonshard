@@ -16,7 +16,7 @@ package net.dragonshard.dsf.data.redis.service;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * 缓存实现的门面
@@ -45,30 +45,9 @@ public class CacheService {
      * 删除缓存数据
      *
      * @param key 缓存键
-     * @return V 泛型
      */
-    public static String delete(String key) {
-        String value = cacheService.delete(key);
-        if (StringUtils.isEmpty(value)) {
-            return null;
-        }
-        return JSON.parseObject(value, String.class);
-    }
-
-    /**
-     * 删除缓存数据
-     *
-     * @param <V>           泛型
-     * @param key           缓存键
-     * @param typeReference 类型
-     * @return V 泛型
-     */
-    public static <V> V delete(String key, TypeReference typeReference) {
-        String value = cacheService.delete(key);
-        if (StringUtils.isEmpty(value)) {
-            return null;
-        }
-        return JSON.parseObject(value, typeReference.getType());
+    public static void delete(String... key) {
+        cacheService.delete(key);
     }
 
     /**
@@ -85,6 +64,15 @@ public class CacheService {
         return JSON.parseObject(value, String.class);
     }
 
+    /**
+     * 判断key是否存在
+     *
+     * @param key 键
+     * @return true 存在 false不存在
+     */
+    public static Boolean hasKey(String key) {
+        return cacheService.hasKey(key);
+    }
 
     /**
      * 获取缓存对象
@@ -114,5 +102,29 @@ public class CacheService {
      */
     public static void clear(String cachePrefix) {
         cacheService.clear(cachePrefix);
+    }
+
+    /**
+     * 指定缓存失效时间
+     *
+     * @param key
+     *            键
+     * @param time
+     *            时间(秒)
+     * @return true成功 false失败
+     */
+    Boolean expire(String key, long time) {
+        return cacheService.expire(key, time);
+    }
+
+    /**
+     * 根据key 获取过期时间
+     *
+     * @param key
+     *            键 不能为null
+     * @return 时间(秒) 返回0代表为永久有效
+     */
+    Long getExpire(String key){
+        return cacheService.getExpire(key);
     }
 }
