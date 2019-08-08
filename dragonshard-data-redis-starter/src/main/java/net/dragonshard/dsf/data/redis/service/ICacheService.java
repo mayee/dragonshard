@@ -33,10 +33,9 @@ public interface ICacheService {
     /**
      * 删除缓存数据
      *
-     * @param key 缓存键
-     * @return V 泛型
+     * @param key 缓存键, 一个值或多个
      */
-    String delete(String key);
+    void delete(String... key);
 
     /**
      * 获取缓存数据,如果关键字不存在返回null
@@ -47,10 +46,37 @@ public interface ICacheService {
     String get(String key);
 
     /**
+     * 判断key是否存在
+     *
+     * @param key 键
+     * @return true 存在 false不存在
+     */
+    Boolean hasKey(String key);
+
+    /**
      * 清空以cachePrefix开头的缓存
      *
      * @param cachePrefix 缓存前缀
      */
     void clear(String cachePrefix);
 
+    /**
+     * 指定缓存失效时间
+     *
+     * @param key
+     *            键
+     * @param time
+     *            时间(秒)
+     * @return true成功 false失败
+     */
+    Boolean expire(String key, long time);
+
+    /**
+     * 根据key 获取过期时间
+     *
+     * @param key
+     *            键 不能为null
+     * @return 时间(秒) 返回0代表为永久有效
+     */
+    Long getExpire(String key);
 }

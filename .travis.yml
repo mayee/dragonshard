@@ -1,0 +1,14 @@
+notifications:
+  email:
+    recipients:
+      - maye100@vip.163.com
+  on_success: change
+  on_failure: always
+
+language: java
+
+jdk:
+  - openjdk8
+
+script:
+  - mvn clean install

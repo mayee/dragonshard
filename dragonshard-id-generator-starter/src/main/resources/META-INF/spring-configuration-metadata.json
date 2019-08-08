@@ -1,0 +1,243 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.IdGeneratorProperties",
+      "name": "dragonshard.id-generator",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.IdGeneratorProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.LocalIdGeneratorProperties",
+      "name": "dragonshard.id-generator.local",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.LocalIdGeneratorProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.IdGeneratorProperties",
+      "name": "dragonshard.id-generator.local",
+      "sourceMethod": "getLocal()",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.LocalIdGeneratorProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.RedisIdGeneratorProperties",
+      "name": "dragonshard.id-generator.redis",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.RedisIdGeneratorProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.IdGeneratorProperties",
+      "name": "dragonshard.id-generator.redis",
+      "sourceMethod": "getRedis()",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.RedisIdGeneratorProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.ZookeeperIdGeneratorProperties",
+      "name": "dragonshard.id-generator.zookeeper",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.ZookeeperIdGeneratorProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.ZookeeperIdGeneratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator",
+      "sourceMethod": "getCurator()",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.bounded-exponential-backoff-retry",
+      "sourceMethod": "getBoundedExponentialBackoffRetry()",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.BoundedExponentialBackoffRetryProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.BoundedExponentialBackoffRetryProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.bounded-exponential-backoff-retry",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.BoundedExponentialBackoffRetryProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.exponential-backoff-retry",
+      "sourceMethod": "getExponentialBackoffRetry()",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.ExponentialBackoffRetryProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.ExponentialBackoffRetryProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.exponential-backoff-retry",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.ExponentialBackoffRetryProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-forever",
+      "sourceMethod": "getRetryForever()",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryForeverProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryForeverProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-forever",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryForeverProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-n-times",
+      "sourceMethod": "getRetryNTimes()",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryNTimesProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryNTimesProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-n-times",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryNTimesProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-until-elapsed",
+      "sourceMethod": "getRetryUntilElapsed()",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryUntilElapsedProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryUntilElapsedProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-until-elapsed",
+      "type": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryUntilElapsedProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.LocalIdGeneratorProperties",
+      "defaultValue": 1,
+      "name": "dragonshard.id-generator.local.data-center",
+      "description": "数据中心标识",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.LocalIdGeneratorProperties",
+      "defaultValue": false,
+      "name": "dragonshard.id-generator.local.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.LocalIdGeneratorProperties",
+      "defaultValue": 1,
+      "name": "dragonshard.id-generator.local.machine",
+      "description": "机器标识",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.RedisIdGeneratorProperties",
+      "defaultValue": false,
+      "name": "dragonshard.id-generator.redis.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.RedisIdGeneratorProperties",
+      "defaultValue": "DsfIdGenerator",
+      "name": "dragonshard.id-generator.redis.prefix",
+      "description": "id前缀",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.RedisIdGeneratorProperties",
+      "defaultValue": 8,
+      "name": "dragonshard.id-generator.redis.length",
+      "description": "长度，最大为8位，如果length > 8，则取8",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.BoundedExponentialBackoffRetryProperties",
+      "defaultValue": 2000,
+      "name": "dragonshard.id-generator.zookeeper.curator.bounded-exponential-backoff-retry.base-sleep-time-ms",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.BoundedExponentialBackoffRetryProperties",
+      "defaultValue": 10,
+      "name": "dragonshard.id-generator.zookeeper.curator.bounded-exponential-backoff-retry.max-retries",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.BoundedExponentialBackoffRetryProperties",
+      "defaultValue": 60000,
+      "name": "dragonshard.id-generator.zookeeper.curator.bounded-exponential-backoff-retry.max-sleep-time-ms",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.connect-string",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "defaultValue": 15000,
+      "name": "dragonshard.id-generator.zookeeper.curator.connection-timeout-ms",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.ExponentialBackoffRetryProperties",
+      "defaultValue": 2000,
+      "name": "dragonshard.id-generator.zookeeper.curator.exponential-backoff-retry.base-sleep-time-ms",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.ExponentialBackoffRetryProperties",
+      "defaultValue": 10,
+      "name": "dragonshard.id-generator.zookeeper.curator.exponential-backoff-retry.max-retries",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryForeverProperties",
+      "defaultValue": 1000,
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-forever.retry-interval-ms",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryNTimesProperties",
+      "defaultValue": 10,
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-n-times.count",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryNTimesProperties",
+      "defaultValue": 2000,
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-n-times.sleep-ms-between-retries",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-type",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryUntilElapsedProperties",
+      "defaultValue": 60000,
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-until-elapsed.max-elapsed-time-ms",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.RetryUntilElapsedProperties",
+      "defaultValue": 2000,
+      "name": "dragonshard.id-generator.zookeeper.curator.retry-until-elapsed.sleep-ms-between-retries",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties",
+      "defaultValue": 15000,
+      "name": "dragonshard.id-generator.zookeeper.curator.session-timeout-ms",
+      "type": "java.lang.Integer"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.ZookeeperIdGeneratorProperties",
+      "defaultValue": false,
+      "name": "dragonshard.id-generator.zookeeper.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.id.generator.configuration.property.ZookeeperIdGeneratorProperties",
+      "defaultValue": "DsfIdGenerator",
+      "name": "dragonshard.id-generator.zookeeper.prefix",
+      "description": "id前缀",
+      "type": "java.lang.String"
+    }
+  ]
+}

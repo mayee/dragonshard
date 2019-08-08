@@ -13,8 +13,8 @@
 package net.dragonshard.dsf.dynamic.datasource.provider;
 
 import net.dragonshard.dsf.dynamic.datasource.DynamicDataSourceCreator;
-import net.dragonshard.dsf.dynamic.datasource.config.DataSourceProperty;
-import net.dragonshard.dsf.dynamic.datasource.config.DynamicDataSourceProperties;
+import net.dragonshard.dsf.dynamic.datasource.configuration.DataSourceProperty;
+import net.dragonshard.dsf.dynamic.datasource.configuration.DynamicDataSourceProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.support.JdbcUtils;

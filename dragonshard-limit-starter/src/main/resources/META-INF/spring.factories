@@ -1,0 +1,2 @@
+dev.zhangchi.dsf.limit.annotation.EnableLimit=\
+net.dragonshard.dsf.limit.configuration.LimitAutoConfiguration
