@@ -16,6 +16,7 @@ import net.dragonshard.dsf.web.core.bean.Result;
 import net.dragonshard.dsf.web.core.bean.SuccessResult;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 
 /**
@@ -45,8 +46,10 @@ public class WebController extends AbstractWebController {
 
     @Override
     public <T> ResponseEntity<Result<T>> success(HttpStatus status) {
+        HttpHeaders httpHeaders = new HttpHeaders();
+        httpHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
         return new ResponseEntity<Result<T>>(
-                SuccessResult.<T>builder().status(status.value()).build(), status);
+                SuccessResult.<T>builder().status(status.value()).build(), httpHeaders, status);
     }
 
 }
