@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  net.dragonshard.dsf.dynamic.datasource.configuration.DynamicDataSourceAutoConfiguration
