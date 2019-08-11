@@ -70,11 +70,11 @@ public enum DsfErrorCodeEnum {
     /**
      * 500
      */
-    INTERNAL_SERVER_ERROR(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, true, "服务器正在升级，请耐心等待"),
+    INTERNAL_SERVER_ERROR(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, true, "服务器异常，请稍后再试"),
     /**
      * 503
      */
-    SERVICE_UNAVAILABLE(HttpServletResponse.SC_SERVICE_UNAVAILABLE, true, "服务器无法使用，稍后再试"),
+    SERVICE_UNAVAILABLE(HttpServletResponse.SC_SERVICE_UNAVAILABLE, true, "服务器无法使用，请耐心等待"),
 
 
     // --------------- Dragonshard ---------------

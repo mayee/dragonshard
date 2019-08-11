@@ -14,10 +14,10 @@ package net.dragonshard.dsf.web.core.wrapper;
 
 import com.alibaba.fastjson.JSONObject;
 import com.google.common.base.Throwables;
+import lombok.extern.slf4j.Slf4j;
 import net.dragonshard.dsf.web.core.bean.Result;
 import net.dragonshard.dsf.web.core.framework.model.BizErrorCode;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.util.MimeTypeUtils;
+import org.springframework.http.MediaType;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponseWrapper;
@@ -85,7 +85,7 @@ public class ResponseWrapper extends HttpServletResponseWrapper {
             log.warn("Warn: Response isCommitted, Skip the implementation of the method.");
             return;
         }
-        super.setContentType(MimeTypeUtils.APPLICATION_JSON_VALUE);
+        super.setContentType(MediaType.APPLICATION_JSON_UTF8_VALUE);
         super.setCharacterEncoding(StandardCharsets.UTF_8.name());
         try (PrintWriter writer = super.getWriter()) {
             writer.print(JSONObject.toJSONString(obj));
