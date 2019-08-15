@@ -50,7 +50,7 @@ Dragonshard ( official site: [https://dragonshard.net](https://dragonshard.net) 
 ## Latest version
 
 ```xml
-<version>1.1</version>
+<version>1.1.2</version>
 ```
 
 ## License
