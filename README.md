@@ -32,6 +32,7 @@ Dragonshard ( official site: [https://dragonshard.net](https://dragonshard.net) 
 -   [Quick Start](https://dragonshard.net/quickStart)
 -   [Official Site](https://dragonshard.net)
 -   [Code Generator Online](https://dragonshard.net/codeGenerator)
+-   [Sample Project](https://dragonshard.net/doc/best)
 
 ## Features
 
@@ -40,6 +41,11 @@ Dragonshard ( official site: [https://dragonshard.net](https://dragonshard.net) 
 -   Code generator online.
 -   Some commonly used out-of-the-box samples program.
 -   No cool features, simple and easy to use.
+
+## Code
+
+-   [Github](https://github.com/mayee/dragonshard)
+-   [Gitee](https://gitee.com/mayee/dragonshard)
 
 ## Latest version
 
