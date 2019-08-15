@@ -17,6 +17,7 @@ import net.dragonshard.dsf.id.generator.configuration.property.LocalIdGeneratorP
 import net.dragonshard.dsf.id.generator.local.LocalIdGenerator;
 import net.dragonshard.dsf.id.generator.local.impl.LocalIdGeneratorImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -31,6 +32,7 @@ import org.springframework.context.annotation.Import;
  **/
 @Configuration
 @Import({ LocalIdGeneratorProperties.class })
+@ConditionalOnProperty(prefix = "dragonshard.id-generator.local", name = "enabled", matchIfMissing = true)
 public class LocalIdGeneratorAutoConfiguration {
 
     private final LocalIdGeneratorProperties localIdGeneratorProperties;

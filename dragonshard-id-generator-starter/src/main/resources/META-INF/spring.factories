@@ -1,8 +1,4 @@
-net.dragonshard.dsf.id.generator.annotation.EnableLocalIdGenerator=\
-net.dragonshard.dsf.id.generator.configuration.LocalIdGeneratorAutoConfiguration
-
-net.dragonshard.dsf.id.generator.annotation.EnableRedisIdGenerator=\
-net.dragonshard.dsf.id.generator.configuration.RedisIdGeneratorAutoConfiguration
-
-net.dragonshard.dsf.id.generator.annotation.EnableZookeeperIdGenerator=\
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+net.dragonshard.dsf.id.generator.configuration.LocalIdGeneratorAutoConfiguration,\
+net.dragonshard.dsf.id.generator.configuration.RedisIdGeneratorAutoConfiguration,\
 net.dragonshard.dsf.id.generator.configuration.ZookeeperIdGeneratorAutoConfiguration

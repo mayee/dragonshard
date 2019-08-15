@@ -20,6 +20,7 @@ import net.dragonshard.dsf.id.generator.redis.handler.RedisHandlerImpl;
 import net.dragonshard.dsf.id.generator.redis.impl.RedisIdGeneratorImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -32,6 +33,7 @@ import org.springframework.context.annotation.Import;
  **/
 @Configuration
 @Import({ RedisIdGeneratorProperties.class })
+@ConditionalOnProperty(prefix = "dragonshard.id-generator.redis", name = "enabled", matchIfMissing = true)
 public class RedisIdGeneratorAutoConfiguration {
 
     private final RedisIdGeneratorProperties redisIdGeneratorProperties;

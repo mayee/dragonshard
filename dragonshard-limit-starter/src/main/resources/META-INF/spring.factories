@@ -1,2 +1,2 @@
-dev.zhangchi.dsf.limit.annotation.EnableLimit=\
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 net.dragonshard.dsf.limit.configuration.LimitAutoConfiguration
