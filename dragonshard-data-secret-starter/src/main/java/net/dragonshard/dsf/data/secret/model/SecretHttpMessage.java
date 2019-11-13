@@ -13,12 +13,11 @@
 
 package net.dragonshard.dsf.data.secret.model;
 
+import java.io.InputStream;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
-
-import java.io.InputStream;
 
 /**
  * 消息对象
@@ -30,16 +29,17 @@ import java.io.InputStream;
 @AllArgsConstructor
 @NoArgsConstructor
 public class SecretHttpMessage implements HttpInputMessage {
-    private InputStream body;
-    private HttpHeaders httpHeaders;
 
-    @Override
-    public InputStream getBody() {
-        return this.body;
-    }
+  private InputStream body;
+  private HttpHeaders httpHeaders;
 
-    @Override
-    public HttpHeaders getHeaders() {
-        return this.httpHeaders;
-    }
+  @Override
+  public InputStream getBody() {
+    return this.body;
+  }
+
+  @Override
+  public HttpHeaders getHeaders() {
+    return this.httpHeaders;
+  }
 }

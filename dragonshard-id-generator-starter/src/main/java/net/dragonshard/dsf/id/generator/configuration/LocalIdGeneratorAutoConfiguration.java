@@ -26,25 +26,24 @@ import org.springframework.context.annotation.Import;
  * 自增ID配置（local）
  *
  * @author mayee
- * @date 2019-07-14
- *
  * @version v1.0
+ * @date 2019-07-14
  **/
 @Configuration
-@Import({ LocalIdGeneratorProperties.class })
+@Import({LocalIdGeneratorProperties.class})
 @ConditionalOnProperty(prefix = "dragonshard.id-generator.local", name = "enabled", matchIfMissing = true)
 public class LocalIdGeneratorAutoConfiguration {
 
-    private final LocalIdGeneratorProperties localIdGeneratorProperties;
+  private final LocalIdGeneratorProperties localIdGeneratorProperties;
 
-    @Autowired
-    public LocalIdGeneratorAutoConfiguration(LocalIdGeneratorProperties localIdGeneratorProperties) {
-        this.localIdGeneratorProperties = localIdGeneratorProperties;
-    }
+  @Autowired
+  public LocalIdGeneratorAutoConfiguration(LocalIdGeneratorProperties localIdGeneratorProperties) {
+    this.localIdGeneratorProperties = localIdGeneratorProperties;
+  }
 
-    @Bean
-    public LocalIdGenerator localIdGenerator() {
-        return new LocalIdGeneratorImpl(localIdGeneratorProperties);
-    }
+  @Bean
+  public LocalIdGenerator localIdGenerator() {
+    return new LocalIdGeneratorImpl(localIdGeneratorProperties);
+  }
 
 }

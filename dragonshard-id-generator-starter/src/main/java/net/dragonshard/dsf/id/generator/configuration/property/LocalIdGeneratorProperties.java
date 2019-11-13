@@ -21,28 +21,28 @@ import org.springframework.stereotype.Component;
  * 本地ID配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.id-generator.local")
 @Data
 public class LocalIdGeneratorProperties {
-    /**
-     * 是否开启
-     */
-    private boolean enabled;
 
-    /**
-     * 数据中心标识
-     */
-    private Long dataCenter = 1L;
+  /**
+   * 是否开启
+   */
+  private boolean enabled;
 
-    /**
-     * 机器标识
-     */
-    private Long machine = 1L;
+  /**
+   * 数据中心标识
+   */
+  private Long dataCenter = 1L;
+
+  /**
+   * 机器标识
+   */
+  private Long machine = 1L;
 
 
 }

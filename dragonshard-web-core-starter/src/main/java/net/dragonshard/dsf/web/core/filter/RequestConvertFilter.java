@@ -13,33 +13,31 @@
 
 package net.dragonshard.dsf.web.core.filter;
 
-import net.dragonshard.dsf.web.core.wrapper.RequestWrapper;
-import org.springframework.lang.NonNull;
-import org.springframework.web.filter.OncePerRequestFilter;
-
+import java.io.IOException;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
+import net.dragonshard.dsf.web.core.wrapper.RequestWrapper;
+import org.springframework.lang.NonNull;
+import org.springframework.web.filter.OncePerRequestFilter;
 
 /**
  * RequestConvertFilter
  *
  * @author mayee
- * @date 2018-12-09
- *
  * @version v1.0
+ * @date 2018-12-09
  **/
 public class RequestConvertFilter extends OncePerRequestFilter {
 
-    @Override
-    protected void doFilterInternal(@NonNull HttpServletRequest request,
-                                    @NonNull HttpServletResponse response,
-                                    @NonNull FilterChain filterChain)
-            throws ServletException, IOException {
-        ServletRequest requestWrapper = new RequestWrapper(request);
-        filterChain.doFilter(requestWrapper, response);
-    }
+  @Override
+  protected void doFilterInternal(@NonNull HttpServletRequest request,
+    @NonNull HttpServletResponse response,
+    @NonNull FilterChain filterChain)
+    throws ServletException, IOException {
+    ServletRequest requestWrapper = new RequestWrapper(request);
+    filterChain.doFilter(requestWrapper, response);
+  }
 }

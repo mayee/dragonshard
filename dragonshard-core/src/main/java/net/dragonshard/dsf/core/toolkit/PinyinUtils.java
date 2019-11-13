@@ -25,56 +25,62 @@ import com.github.stuxuhai.jpinyin.PinyinHelper;
  **/
 public class PinyinUtils {
 
-    /**
-     * 音标
-     *
-     * @param text 文字
-     * @return 音标
-     */
-    public static String toPinyinMark(String text) throws PinyinException {
-        return text == null ? null : PinyinHelper.convertToPinyinString(text, "", PinyinFormat.WITH_TONE_MARK);
-    }
+  /**
+   * 音标
+   *
+   * @param text 文字
+   * @return 音标
+   */
+  public static String toPinyinMark(String text) throws PinyinException {
+    return text == null ? null
+      : PinyinHelper.convertToPinyinString(text, "", PinyinFormat.WITH_TONE_MARK);
+  }
 
-    public static String toPinyinMark(String text, String separator) throws PinyinException {
-        return text == null ? null : PinyinHelper.convertToPinyinString(text, separator, PinyinFormat.WITH_TONE_MARK);
-    }
+  public static String toPinyinMark(String text, String separator) throws PinyinException {
+    return text == null ? null
+      : PinyinHelper.convertToPinyinString(text, separator, PinyinFormat.WITH_TONE_MARK);
+  }
 
-    /**
-     * 数字标记
-     *
-     * @param text 文字
-     * @return 数字标记
-     */
-    public static String toPinyinNumber(String text) throws PinyinException {
-        return text == null ? null : PinyinHelper.convertToPinyinString(text, "", PinyinFormat.WITH_TONE_NUMBER);
-    }
+  /**
+   * 数字标记
+   *
+   * @param text 文字
+   * @return 数字标记
+   */
+  public static String toPinyinNumber(String text) throws PinyinException {
+    return text == null ? null
+      : PinyinHelper.convertToPinyinString(text, "", PinyinFormat.WITH_TONE_NUMBER);
+  }
 
-    public static String toPinyinNumber(String text, String separator) throws PinyinException {
-        return text == null ? null : PinyinHelper.convertToPinyinString(text, separator, PinyinFormat.WITH_TONE_NUMBER);
-    }
+  public static String toPinyinNumber(String text, String separator) throws PinyinException {
+    return text == null ? null
+      : PinyinHelper.convertToPinyinString(text, separator, PinyinFormat.WITH_TONE_NUMBER);
+  }
 
-    /**
-     * 默认
-     *
-     * @param text 文字
-     * @return 拼音
-     */
-    public static String toPinyin(String text) throws PinyinException {
-        return text == null ? null : PinyinHelper.convertToPinyinString(text, "", PinyinFormat.WITHOUT_TONE);
-    }
+  /**
+   * 默认
+   *
+   * @param text 文字
+   * @return 拼音
+   */
+  public static String toPinyin(String text) throws PinyinException {
+    return text == null ? null
+      : PinyinHelper.convertToPinyinString(text, "", PinyinFormat.WITHOUT_TONE);
+  }
 
-    public static String toPinyin(String text, String separator) throws PinyinException {
-        return text == null ? null : PinyinHelper.convertToPinyinString(text, separator, PinyinFormat.WITHOUT_TONE);
-    }
+  public static String toPinyin(String text, String separator) throws PinyinException {
+    return text == null ? null
+      : PinyinHelper.convertToPinyinString(text, separator, PinyinFormat.WITHOUT_TONE);
+  }
 
-    /**
-     * 首字母缩写
-     *
-     * @param text 文字
-     * @return 首字母缩写
-     */
-    public static String toShortPinyin(String text) throws PinyinException {
-        return text == null ? null : PinyinHelper.getShortPinyin(text);
-    }
+  /**
+   * 首字母缩写
+   *
+   * @param text 文字
+   * @return 首字母缩写
+   */
+  public static String toShortPinyin(String text) throws PinyinException {
+    return text == null ? null : PinyinHelper.getShortPinyin(text);
+  }
 
 }

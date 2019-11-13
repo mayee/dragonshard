@@ -16,36 +16,35 @@ package net.dragonshard.dsf.data.mybatis.common.cons;
  * PAGE 常量
  *
  * @author mayee
- * @date 2019-07-19
- *
  * @version v1.0
+ * @date 2019-07-19
  **/
 public interface PageCons {
 
-    /**
-     * 页数
-     */
-    String PAGE_PAGE_NUM = "pageNum";
-    /**
-     * 分页大小
-     */
-    String PAGE_PAGE_SIZE = "pageSize";
-    /**
-     * 排序字段 ASC
-     */
-    String PAGE_ASCS = "ascs";
-    /**
-     * 排序字段 DESC
-     */
-    String PAGE_DESCS = "descs";
-    /**
-     * 是否开启查询分页
-     */
-    String OPEN_PAGING = "openPaging";
-    /**
-     * 默认每页条目10,最大条目数50
-     */
-    int DEFAULT_PAGE_SIZE = 10;
-    int MAX_PAGE_SIZE = 50;
+  /**
+   * 页数
+   */
+  String PAGE_PAGE_NUM = "pageNum";
+  /**
+   * 分页大小
+   */
+  String PAGE_PAGE_SIZE = "pageSize";
+  /**
+   * 排序字段 ASC
+   */
+  String PAGE_ASCS = "ascs";
+  /**
+   * 排序字段 DESC
+   */
+  String PAGE_DESCS = "descs";
+  /**
+   * 是否开启查询分页
+   */
+  String OPEN_PAGING = "openPaging";
+  /**
+   * 默认每页条目10,最大条目数50
+   */
+  int DEFAULT_PAGE_SIZE = 10;
+  int MAX_PAGE_SIZE = 50;
 
 }

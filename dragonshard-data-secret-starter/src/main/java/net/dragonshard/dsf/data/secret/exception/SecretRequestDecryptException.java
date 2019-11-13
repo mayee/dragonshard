@@ -17,25 +17,24 @@ package net.dragonshard.dsf.data.secret.exception;
  * 请求消息解密异常
  *
  * @author mayee
- * @date 2019-06-25
- *
  * @version v1.0
+ * @date 2019-06-25
  **/
 public class SecretRequestDecryptException extends RuntimeException {
 
-    public SecretRequestDecryptException() {
-        super();
-    }
+  public SecretRequestDecryptException() {
+    super();
+  }
 
-    public SecretRequestDecryptException(String message) {
-        super(message);
-    }
+  public SecretRequestDecryptException(String message) {
+    super(message);
+  }
 
-    public SecretRequestDecryptException(String message, Throwable cause) {
-        super(message, cause);
-    }
+  public SecretRequestDecryptException(String message, Throwable cause) {
+    super(message, cause);
+  }
 
-    public SecretRequestDecryptException(Throwable cause) {
-        super(cause);
-    }
+  public SecretRequestDecryptException(Throwable cause) {
+    super(cause);
+  }
 }

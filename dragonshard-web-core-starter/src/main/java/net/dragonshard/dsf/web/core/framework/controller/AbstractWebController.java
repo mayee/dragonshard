@@ -21,18 +21,18 @@ import org.springframework.http.ResponseEntity;
  * 基础web controller
  *
  * @author mayee
- * @date 2019-06-07
- *
  * @version v1.0
+ * @date 2019-06-07
  **/
 public abstract class AbstractWebController {
 
-    public abstract <T> ResponseEntity<Result<T>> success(T object);
+  public abstract <T> ResponseEntity<Result<T>> success(T object);
 
-    public abstract ResponseEntity success();
+  public abstract ResponseEntity success();
 
-    public abstract <T> ResponseEntity<Result<T>> success(T object, HttpHeaders headers, HttpStatus status);
+  public abstract <T> ResponseEntity<Result<T>> success(T object, HttpHeaders headers,
+    HttpStatus status);
 
-    public abstract <T> ResponseEntity<Result<T>> success(HttpStatus status);
+  public abstract <T> ResponseEntity<Result<T>> success(HttpStatus status);
 
 }

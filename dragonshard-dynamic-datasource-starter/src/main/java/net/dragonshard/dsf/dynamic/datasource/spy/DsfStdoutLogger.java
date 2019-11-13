@@ -17,14 +17,13 @@ package net.dragonshard.dsf.dynamic.datasource.spy;
  * 输出 SQL 日志
  *
  * @author mayee
- * @date 2019-06-24
- *
  * @version v1.0
+ * @date 2019-06-24
  **/
 public class DsfStdoutLogger extends com.p6spy.engine.spy.appender.StdoutLogger {
 
-    @Override
-    public void logText(String text) {
-        System.err.println(text);
-    }
+  @Override
+  public void logText(String text) {
+    System.err.println(text);
+  }
 }

@@ -13,15 +13,14 @@
 
 package net.dragonshard.dsf.data.redis.service;
 
+import static net.dragonshard.dsf.core.toolkit.StringPool.ASTERISK;
+
+import java.util.Set;
+import java.util.concurrent.TimeUnit;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.util.CollectionUtils;
-
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
-
-import static net.dragonshard.dsf.core.toolkit.StringPool.ASTERISK;
 
 /**
  * 缓存的Redis实现
@@ -33,69 +32,69 @@ import static net.dragonshard.dsf.core.toolkit.StringPool.ASTERISK;
 @Slf4j
 public class RedisCacheService implements ICacheService {
 
-    @Autowired
-    private StringRedisTemplate redisTemplate;
+  @Autowired
+  private StringRedisTemplate redisTemplate;
 
-    @Override
-    public void save(String key, String value, long exp) {
-        if (exp > -1) {
-            redisTemplate.opsForValue().set(key, value, exp, TimeUnit.SECONDS);
-        } else {
-            redisTemplate.opsForValue().set(key, value);
-        }
+  @Override
+  public void save(String key, String value, long exp) {
+    if (exp > -1) {
+      redisTemplate.opsForValue().set(key, value, exp, TimeUnit.SECONDS);
+    } else {
+      redisTemplate.opsForValue().set(key, value);
     }
+  }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    public void delete(String... key) {
-        if (key != null && key.length > 0) {
-            if (key.length == 1) {
-                redisTemplate.delete(key[0]);
-            } else {
-                redisTemplate.delete(CollectionUtils.arrayToList(key));
-            }
-        }
+  @SuppressWarnings("unchecked")
+  @Override
+  public void delete(String... key) {
+    if (key != null && key.length > 0) {
+      if (key.length == 1) {
+        redisTemplate.delete(key[0]);
+      } else {
+        redisTemplate.delete(CollectionUtils.arrayToList(key));
+      }
     }
+  }
 
 
-    @Override
-    public String get(String key) {
-        return redisTemplate.opsForValue().get(key);
+  @Override
+  public String get(String key) {
+    return redisTemplate.opsForValue().get(key);
+  }
+
+  @Override
+  public Boolean hasKey(String key) {
+    try {
+      return redisTemplate.hasKey(key);
+    } catch (Exception e) {
+      log.error(key, e);
+      return false;
     }
+  }
 
-    @Override
-    public Boolean hasKey(String key) {
-        try {
-            return redisTemplate.hasKey(key);
-        } catch (Exception e) {
-            log.error(key, e);
-            return false;
-        }
+  @Override
+  public void clear(String cachePrefix) {
+    Set<String> keys = redisTemplate.keys(cachePrefix + ASTERISK);
+    if (!CollectionUtils.isEmpty(keys)) {
+      redisTemplate.delete(keys);
     }
+  }
 
-    @Override
-    public void clear(String cachePrefix) {
-        Set<String> keys = redisTemplate.keys(cachePrefix + ASTERISK);
-        if (!CollectionUtils.isEmpty(keys)) {
-            redisTemplate.delete(keys);
-        }
+  @Override
+  public Boolean expire(String key, long time) {
+    try {
+      if (time > 0) {
+        redisTemplate.expire(key, time, TimeUnit.SECONDS);
+      }
+      return true;
+    } catch (Exception e) {
+      log.error(key, e);
+      return false;
     }
+  }
 
-    @Override
-    public Boolean expire(String key, long time) {
-        try {
-            if (time > 0) {
-                redisTemplate.expire(key, time, TimeUnit.SECONDS);
-            }
-            return true;
-        } catch (Exception e) {
-            log.error(key, e);
-            return false;
-        }
-    }
-
-    @Override
-    public Long getExpire(String key) {
-        return redisTemplate.getExpire(key, TimeUnit.SECONDS);
-    }
+  @Override
+  public Long getExpire(String key) {
+    return redisTemplate.getExpire(key, TimeUnit.SECONDS);
+  }
 }

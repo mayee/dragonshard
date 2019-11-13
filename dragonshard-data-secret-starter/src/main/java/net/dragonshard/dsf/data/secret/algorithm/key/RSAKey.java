@@ -13,20 +13,18 @@
 
 package net.dragonshard.dsf.data.secret.algorithm.key;
 
+import java.security.Provider;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
-import java.security.Provider;
-
 /**
  * RSA密钥
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @EqualsAndHashCode(callSuper = true)
 @Data
@@ -34,24 +32,24 @@ import java.security.Provider;
 @Accessors(chain = true)
 public class RSAKey extends SecretKey {
 
-    /**
-     * 公钥
-     */
-    private String publicKey;
+  /**
+   * 公钥
+   */
+  private String publicKey;
 
-    /**
-     * 私钥
-     */
-    private String privateKey;
+  /**
+   * 私钥
+   */
+  private String privateKey;
 
-    /**
-     * 系数
-     */
-    private String modulus;
+  /**
+   * 系数
+   */
+  private String modulus;
 
-    /**
-     * 实现厂商类名
-     */
-    private Class<? extends Provider> providerClass;
+  /**
+   * 实现厂商类名
+   */
+  private Class<? extends Provider> providerClass;
 
 }

@@ -25,7 +25,7 @@ import org.springframework.context.annotation.Import;
  * @version v1.0
  **/
 @Configuration
-@Import({ ZookeeperIdGeneratorConfiguration.class })
+@Import({ZookeeperIdGeneratorConfiguration.class})
 @ConditionalOnProperty(prefix = "dragonshard.id-generator.zookeeper", name = "enabled", matchIfMissing = true)
 public class ZookeeperIdGeneratorAutoConfiguration {
 

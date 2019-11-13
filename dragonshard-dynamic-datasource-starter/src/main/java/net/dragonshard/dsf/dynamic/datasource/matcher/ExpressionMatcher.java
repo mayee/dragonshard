@@ -22,7 +22,8 @@ import lombok.Data;
 @AllArgsConstructor
 @Data
 public class ExpressionMatcher implements Matcher {
-    private String expression;
 
-    private String ds;
+  private String expression;
+
+  private String ds;
 }

@@ -25,20 +25,20 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MybatisAutoConfiguration {
 
-    /**
-     * 分页
-     */
-    @Bean
-    public PaginationInterceptor paginationInterceptor() {
-        return new PaginationInterceptor();
-    }
+  /**
+   * 分页
+   */
+  @Bean
+  public PaginationInterceptor paginationInterceptor() {
+    return new PaginationInterceptor();
+  }
 
-    /**
-     * 自动填充
-     */
-    @Bean
-    public CommonMetaObjectHandler commonMetaObjectHandler() {
-        return new CommonMetaObjectHandler();
-    }
+  /**
+   * 自动填充
+   */
+  @Bean
+  public CommonMetaObjectHandler commonMetaObjectHandler() {
+    return new CommonMetaObjectHandler();
+  }
 
 }

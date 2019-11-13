@@ -37,61 +37,60 @@ import org.springframework.context.annotation.Import;
  * 启动类
  *
  * @author mayee
- * @date 2019-07-17
- *
  * @version v1.0
+ * @date 2019-07-17
  **/
 @Configuration
 @Import({
-        LimitProperties.class
+  LimitProperties.class
 })
 public class LimitAutoConfiguration {
 
-    private final LimitProperties limitProperties;
+  private final LimitProperties limitProperties;
 
-    @Autowired
-    public LimitAutoConfiguration(LimitProperties limitProperties) {
-        this.limitProperties = limitProperties;
-    }
+  @Autowired
+  public LimitAutoConfiguration(LimitProperties limitProperties) {
+    this.limitProperties = limitProperties;
+  }
 
-    @Bean
-    public LimitAutoScanProxy limitAutoScanProxy() {
-        return new LimitAutoScanProxy(limitProperties.getAop().getScanPackages());
-    }
+  @Bean
+  public LimitAutoScanProxy limitAutoScanProxy() {
+    return new LimitAutoScanProxy(limitProperties.getAop().getScanPackages());
+  }
 
-    @Bean
-    public LimitInterceptor limitInterceptor() {
-        return new LimitInterceptor();
-    }
+  @Bean
+  public LimitInterceptor limitInterceptor() {
+    return new LimitInterceptor();
+  }
 
-    @Bean
-    @Conditional(LocalLimitCondition.class)
-    public LimitDelegate localLimitDelegate() {
-        return new LocalLimitDelegateImpl(limitProperties);
-    }
+  @Bean
+  @Conditional(LocalLimitCondition.class)
+  public LimitDelegate localLimitDelegate() {
+    return new LocalLimitDelegateImpl(limitProperties);
+  }
 
-    @Bean
-    @Conditional(LocalLimitCondition.class)
-    public LimitExecutor localLimitExecutor() {
-        return new GuavaLocalLimitExecutorImpl(limitProperties);
-    }
+  @Bean
+  @Conditional(LocalLimitCondition.class)
+  public LimitExecutor localLimitExecutor() {
+    return new GuavaLocalLimitExecutorImpl(limitProperties);
+  }
 
-    @Bean
-    @Conditional(RedisLimitCondition.class)
-    public LimitDelegate redisLimitDelegate() {
-        return new RedisLimitDelegateImpl(limitProperties);
-    }
+  @Bean
+  @Conditional(RedisLimitCondition.class)
+  public LimitDelegate redisLimitDelegate() {
+    return new RedisLimitDelegateImpl(limitProperties);
+  }
 
-    @Bean
-    @Conditional(RedisLimitCondition.class)
-    public LimitExecutor redisLimitExecutor() {
-        return new RedisLimitExecutorImpl(limitProperties);
-    }
+  @Bean
+  @Conditional(RedisLimitCondition.class)
+  public LimitExecutor redisLimitExecutor() {
+    return new RedisLimitExecutorImpl(limitProperties);
+  }
 
-    @Bean
-    @Conditional(RedisLimitCondition.class)
-    @ConditionalOnMissingBean
-    public RedisHandler redisHandler() {
-        return new RedisHandlerImpl();
-    }
+  @Bean
+  @Conditional(RedisLimitCondition.class)
+  @ConditionalOnMissingBean
+  public RedisHandler redisHandler() {
+    return new RedisHandlerImpl();
+  }
 }

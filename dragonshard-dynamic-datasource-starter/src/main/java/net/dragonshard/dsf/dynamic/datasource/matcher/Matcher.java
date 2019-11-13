@@ -17,4 +17,5 @@ package net.dragonshard.dsf.dynamic.datasource.matcher;
  * @since 2.5.0
  */
 public interface Matcher {
+
 }

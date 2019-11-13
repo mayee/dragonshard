@@ -16,13 +16,12 @@ package net.dragonshard.dsf.web.core.enums;
  * HTTP方法枚举
  *
  * @author mayee
- * @date 2019-06-18
- *
  * @version v1.0
+ * @date 2019-06-18
  **/
 public enum HTTPMethod {
-    /**
-     * HTTP方法
-     */
-    GET, POST, PUT, DELETE, PATCH, TRACE, HEAD, OPTIONS
+  /**
+   * HTTP方法
+   */
+  GET, POST, PUT, DELETE, PATCH, TRACE, HEAD, OPTIONS
 }

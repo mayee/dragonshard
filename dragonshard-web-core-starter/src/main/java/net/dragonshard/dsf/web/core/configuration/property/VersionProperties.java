@@ -21,18 +21,17 @@ import org.springframework.stereotype.Component;
  * 版本配置
  *
  * @author mayee
- * @date 2019-06-28
- *
  * @version v1.0
+ * @date 2019-06-28
  **/
 @Data
 @Component
 @ConfigurationProperties(prefix = "dragonshard.web-core.version")
 public class VersionProperties {
 
-    /**
-     * 是否开启
-     */
-    private boolean enabled = true;
+  /**
+   * 是否开启
+   */
+  private boolean enabled = true;
 
 }

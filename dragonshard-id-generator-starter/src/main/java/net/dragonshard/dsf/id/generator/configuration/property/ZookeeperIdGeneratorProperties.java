@@ -13,8 +13,8 @@
 
 package net.dragonshard.dsf.id.generator.configuration.property;
 
-import net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties;
 import lombok.Data;
+import net.dragonshard.dsf.id.generator.configuration.property.zk.CuratorProperties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
@@ -23,25 +23,25 @@ import org.springframework.stereotype.Component;
  * Zookeeper ID配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.id-generator.zookeeper")
 @Data
 public class ZookeeperIdGeneratorProperties {
-    /**
-     * 是否开启
-     */
-    private boolean enabled;
 
-    /**
-     * id前缀
-     */
-    private String prefix = "DsfIdGenerator";
+  /**
+   * 是否开启
+   */
+  private boolean enabled;
 
-    @NestedConfigurationProperty
-    private CuratorProperties curator = new CuratorProperties();
+  /**
+   * id前缀
+   */
+  private String prefix = "DsfIdGenerator";
+
+  @NestedConfigurationProperty
+  private CuratorProperties curator = new CuratorProperties();
 
 }

@@ -19,10 +19,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
  * Redis实现接口
  *
  * @author mayee
- * @date 2019-07-15
- *
  * @version v1.0
+ * @date 2019-07-15
  **/
 public interface RedisHandler {
-    StringRedisTemplate getRedisTemplate();
+
+  StringRedisTemplate getRedisTemplate();
 }

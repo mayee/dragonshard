@@ -21,28 +21,28 @@ import org.springframework.stereotype.Component;
  * 本地ID配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.id-generator.redis")
 @Data
 public class RedisIdGeneratorProperties {
-    /**
-     * 是否开启
-     */
-    private boolean enabled;
 
-    /**
-     * id前缀
-     */
-    private String prefix = "DsfIdGenerator";
+  /**
+   * 是否开启
+   */
+  private boolean enabled;
 
-    /**
-     * 长度，最大为8位，如果length > 8，则取8
-     */
-    private Integer length = 8;
+  /**
+   * id前缀
+   */
+  private String prefix = "DsfIdGenerator";
+
+  /**
+   * 长度，最大为8位，如果length > 8，则取8
+   */
+  private Integer length = 8;
 
 
 }

@@ -5,6 +5,7 @@
 
 
 <p>
+    <img src="https://tokei.rs/b1/github/mayee/dragonshard?category=lines" >
     <img src="http://img.shields.io/:license-apache-brightgreen.svg" >
     <img src="https://img.shields.io/maven-central/v/net.dragonshard/dragonshard" >
     <img src="https://img.shields.io/badge/JDK-1.8%2B-yellow" >

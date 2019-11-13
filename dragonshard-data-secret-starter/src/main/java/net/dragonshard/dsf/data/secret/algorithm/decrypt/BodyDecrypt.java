@@ -20,19 +20,18 @@ import net.dragonshard.dsf.data.secret.algorithm.key.SecretKey;
  * 消息体解密接口
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 public interface BodyDecrypt {
 
-    /**
-     * 解密
-     *
-     * @param input 密文
-     * @param key   密钥
-     * @return      明文
-     */
-    String decryptBody(String input, SecretKey key);
+  /**
+   * 解密
+   *
+   * @param input 密文
+   * @param key 密钥
+   * @return 明文
+   */
+  String decryptBody(String input, SecretKey key);
 
 }

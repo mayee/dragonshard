@@ -22,109 +22,106 @@ import org.apache.commons.lang3.StringUtils;
  * 缓存实现的门面
  *
  * @author mayee
- * @date 2019-06-28
- *
  * @version v1.0
+ * @date 2019-06-28
  **/
 public class CacheService {
-    private static ICacheService cacheService;
 
-    /**
-     * 设置缓存
-     *
-     * @param key   缓存键
-     * @param value 缓存value
-     * @param expSec   失效时间(秒)
-     * @param <V>   泛型
-     */
-    public static <V> void save(String key, V value, long expSec) {
-        cacheService.save(key, JSON.toJSONString(value), expSec);
-    }
+  private static ICacheService cacheService;
 
-    /**
-     * 删除缓存数据
-     *
-     * @param key 缓存键
-     */
-    public static void delete(String... key) {
-        cacheService.delete(key);
-    }
+  /**
+   * 设置缓存
+   *
+   * @param key 缓存键
+   * @param value 缓存value
+   * @param expSec 失效时间(秒)
+   * @param <V> 泛型
+   */
+  public static <V> void save(String key, V value, long expSec) {
+    cacheService.save(key, JSON.toJSONString(value), expSec);
+  }
 
-    /**
-     * 获取缓存对象,返回string
-     *
-     * @param key 缓存键
-     * @return 返回缓存实体
-     */
-    public static String get(String key) {
-        String value = cacheService.get(key);
-        if (StringUtils.isEmpty(value)) {
-            return null;
-        }
-        return JSON.parseObject(value, String.class);
-    }
+  /**
+   * 删除缓存数据
+   *
+   * @param key 缓存键
+   */
+  public static void delete(String... key) {
+    cacheService.delete(key);
+  }
 
-    /**
-     * 判断key是否存在
-     *
-     * @param key 键
-     * @return true 存在 false不存在
-     */
-    public static Boolean hasKey(String key) {
-        return cacheService.hasKey(key);
+  /**
+   * 获取缓存对象,返回string
+   *
+   * @param key 缓存键
+   * @return 返回缓存实体
+   */
+  public static String get(String key) {
+    String value = cacheService.get(key);
+    if (StringUtils.isEmpty(value)) {
+      return null;
     }
+    return JSON.parseObject(value, String.class);
+  }
 
-    /**
-     * 获取缓存对象
-     *
-     * @param <V>           泛型
-     * @param key           缓存键
-     * @param typeReference 类型
-     * @return 返回缓存实体
-     */
-    public static <V> V get(String key, TypeReference typeReference) {
-        String value = cacheService.get(key);
-        if (StringUtils.isEmpty(value)) {
-            return null;
-        }
-        return JSON.parseObject(value, typeReference.getType());
-    }
+  /**
+   * 判断key是否存在
+   *
+   * @param key 键
+   * @return true 存在 false不存在
+   */
+  public static Boolean hasKey(String key) {
+    return cacheService.hasKey(key);
+  }
 
-    public static CacheService initCache(ICacheService cacheService) {
-        CacheService.cacheService = cacheService;
-        return new CacheService();
+  /**
+   * 获取缓存对象
+   *
+   * @param <V> 泛型
+   * @param key 缓存键
+   * @param typeReference 类型
+   * @return 返回缓存实体
+   */
+  public static <V> V get(String key, TypeReference typeReference) {
+    String value = cacheService.get(key);
+    if (StringUtils.isEmpty(value)) {
+      return null;
     }
+    return JSON.parseObject(value, typeReference.getType());
+  }
 
-    /**
-     * 清空以cachePrefix开头的缓存
-     *
-     * @param cachePrefix 缓存前缀
-     */
-    public static void clear(String cachePrefix) {
-        cacheService.clear(cachePrefix);
-    }
+  public static CacheService initCache(ICacheService cacheService) {
+    CacheService.cacheService = cacheService;
+    return new CacheService();
+  }
 
-    /**
-     * 指定缓存失效时间
-     *
-     * @param key
-     *            键
-     * @param time
-     *            时间(秒)
-     * @return true成功 false失败
-     */
-    Boolean expire(String key, long time) {
-        return cacheService.expire(key, time);
-    }
+  /**
+   * 清空以cachePrefix开头的缓存
+   *
+   * @param cachePrefix 缓存前缀
+   */
+  public static void clear(String cachePrefix) {
+    cacheService.clear(cachePrefix);
+  }
 
-    /**
-     * 根据key 获取过期时间
-     *
-     * @param key
-     *            键 不能为null
-     * @return 时间(秒) 返回0代表为永久有效
-     */
-    Long getExpire(String key){
-        return cacheService.getExpire(key);
-    }
+  /**
+   * 指定缓存失效时间
+   *
+   * @param key 键
+   * @param time 时间(秒)
+   * @return true成功 false失败
+   */
+  Boolean expire(String key, long time) {
+    return cacheService.expire(key, time);
+  }
+
+  /**
+   * 根据key 获取过期时间
+   *
+   * @param key 键 不能为null
+   * @return 时间(秒) 返回0代表为永久有效
+   */
+  Long getExpire(String key) {
+    return cacheService.getExpire(key);
+  }
 }

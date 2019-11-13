@@ -25,9 +25,8 @@ import org.springframework.context.annotation.Import;
  * SecretAutoConfiguration
  *
  * @author mayee
- * @date 2019-06-28
- *
  * @version v1.0
+ * @date 2019-06-28
  **/
 @Slf4j
 @Configuration

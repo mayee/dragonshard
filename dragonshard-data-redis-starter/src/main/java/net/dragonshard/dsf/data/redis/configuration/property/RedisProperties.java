@@ -8,23 +8,22 @@ import org.springframework.stereotype.Component;
  * Redis配置
  *
  * @author mayee
- * @date 2019-06-28
- *
  * @version v1.0
+ * @date 2019-06-28
  **/
 @Data
 @Component
 @ConfigurationProperties(prefix = "dragonshard.redis")
 public class RedisProperties {
 
-    /**
-     * 是否开启 true/false
-     */
-    private boolean enabled = true;
+  /**
+   * 是否开启 true/false
+   */
+  private boolean enabled = true;
 
-    /**
-     * 业务标识前缀
-     */
-    private String bizPrefix;
+  /**
+   * 业务标识前缀
+   */
+  private String bizPrefix;
 
 }

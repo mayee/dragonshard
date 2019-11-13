@@ -16,46 +16,44 @@ package net.dragonshard.dsf.limit.aop;
 import com.nepxion.matrix.proxy.aop.DefaultAutoScanProxy;
 import com.nepxion.matrix.proxy.mode.ProxyMode;
 import com.nepxion.matrix.proxy.mode.ScanMode;
-import net.dragonshard.dsf.limit.annotation.Limit;
-
 import java.lang.annotation.Annotation;
+import net.dragonshard.dsf.limit.annotation.Limit;
 
 /**
  * 包扫描代理
  *
  * @author mayee
- * @date 2019-07-16
- *
  * @version v1.0
+ * @date 2019-07-16
  **/
 public class LimitAutoScanProxy extends DefaultAutoScanProxy {
 
-    private static final long serialVersionUID = 3354937345406209378L;
-    private String[] commonInterceptorNames;
+  private static final long serialVersionUID = 3354937345406209378L;
+  private String[] commonInterceptorNames;
 
-    @SuppressWarnings("rawtypes")
-    private Class[] methodAnnotations;
+  @SuppressWarnings("rawtypes")
+  private Class[] methodAnnotations;
 
-    public LimitAutoScanProxy(String scanPackages) {
-        super(scanPackages, ProxyMode.BY_METHOD_ANNOTATION_ONLY, ScanMode.FOR_METHOD_ANNOTATION_ONLY);
+  public LimitAutoScanProxy(String scanPackages) {
+    super(scanPackages, ProxyMode.BY_METHOD_ANNOTATION_ONLY, ScanMode.FOR_METHOD_ANNOTATION_ONLY);
+  }
+
+  @Override
+  protected String[] getCommonInterceptorNames() {
+    if (commonInterceptorNames == null) {
+      commonInterceptorNames = new String[]{"limitInterceptor"};
     }
 
-    @Override
-    protected String[] getCommonInterceptorNames() {
-        if (commonInterceptorNames == null) {
-            commonInterceptorNames = new String[] { "limitInterceptor" };
-        }
+    return commonInterceptorNames;
+  }
 
-        return commonInterceptorNames;
+  @SuppressWarnings("unchecked")
+  @Override
+  protected Class<? extends Annotation>[] getMethodAnnotations() {
+    if (methodAnnotations == null) {
+      methodAnnotations = new Class[]{Limit.class};
     }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    protected Class<? extends Annotation>[] getMethodAnnotations() {
-        if (methodAnnotations == null) {
-            methodAnnotations = new Class[] { Limit.class };
-        }
-
-        return methodAnnotations;
-    }
+    return methodAnnotations;
+  }
 }

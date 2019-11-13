@@ -23,22 +23,23 @@ import org.springframework.lang.NonNull;
  * 条件判断
  *
  * @author mayee
- * @date 2019-07-17
- *
  * @version v1.0
+ * @date 2019-07-17
  **/
 public class DragonshardCondition implements Condition {
-    private String key;
-    private String value;
 
-    public DragonshardCondition(String key, String value) {
-        this.key = key;
-        this.value = value;
-    }
+  private String key;
+  private String value;
 
-    @Override
-    public boolean matches(@NonNull ConditionContext context, @NonNull AnnotatedTypeMetadata metadata) {
-        String beanName = context.getEnvironment().getProperty(key);
-        return StringUtils.equals(beanName, value);
-    }
+  public DragonshardCondition(String key, String value) {
+    this.key = key;
+    this.value = value;
+  }
+
+  @Override
+  public boolean matches(@NonNull ConditionContext context,
+    @NonNull AnnotatedTypeMetadata metadata) {
+    String beanName = context.getEnvironment().getProperty(key);
+    return StringUtils.equals(beanName, value);
+  }
 }

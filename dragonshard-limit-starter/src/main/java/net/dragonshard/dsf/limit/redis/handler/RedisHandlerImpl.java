@@ -18,12 +18,12 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 
 public class RedisHandlerImpl implements RedisHandler {
 
-    @Autowired
-    private StringRedisTemplate redisTemplate;
+  @Autowired
+  private StringRedisTemplate redisTemplate;
 
-    @Override
-    public StringRedisTemplate getRedisTemplate() {
-        return redisTemplate;
-    }
+  @Override
+  public StringRedisTemplate getRedisTemplate() {
+    return redisTemplate;
+  }
 
 }

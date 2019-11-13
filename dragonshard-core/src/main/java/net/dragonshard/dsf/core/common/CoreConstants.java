@@ -21,9 +21,9 @@ package net.dragonshard.dsf.core.common;
  **/
 public class CoreConstants {
 
-    /**
-     * redis id分隔符
-     */
-    public static final String REDIS_ID_SPLIT = ":";
+  /**
+   * redis id分隔符
+   */
+  public static final String REDIS_ID_SPLIT = ":";
 
 }

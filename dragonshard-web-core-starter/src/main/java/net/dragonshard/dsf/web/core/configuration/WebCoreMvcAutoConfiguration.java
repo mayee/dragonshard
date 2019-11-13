@@ -15,14 +15,16 @@ package net.dragonshard.dsf.web.core.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.base.Charsets;
+import io.undertow.Undertow;
+import java.util.List;
+import javax.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import net.dragonshard.dsf.web.core.configuration.property.WebCoreProperties;
-import net.dragonshard.dsf.web.core.handler.WebRequestMappingHandlerMapping;
 import net.dragonshard.dsf.web.core.handler.WebHandlerExceptionResolver;
+import net.dragonshard.dsf.web.core.handler.WebRequestMappingHandlerMapping;
 import net.dragonshard.dsf.web.core.spring.IEnumConverterFactory;
 import net.dragonshard.dsf.web.core.spring.validator.ValidatorCollectionImpl;
 import net.dragonshard.dsf.web.core.undertow.UndertowServerFactoryCustomizer;
-import io.undertow.Undertow;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;
 import org.springframework.context.annotation.Bean;
@@ -38,9 +40,6 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
-import javax.annotation.Resource;
-import java.util.List;
-
 /**
  * WebMvcConfiguration
  *
@@ -52,48 +51,49 @@ import java.util.List;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebCoreMvcAutoConfiguration implements WebMvcConfigurer, WebMvcRegistrations {
 
-    private WebCoreProperties webCoreProperties;
+  private WebCoreProperties webCoreProperties;
 
-    WebCoreMvcAutoConfiguration(WebCoreProperties webCoreProperties) {
-        this.webCoreProperties = webCoreProperties;
-    }
+  WebCoreMvcAutoConfiguration(WebCoreProperties webCoreProperties) {
+    this.webCoreProperties = webCoreProperties;
+  }
 
-    @Resource
-    ObjectMapper objectMapper;
+  @Resource
+  ObjectMapper objectMapper;
 
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-        MappingJackson2HttpMessageConverter jackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
-        jackson2HttpMessageConverter.setObjectMapper(this.objectMapper);
+  @Override
+  public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+    MappingJackson2HttpMessageConverter jackson2HttpMessageConverter = new MappingJackson2HttpMessageConverter();
+    jackson2HttpMessageConverter.setObjectMapper(this.objectMapper);
 
-        converters.add(jackson2HttpMessageConverter);
-        converters.add(new StringHttpMessageConverter(Charsets.UTF_8));
-    }
+    converters.add(jackson2HttpMessageConverter);
+    converters.add(new StringHttpMessageConverter(Charsets.UTF_8));
+  }
 
-    @Override
-    public Validator getValidator() {
-        return new SpringValidatorAdapter(new ValidatorCollectionImpl());
-    }
+  @Override
+  public Validator getValidator() {
+    return new SpringValidatorAdapter(new ValidatorCollectionImpl());
+  }
 
-    @Override
-    public void addFormatters(FormatterRegistry registry) {
-        registry.addConverterFactory(new IEnumConverterFactory());
-    }
+  @Override
+  public void addFormatters(FormatterRegistry registry) {
+    registry.addConverterFactory(new IEnumConverterFactory());
+  }
 
-    @Override
-    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> exceptionResolvers) {
-        exceptionResolvers.add(new WebHandlerExceptionResolver());
-    }
+  @Override
+  public void configureHandlerExceptionResolvers(
+    List<HandlerExceptionResolver> exceptionResolvers) {
+    exceptionResolvers.add(new WebHandlerExceptionResolver());
+  }
 
-    @Bean
-    @ConditionalOnClass(Undertow.class)
-    public UndertowServerFactoryCustomizer undertowServerFactoryCustomizer() {
-        return new UndertowServerFactoryCustomizer();
-    }
+  @Bean
+  @ConditionalOnClass(Undertow.class)
+  public UndertowServerFactoryCustomizer undertowServerFactoryCustomizer() {
+    return new UndertowServerFactoryCustomizer();
+  }
 
-    @Override
-    public RequestMappingHandlerMapping getRequestMappingHandlerMapping() {
-        return new WebRequestMappingHandlerMapping(webCoreProperties.getVersion());
-    }
+  @Override
+  public RequestMappingHandlerMapping getRequestMappingHandlerMapping() {
+    return new WebRequestMappingHandlerMapping(webCoreProperties.getVersion());
+  }
 
 }

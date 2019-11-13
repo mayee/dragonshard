@@ -10,22 +10,20 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-package $!{package.Entity};
-
-#if($!{activeRecord})
-import com.baomidou.mybatisplus.activerecord.Model;
-#end
-#foreach($pkg in ${table.importPackages})
-import $!{pkg};
-#end
-
+package $!{package.Entity}import com.baomidou.mybatisplus.activerecord.Model;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
-#if(!${activeRecord} && !${superEntityClass})
-import java.io.Serializable;
+;
+#if($!{activeRecord})
+#end
+#foreach($pkg in ${table.importPackages})
+  $!{pkg}
+  ;
+#end
+#if(!${activeRecord}&&!${superEntityClass})
 #end
 
 /**
@@ -49,17 +47,18 @@ public class ${entity} extends Model<${entity}> {
 public class ${entity} implements Serializable{
 #end
 
-    private static final long serialVersionUID = 1L;
+private static final long serialVersionUID=1L;
 
 #foreach($field in ${table.fields})
-    #set($fieldPropertyName=${field.propertyName.substring(0,1).toLowerCase()} + "" +${field.propertyName.substring(1)})
-    #if(${field.keyFlag})
-        #set($keyPropertyName=$fieldPropertyName)
-    #end
-    #if("$!field.comment" != "")
-    @ApiModelProperty(notes = "${field.comment}")
-    #end
-    private ${field.propertyType} $fieldPropertyName;
+  #set($fieldPropertyName=${field.propertyName.substring(0,1).toLowerCase()} +
+    "" +${field.propertyName.substring(1)})
+  #if(${field.keyFlag})
+    #set($keyPropertyName=$fieldPropertyName)
+  #end
+  #if("$!field.comment" != "")
+  @ApiModelProperty(notes = "${field.comment}")
+  #end
+private ${field.propertyType} $fieldPropertyName;
 #end
 
 }

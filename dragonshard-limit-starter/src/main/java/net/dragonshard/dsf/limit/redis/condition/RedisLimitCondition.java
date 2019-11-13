@@ -20,12 +20,12 @@ import net.dragonshard.dsf.web.core.condition.DragonshardCondition;
  * 限流启动判断（redis）
  *
  * @author mayee
- * @date 2019-07-17
- *
  * @version v1.0
+ * @date 2019-07-17
  **/
 public class RedisLimitCondition extends DragonshardCondition {
-    public RedisLimitCondition() {
-        super(LimitConstant.LIMIT_TYPE, LimitConstant.LIMIT_TYPE_REDIS);
-    }
+
+  public RedisLimitCondition() {
+    super(LimitConstant.LIMIT_TYPE, LimitConstant.LIMIT_TYPE_REDIS);
+  }
 }

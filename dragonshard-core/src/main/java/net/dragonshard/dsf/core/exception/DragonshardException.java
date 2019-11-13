@@ -21,18 +21,18 @@ package net.dragonshard.dsf.core.exception;
  **/
 public class DragonshardException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    public DragonshardException(String message) {
-        super(message);
-    }
+  public DragonshardException(String message) {
+    super(message);
+  }
 
-    public DragonshardException(Throwable throwable) {
-        super(throwable);
-    }
+  public DragonshardException(Throwable throwable) {
+    super(throwable);
+  }
 
-    public DragonshardException(String message, Throwable throwable) {
-        super(message, throwable);
-    }
+  public DragonshardException(String message, Throwable throwable) {
+    super(message, throwable);
+  }
 
 }

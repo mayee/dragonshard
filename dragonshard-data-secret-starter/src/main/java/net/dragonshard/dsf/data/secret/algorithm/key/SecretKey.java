@@ -17,12 +17,10 @@ package net.dragonshard.dsf.data.secret.algorithm.key;
  * 密钥抽象类
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 public abstract class SecretKey {
-
 
 
 }

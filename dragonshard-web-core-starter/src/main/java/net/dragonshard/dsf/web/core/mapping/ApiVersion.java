@@ -13,9 +13,12 @@
 
 package net.dragonshard.dsf.web.core.mapping;
 
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 import org.springframework.web.bind.annotation.Mapping;
-
-import java.lang.annotation.*;
 
 /**
  * 版本号注解
@@ -30,9 +33,8 @@ import java.lang.annotation.*;
 @Mapping
 public @interface ApiVersion {
 
-    /**
-     * 版本号
-     *
-     */
-    int value();
+  /**
+   * 版本号
+   */
+  int value();
 }

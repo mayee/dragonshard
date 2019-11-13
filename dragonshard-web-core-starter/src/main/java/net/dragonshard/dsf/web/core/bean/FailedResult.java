@@ -12,9 +12,13 @@
  */
 package net.dragonshard.dsf.web.core.bean;
 
-import lombok.*;
-
 import java.time.LocalDateTime;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 失败返回
@@ -30,34 +34,34 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class FailedResult extends Result {
 
-    private static final long serialVersionUID = 1L;
-    /**
-     * http 状态码
-     */
-    private Integer status;
-    /**
-     * 错误状态码
-     */
-    private String code;
-    /**
-     * 错误描述
-     */
-    private String msg;
-    /**
-     * 请求唯一Id
-     */
-    private String traceId;
-    /**
-     * 异常信息
-     */
-    private String exception;
-    /**
-     * 客户端是否展示
-     */
-    private Boolean show;
-    /**
-     * 当前时间戳
-     */
-    private LocalDateTime time;
+  private static final long serialVersionUID = 1L;
+  /**
+   * http 状态码
+   */
+  private Integer status;
+  /**
+   * 错误状态码
+   */
+  private String code;
+  /**
+   * 错误描述
+   */
+  private String msg;
+  /**
+   * 请求唯一Id
+   */
+  private String traceId;
+  /**
+   * 异常信息
+   */
+  private String exception;
+  /**
+   * 客户端是否展示
+   */
+  private Boolean show;
+  /**
+   * 当前时间戳
+   */
+  private LocalDateTime time;
 
 }

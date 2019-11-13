@@ -30,6 +30,6 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class AESKey extends SecretKey {
 
-    private String key;
+  private String key;
 
 }

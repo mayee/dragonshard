@@ -12,10 +12,10 @@
  */
 package net.dragonshard.dsf.web.core.framework.model;
 
-import net.dragonshard.dsf.web.core.framework.converter.Convert;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import net.dragonshard.dsf.web.core.framework.converter.Convert;
 
 /**
  * <p>
@@ -29,6 +29,6 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 public class BaseModel extends Convert {
 
-    protected Long id;
+  protected Long id;
 
 }

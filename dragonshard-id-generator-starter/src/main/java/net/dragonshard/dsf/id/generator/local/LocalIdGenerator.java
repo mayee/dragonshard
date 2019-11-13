@@ -17,26 +17,25 @@ package net.dragonshard.dsf.id.generator.local;
  * 本地ID生成器接口
  *
  * @author mayee
- * @date 2019-07-14
- *
  * @version v1.0
+ * @date 2019-07-14
  **/
 public interface LocalIdGenerator {
 
-    /**
-     * 获取全局唯一ID，根据Twitter雪花ID算法。为兼顾到前端失精问题，把返回值long改成String
-     * SnowFlake算法用来生成64位的ID，刚好可以用long整型存储，能够用于分布式系统中生产唯一的ID， 并且生成的ID有大致的顺序。 在这次实现中，生成的64位ID可以分成5个部分：
-     * 0 - 41位时间戳 - 5位数据中心标识 - 5位机器标识 - 12位序列号
-     * @param dataCenterId 数据中心标识ID
-     * @param machineId 机器标识ID
-     * @return String
-     */
-    String nextUniqueId(long dataCenterId, long machineId) throws Exception;
+  /**
+   * 获取全局唯一ID，根据Twitter雪花ID算法。为兼顾到前端失精问题，把返回值long改成String SnowFlake算法用来生成64位的ID，刚好可以用long整型存储，能够用于分布式系统中生产唯一的ID，
+   * 并且生成的ID有大致的顺序。 在这次实现中，生成的64位ID可以分成5个部分： 0 - 41位时间戳 - 5位数据中心标识 - 5位机器标识 - 12位序列号
+   *
+   * @param dataCenterId 数据中心标识ID
+   * @param machineId 机器标识ID
+   * @return String
+   */
+  String nextUniqueId(long dataCenterId, long machineId) throws Exception;
 
-    String nextUniqueId() throws Exception;
+  String nextUniqueId() throws Exception;
 
-    String[] nextUniqueIds(long dataCenterId, long machineId, int count) throws Exception;
+  String[] nextUniqueIds(long dataCenterId, long machineId, int count) throws Exception;
 
-    String[] nextUniqueIds(int count) throws Exception;
+  String[] nextUniqueIds(int count) throws Exception;
 
 }

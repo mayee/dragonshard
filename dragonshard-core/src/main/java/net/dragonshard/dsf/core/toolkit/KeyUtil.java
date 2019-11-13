@@ -22,15 +22,16 @@ import net.dragonshard.dsf.core.common.CoreConstants;
  * @version v1.0
  **/
 public class KeyUtil {
-    public static String getCompositeKey(String prefix, String name, String key) {
-        return prefix + CoreConstants.REDIS_ID_SPLIT + name + CoreConstants.REDIS_ID_SPLIT + key;
-    }
 
-    public static String getCompositeWildcardKey(String prefix, String name) {
-        return prefix + CoreConstants.REDIS_ID_SPLIT + name + "*";
-    }
+  public static String getCompositeKey(String prefix, String name, String key) {
+    return prefix + CoreConstants.REDIS_ID_SPLIT + name + CoreConstants.REDIS_ID_SPLIT + key;
+  }
 
-    public static String getCompositeWildcardKey(String key) {
-        return key + "*";
-    }
+  public static String getCompositeWildcardKey(String prefix, String name) {
+    return prefix + CoreConstants.REDIS_ID_SPLIT + name + "*";
+  }
+
+  public static String getCompositeWildcardKey(String key) {
+    return key + "*";
+  }
 }

@@ -31,17 +31,18 @@ import org.springframework.context.annotation.Import;
  **/
 @Configuration
 @Import({
-        ZookeeperIdGeneratorProperties.class
+  ZookeeperIdGeneratorProperties.class
 })
 public class ZookeeperIdGeneratorConfiguration {
-    @Bean
-    public ZookeeperIdGenerator zookeeperIdGenerator() {
-        return new ZookeeperIdGeneratorImpl();
-    }
 
-    @Bean
-    @ConditionalOnMissingBean
-    public CuratorHandler curatorHandler() {
-        return new CuratorHandlerImpl();
-    }
+  @Bean
+  public ZookeeperIdGenerator zookeeperIdGenerator() {
+    return new ZookeeperIdGeneratorImpl();
+  }
+
+  @Bean
+  @ConditionalOnMissingBean
+  public CuratorHandler curatorHandler() {
+    return new CuratorHandlerImpl();
+  }
 }

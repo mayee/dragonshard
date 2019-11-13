@@ -32,26 +32,26 @@ import org.springframework.context.annotation.Import;
  * @version v1.0
  **/
 @Configuration
-@Import({ RedisIdGeneratorProperties.class })
+@Import({RedisIdGeneratorProperties.class})
 @ConditionalOnProperty(prefix = "dragonshard.id-generator.redis", name = "enabled", matchIfMissing = true)
 public class RedisIdGeneratorAutoConfiguration {
 
-    private final RedisIdGeneratorProperties redisIdGeneratorProperties;
+  private final RedisIdGeneratorProperties redisIdGeneratorProperties;
 
-    @Autowired
-    public RedisIdGeneratorAutoConfiguration(RedisIdGeneratorProperties redisIdGeneratorProperties) {
-        this.redisIdGeneratorProperties = redisIdGeneratorProperties;
-    }
+  @Autowired
+  public RedisIdGeneratorAutoConfiguration(RedisIdGeneratorProperties redisIdGeneratorProperties) {
+    this.redisIdGeneratorProperties = redisIdGeneratorProperties;
+  }
 
-    @Bean
-    public RedisIdGenerator redisIdGenerator() {
-        return new RedisIdGeneratorImpl(redisIdGeneratorProperties);
-    }
+  @Bean
+  public RedisIdGenerator redisIdGenerator() {
+    return new RedisIdGeneratorImpl(redisIdGeneratorProperties);
+  }
 
-    @Bean
-    @ConditionalOnMissingBean
-    public RedisHandler redisHandler() {
-        return new RedisHandlerImpl();
-    }
+  @Bean
+  @ConditionalOnMissingBean
+  public RedisHandler redisHandler() {
+    return new RedisHandlerImpl();
+  }
 
 }

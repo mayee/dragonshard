@@ -18,26 +18,25 @@ import net.dragonshard.dsf.web.core.framework.model.BizErrorCode;
  * 业务异常类
  *
  * @author mayee
- * @date 2019-06-09
- *
  * @version v1.0
+ * @date 2019-06-09
  **/
 public class BizException extends RuntimeException {
 
-    private static final long serialVersionUID = 6797769538354461365L;
-    /**
-     * 错误码
-     */
-    private final BizErrorCode errorCode;
+  private static final long serialVersionUID = 6797769538354461365L;
+  /**
+   * 错误码
+   */
+  private final BizErrorCode errorCode;
 
-    public BizException(BizErrorCode errorCode) {
-        super(errorCode.getError());
-        this.errorCode = errorCode;
+  public BizException(BizErrorCode errorCode) {
+    super(errorCode.getError());
+    this.errorCode = errorCode;
 
-    }
+  }
 
-    public BizErrorCode getErrorCode() {
-        return errorCode;
-    }
+  public BizErrorCode getErrorCode() {
+    return errorCode;
+  }
 
 }

@@ -21,18 +21,16 @@ import org.springframework.stereotype.Component;
  * ExponentialBackoffRetry 配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.id-generator.zookeeper.curator.exponential-backoff-retry")
 @Data
 public class ExponentialBackoffRetryProperties {
 
-    private Integer baseSleepTimeMs = 2000;
-    private Integer maxRetries = 10;
-
+  private Integer baseSleepTimeMs = 2000;
+  private Integer maxRetries = 10;
 
 
 }

@@ -13,39 +13,37 @@
 package net.dragonshard.dsf.data.mybatis.plus;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import org.apache.ibatis.reflection.MetaObject;
-
 import java.time.LocalDateTime;
+import org.apache.ibatis.reflection.MetaObject;
 
 /**
  * 通用填充类
  *
  * @author mayee
- * @date 2019-06-06
- *
  * @version v1.0
+ * @date 2019-06-06
  **/
 public class CommonMetaObjectHandler implements MetaObjectHandler {
 
-    /**
-     * 创建时间
-     */
-    private final String createTime = "createTime";
-    /**
-     * 修改时间
-     */
-    private final String modifiedTime = "modifiedTime";
+  /**
+   * 创建时间
+   */
+  private final String createTime = "createTime";
+  /**
+   * 修改时间
+   */
+  private final String modifiedTime = "modifiedTime";
 
-    @Override
-    public void insertFill(MetaObject metaObject) {
-        setInsertFieldValByName(createTime, LocalDateTime.now(), metaObject);
-        setInsertFieldValByName(modifiedTime, LocalDateTime.now(), metaObject);
-    }
+  @Override
+  public void insertFill(MetaObject metaObject) {
+    setInsertFieldValByName(createTime, LocalDateTime.now(), metaObject);
+    setInsertFieldValByName(modifiedTime, LocalDateTime.now(), metaObject);
+  }
 
-    @Override
-    public void updateFill(MetaObject metaObject) {
-        setUpdateFieldValByName(modifiedTime, LocalDateTime.now(), metaObject);
-    }
+  @Override
+  public void updateFill(MetaObject metaObject) {
+    setUpdateFieldValByName(modifiedTime, LocalDateTime.now(), metaObject);
+  }
 
 
 }

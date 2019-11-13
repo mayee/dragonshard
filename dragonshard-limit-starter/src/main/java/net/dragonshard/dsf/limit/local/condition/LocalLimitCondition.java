@@ -21,12 +21,12 @@ import net.dragonshard.dsf.web.core.condition.DragonshardCondition;
  * 限流启动判断（local）
  *
  * @author mayee
- * @date 2019-07-17
- *
  * @version v1.0
+ * @date 2019-07-17
  **/
 public class LocalLimitCondition extends DragonshardCondition {
-    public LocalLimitCondition() {
-        super(LimitConstant.LIMIT_TYPE, LimitConstant.LIMIT_TYPE_LOCAL);
-    }
+
+  public LocalLimitCondition() {
+    super(LimitConstant.LIMIT_TYPE, LimitConstant.LIMIT_TYPE_LOCAL);
+  }
 }

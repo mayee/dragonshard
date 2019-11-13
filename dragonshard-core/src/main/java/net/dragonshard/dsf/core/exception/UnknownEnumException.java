@@ -20,18 +20,18 @@ package net.dragonshard.dsf.core.exception;
  **/
 public class UnknownEnumException extends RuntimeException {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    public UnknownEnumException(String message) {
-        super(message);
-    }
+  public UnknownEnumException(String message) {
+    super(message);
+  }
 
-    public UnknownEnumException(Throwable throwable) {
-        super(throwable);
-    }
+  public UnknownEnumException(Throwable throwable) {
+    super(throwable);
+  }
 
-    public UnknownEnumException(String message, Throwable throwable) {
-        super(message, throwable);
-    }
+  public UnknownEnumException(String message, Throwable throwable) {
+    super(message, throwable);
+  }
 
 }

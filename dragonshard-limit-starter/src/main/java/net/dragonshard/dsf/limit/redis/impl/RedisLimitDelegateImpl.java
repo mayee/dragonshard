@@ -25,39 +25,39 @@ import org.springframework.beans.factory.annotation.Autowired;
  * Redis限流实现类
  *
  * @author mayee
- * @date 2019-07-17
- *
  * @version v1.0
+ * @date 2019-07-17
  **/
 @Slf4j
 public class RedisLimitDelegateImpl implements LimitDelegate {
 
-    @Autowired
-    private LimitExecutor limitExecutor;
-    private LimitProperties limitProperties;
+  @Autowired
+  private LimitExecutor limitExecutor;
+  private LimitProperties limitProperties;
 
-    public RedisLimitDelegateImpl(LimitProperties limitProperties) {
-        this.limitProperties = limitProperties;
+  public RedisLimitDelegateImpl(LimitProperties limitProperties) {
+    this.limitProperties = limitProperties;
+  }
+
+  @Override
+  public Object invoke(MethodInvocation invocation, String key, int limitPeriod, int limitCount)
+    throws Throwable {
+    boolean status = true;
+    try {
+      status = limitExecutor.tryAccess(key, limitPeriod, limitCount);
+    } catch (Exception e) {
+      if (limitProperties.getAop().getExceptionIgnore()) {
+        log.error("Redis exception occurs while Limit", e);
+        return invocation.proceed();
+      } else {
+        throw e;
+      }
     }
 
-    @Override
-    public Object invoke(MethodInvocation invocation, String key, int limitPeriod, int limitCount) throws Throwable {
-        boolean status = true;
-        try {
-            status = limitExecutor.tryAccess(key, limitPeriod, limitCount);
-        } catch (Exception e) {
-            if (limitProperties.getAop().getExceptionIgnore()) {
-                log.error("Redis exception occurs while Limit", e);
-                return invocation.proceed();
-            } else {
-                throw e;
-            }
-        }
-
-        if (status) {
-            return invocation.proceed();
-        } else {
-            throw new RequestReachMaxLimitException();
-        }
+    if (status) {
+      return invocation.proceed();
+    } else {
+      throw new RequestReachMaxLimitException();
     }
+  }
 }

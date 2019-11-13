@@ -21,16 +21,15 @@ import org.springframework.stereotype.Component;
  * ExponentialBackoffRetry 配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.id-generator.zookeeper.curator.retry-until-elapsed")
 @Data
 public class RetryUntilElapsedProperties {
 
-    private Integer maxElapsedTimeMs = 60000;
-    private Integer sleepMsBetweenRetries = 2000;
+  private Integer maxElapsedTimeMs = 60000;
+  private Integer sleepMsBetweenRetries = 2000;
 
 }

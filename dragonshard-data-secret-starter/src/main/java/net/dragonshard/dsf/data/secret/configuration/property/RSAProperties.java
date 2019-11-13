@@ -22,33 +22,33 @@ import org.springframework.stereotype.Component;
  * 加密消息检验配置(RSA)
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.secret.rsa")
 @Data
 public class RSAProperties {
-    /**
-     * 是否开启
-     */
-    private boolean enabled;
 
-    /**
-     * 公钥
-     */
-    private String publicKey;
+  /**
+   * 是否开启
+   */
+  private boolean enabled;
 
-    /**
-     * 私钥
-     */
-    private String privateKey;
+  /**
+   * 公钥
+   */
+  private String publicKey;
 
-    /**
-     * 系数
-     */
-    private String modulus;
+  /**
+   * 私钥
+   */
+  private String privateKey;
+
+  /**
+   * 系数
+   */
+  private String modulus;
 
 
 }

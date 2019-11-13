@@ -12,12 +12,11 @@
  */
 package net.dragonshard.dsf.dynamic.datasource;
 
-import net.dragonshard.dsf.dynamic.datasource.strategy.DynamicDataSourceStrategy;
-import lombok.Data;
-
-import javax.sql.DataSource;
 import java.util.LinkedList;
 import java.util.List;
+import javax.sql.DataSource;
+import lombok.Data;
+import net.dragonshard.dsf.dynamic.datasource.strategy.DynamicDataSourceStrategy;
 
 /**
  * 分组数据源
@@ -28,39 +27,40 @@ import java.util.List;
 @Data
 public class DynamicGroupDataSource {
 
-    /**
-     * 组名
-     */
-    private String groupName;
+  /**
+   * 组名
+   */
+  private String groupName;
 
-    /**
-     * 数据源切换策略
-     */
-    private DynamicDataSourceStrategy dynamicDataSourceStrategy;
+  /**
+   * 数据源切换策略
+   */
+  private DynamicDataSourceStrategy dynamicDataSourceStrategy;
 
-    /**
-     * 当前组下所有数据源
-     */
-    private List<DataSource> dataSources = new LinkedList<>();
+  /**
+   * 当前组下所有数据源
+   */
+  private List<DataSource> dataSources = new LinkedList<>();
 
-    public DynamicGroupDataSource(String groupName, DynamicDataSourceStrategy dynamicDataSourceStrategy) {
-        this.groupName = groupName;
-        this.dynamicDataSourceStrategy = dynamicDataSourceStrategy;
-    }
+  public DynamicGroupDataSource(String groupName,
+    DynamicDataSourceStrategy dynamicDataSourceStrategy) {
+    this.groupName = groupName;
+    this.dynamicDataSourceStrategy = dynamicDataSourceStrategy;
+  }
 
-    public void addDatasource(DataSource dataSource) {
-        dataSources.add(dataSource);
-    }
+  public void addDatasource(DataSource dataSource) {
+    dataSources.add(dataSource);
+  }
 
-    public void removeDatasource(DataSource dataSource) {
-        dataSources.remove(dataSource);
-    }
+  public void removeDatasource(DataSource dataSource) {
+    dataSources.remove(dataSource);
+  }
 
-    public DataSource determineDataSource() {
-        return dynamicDataSourceStrategy.determineDataSource(dataSources);
-    }
+  public DataSource determineDataSource() {
+    return dynamicDataSourceStrategy.determineDataSource(dataSources);
+  }
 
-    public int size() {
-        return dataSources.size();
-    }
+  public int size() {
+    return dataSources.size();
+  }
 }

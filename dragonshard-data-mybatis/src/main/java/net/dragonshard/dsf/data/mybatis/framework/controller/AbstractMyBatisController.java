@@ -19,14 +19,13 @@ import net.dragonshard.dsf.web.core.framework.controller.WebController;
  * 扩展自 WebController
  *
  * @author mayee
- * @date 2019-06-07
- *
  * @version v1.0
+ * @date 2019-06-07
  **/
 public abstract class AbstractMyBatisController extends WebController {
 
-    public abstract <T> Page<T> getPage();
+  public abstract <T> Page<T> getPage();
 
-    public abstract <T> Page<T> getPage(boolean openSort);
+  public abstract <T> Page<T> getPage(boolean openSort);
 
 }

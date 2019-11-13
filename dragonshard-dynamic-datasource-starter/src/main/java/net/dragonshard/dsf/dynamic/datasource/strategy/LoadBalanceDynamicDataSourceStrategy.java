@@ -12,9 +12,9 @@
  */
 package net.dragonshard.dsf.dynamic.datasource.strategy;
 
-import javax.sql.DataSource;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import javax.sql.DataSource;
 
 /**
  * 负载均衡策略
@@ -24,13 +24,13 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class LoadBalanceDynamicDataSourceStrategy implements DynamicDataSourceStrategy {
 
-    /**
-     * 负载均衡计数器
-     */
-    private AtomicInteger index = new AtomicInteger(0);
+  /**
+   * 负载均衡计数器
+   */
+  private AtomicInteger index = new AtomicInteger(0);
 
-    @Override
-    public DataSource determineDataSource(List<DataSource> dataSources) {
-        return dataSources.get(Math.abs(index.getAndAdd(1) % dataSources.size()));
-    }
+  @Override
+  public DataSource determineDataSource(List<DataSource> dataSources) {
+    return dataSources.get(Math.abs(index.getAndAdd(1) % dataSources.size()));
+  }
 }

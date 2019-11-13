@@ -24,9 +24,9 @@ import net.dragonshard.dsf.data.secret.algorithm.key.SecretKey;
  **/
 public class RequestRSADecrypt extends AbstractRequestDecrypt {
 
-    public RequestRSADecrypt(String ciphertextType, SecretKey secretKey) {
-        this.secretKey = secretKey;
-        this.bodyDecrypt = new RSABodyDecrypt(ciphertextType);
-    }
+  public RequestRSADecrypt(String ciphertextType, SecretKey secretKey) {
+    this.secretKey = secretKey;
+    this.bodyDecrypt = new RSABodyDecrypt(ciphertextType);
+  }
 
 }

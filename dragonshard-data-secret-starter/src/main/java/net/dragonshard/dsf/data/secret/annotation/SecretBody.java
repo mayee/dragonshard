@@ -23,28 +23,27 @@ import java.security.Provider;
  * 请求加密注解
  *
  * @author mayee
- * @date 2019-06-25
- *
  * @version v1.0
+ * @date 2019-06-25
  **/
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE, ElementType.METHOD})
 public @interface SecretBody {
 
-    boolean exclude() default false;
+  boolean exclude() default false;
 
-    /**
-     * 加密算法，AES/RSA
-     */
-    String value();
+  /**
+   * 加密算法，AES/RSA
+   */
+  String value();
 
-    /**
-     * 密文类型，BASE64/HEX
-     */
-    String ciphertextType() default "BASE64";
+  /**
+   * 密文类型，BASE64/HEX
+   */
+  String ciphertextType() default "BASE64";
 
-    /**
-     * 供应商的完整类名称
-     */
-    Class<? extends Provider>[] providerClass() default {};
+  /**
+   * 供应商的完整类名称
+   */
+  Class<? extends Provider>[] providerClass() default {};
 }

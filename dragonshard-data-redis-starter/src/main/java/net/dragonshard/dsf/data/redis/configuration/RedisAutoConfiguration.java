@@ -13,7 +13,10 @@
 
 package net.dragonshard.dsf.data.redis.configuration;
 
+import static net.dragonshard.dsf.data.redis.common.RedisConstants.BIZ_PREFIX_SPLIT;
+
 import com.google.common.base.Preconditions;
+import javax.annotation.PostConstruct;
 import lombok.extern.slf4j.Slf4j;
 import net.dragonshard.dsf.data.redis.configuration.property.RedisProperties;
 import net.dragonshard.dsf.data.redis.serializer.StringRedisSerializer;
@@ -32,10 +35,6 @@ import org.springframework.context.annotation.Import;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.StringRedisTemplate;
 
-import javax.annotation.PostConstruct;
-
-import static net.dragonshard.dsf.data.redis.common.RedisConstants.BIZ_PREFIX_SPLIT;
-
 
 /**
  * RedisAutoConfiguration
@@ -50,48 +49,50 @@ import static net.dragonshard.dsf.data.redis.common.RedisConstants.BIZ_PREFIX_SP
 @ConditionalOnProperty(prefix = "dragonshard.redis", name = "enabled", havingValue = "true", matchIfMissing = true)
 public class RedisAutoConfiguration {
 
-    @Autowired
-    private RedisProperties redisProperties;
-    @Value("${spring.application.name:}")
-    private String applicationName;
+  @Autowired
+  private RedisProperties redisProperties;
+  @Value("${spring.application.name:}")
+  private String applicationName;
 
-    @Bean
-    @ConditionalOnMissingBean
-    public ICacheService redisCache() {
-        return new RedisCacheService();
+  @Bean
+  @ConditionalOnMissingBean
+  public ICacheService redisCache() {
+    return new RedisCacheService();
+  }
+
+  @Bean
+  @ConditionalOnBean(ICacheService.class)
+  public CacheService initCache(ICacheService cacheService) {
+    return CacheService.initCache(cacheService);
+  }
+
+  /**
+   * 验证规则 <br> 默认加载 dragonshard.redis.biz-prefix <br> 如果该参数为空则加载 spring.application.name <br>
+   * 如果二者都为空，抛出异常启动终止
+   */
+  @PostConstruct
+  public void validRequiredParams() {
+    if (StringUtils.isEmpty(applicationName)) {
+      Preconditions.checkArgument(StringUtils.isNotEmpty(redisProperties.getBizPrefix()),
+        "Missing required configuration items: dragonshard.redis.biz-prefix");
+    } else {
+      if (StringUtils.isEmpty(redisProperties.getBizPrefix())) {
+        redisProperties.setBizPrefix(applicationName);
+        log.info(
+          "The configuration item (dragonshard.redis.biz-prefix) is missing, using the default value > {} (spring.application.name)",
+          applicationName);
+      }
     }
+  }
 
-    @Bean
-    @ConditionalOnBean(ICacheService.class)
-    public CacheService initCache(ICacheService cacheService) {
-        return CacheService.initCache(cacheService);
-    }
+  @Bean
+  public StringRedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+    String prefix = StringUtils.isBlank(redisProperties.getBizPrefix()) ? ""
+      : redisProperties.getBizPrefix() + BIZ_PREFIX_SPLIT;
+    log.info("biz-prefix > {}", prefix);
 
-    /**
-     * 验证规则 <br>
-     * 默认加载 dragonshard.redis.biz-prefix <br>
-     * 如果该参数为空则加载 spring.application.name <br>
-     * 如果二者都为空，抛出异常启动终止
-     */
-    @PostConstruct
-    public void validRequiredParams() {
-        if (StringUtils.isEmpty(applicationName)) {
-            Preconditions.checkArgument(StringUtils.isNotEmpty(redisProperties.getBizPrefix()), "Missing required configuration items: dragonshard.redis.biz-prefix");
-        } else {
-            if (StringUtils.isEmpty(redisProperties.getBizPrefix())) {
-                redisProperties.setBizPrefix(applicationName);
-                log.info("The configuration item (dragonshard.redis.biz-prefix) is missing, using the default value > {} (spring.application.name)", applicationName);
-            }
-        }
-    }
-
-    @Bean
-    public StringRedisTemplate redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-        String prefix = StringUtils.isBlank(redisProperties.getBizPrefix()) ? "" : redisProperties.getBizPrefix() + BIZ_PREFIX_SPLIT;
-        log.info("biz-prefix > {}", prefix);
-
-        StringRedisTemplate template = new StringRedisTemplate(redisConnectionFactory);
-        template.setKeySerializer(new StringRedisSerializer(prefix));
-        return template;
-    }
+    StringRedisTemplate template = new StringRedisTemplate(redisConnectionFactory);
+    template.setKeySerializer(new StringRedisSerializer(prefix));
+    return template;
+  }
 }

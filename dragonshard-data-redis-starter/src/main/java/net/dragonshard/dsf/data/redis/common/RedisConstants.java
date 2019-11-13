@@ -17,18 +17,18 @@ package net.dragonshard.dsf.data.redis.common;
  * 常量
  *
  * @author mayee
- * @date 2018/11/15
- *
  * @version v1.0
+ * @date 2018/11/15
  **/
 public class RedisConstants {
-      RedisConstants() {
-    }
 
-    /**
-     * 业务标识分隔符
-     */
-    public static final String BIZ_PREFIX_SPLIT = ":";
+  RedisConstants() {
+  }
+
+  /**
+   * 业务标识分隔符
+   */
+  public static final String BIZ_PREFIX_SPLIT = ":";
 
 
 }

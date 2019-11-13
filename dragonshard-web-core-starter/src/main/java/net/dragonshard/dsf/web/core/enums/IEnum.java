@@ -21,9 +21,9 @@ package net.dragonshard.dsf.web.core.enums;
  */
 public interface IEnum {
 
-    /**
-     * 获取枚举值
-     */
-    int getValue();
+  /**
+   * 获取枚举值
+   */
+  int getValue();
 
 }

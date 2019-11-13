@@ -12,15 +12,19 @@
  */
 package net.dragonshard.dsf.web.core.bean;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 /**
  * 成功返回
  *
  * @author mayee
- * @date 2019-07-18
- *
  * @version v1.0
+ * @date 2019-07-18
  **/
 @Getter
 @ToString
@@ -30,14 +34,14 @@ import lombok.*;
 @NoArgsConstructor
 public class SuccessResult<T> extends Result<T> {
 
-    private static final long serialVersionUID = 1L;
-    /**
-     * http 状态码
-     */
-    private Integer status;
-    /**
-     * 结果集返回
-     */
-    private T data;
+  private static final long serialVersionUID = 1L;
+  /**
+   * http 状态码
+   */
+  private Integer status;
+  /**
+   * 结果集返回
+   */
+  private T data;
 
 }

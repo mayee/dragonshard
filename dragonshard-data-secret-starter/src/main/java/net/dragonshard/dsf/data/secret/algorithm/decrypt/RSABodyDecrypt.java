@@ -14,16 +14,16 @@
 package net.dragonshard.dsf.data.secret.algorithm.decrypt;
 
 
+import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.CIPHERTEXT_TYPE_BASE64;
+import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.CIPHERTEXT_TYPE_HEX;
+import static net.dragonshard.dsf.web.core.enums.DsfErrorCodeEnum.SECRET_PROVIDER_FAIL;
+import static net.dragonshard.dsf.web.core.enums.DsfErrorCodeEnum.SECRET_PROVIDER_NOT_SUPPORT_BASE64;
+
 import net.dragonshard.dsf.core.toolkit.EncryptUtils;
 import net.dragonshard.dsf.data.secret.algorithm.key.RSAKey;
 import net.dragonshard.dsf.data.secret.algorithm.key.SecretKey;
 import net.dragonshard.dsf.data.secret.exception.SecretRequestDecryptException;
 import org.apache.commons.lang3.StringUtils;
-
-import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.CIPHERTEXT_TYPE_BASE64;
-import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.CIPHERTEXT_TYPE_HEX;
-import static net.dragonshard.dsf.web.core.enums.DsfErrorCodeEnum.SECRET_PROVIDER_FAIL;
-import static net.dragonshard.dsf.web.core.enums.DsfErrorCodeEnum.SECRET_PROVIDER_NOT_SUPPORT_BASE64;
 
 /**
  * 消息体解密(RSA)
@@ -34,48 +34,48 @@ import static net.dragonshard.dsf.web.core.enums.DsfErrorCodeEnum.SECRET_PROVIDE
  **/
 public class RSABodyDecrypt implements BodyDecrypt {
 
-    private String ciphertextType;
+  private String ciphertextType;
 
-    public RSABodyDecrypt(String ciphertextType) {
-        this.ciphertextType = ciphertextType;
-    }
+  public RSABodyDecrypt(String ciphertextType) {
+    this.ciphertextType = ciphertextType;
+  }
 
-    @Override
-    public String decryptBody(String input, SecretKey secretKey) {
-        RSAKey rsaKey = (RSAKey) secretKey;
-        if (CIPHERTEXT_TYPE_BASE64.equalsIgnoreCase(ciphertextType)) {
-            if (rsaKey.getProviderClass() == null) {
-                return new String(
-                        EncryptUtils.rsaDecryptBase64ByPirvateKey(
-                                input, rsaKey.getPrivateKey()
-                        )
-                );
-            } else {
-                throw new SecretRequestDecryptException(SECRET_PROVIDER_NOT_SUPPORT_BASE64.msg());
-            }
-        } else if (CIPHERTEXT_TYPE_HEX.equalsIgnoreCase(ciphertextType)) {
-            if (rsaKey.getProviderClass() == null) {
-                return new String(
-                        EncryptUtils.rsaDecryptHexByPirvateKey(
-                                input, rsaKey.getPrivateKey()
-                        )
-                );
-            } else {
-                try {
-                    return StringUtils.reverse(new String(
-                            EncryptUtils.rsaDecryptHexByProviderPirvateKey(
-                                    input,
-                                    rsaKey.getModulus(),
-                                    rsaKey.getPrivateKey(),
-                                    rsaKey.getProviderClass().newInstance()
-                            )
-                    ));
-                } catch (InstantiationException | IllegalAccessException e) {
-                    throw new SecretRequestDecryptException(SECRET_PROVIDER_FAIL.msg());
-                }
-            }
+  @Override
+  public String decryptBody(String input, SecretKey secretKey) {
+    RSAKey rsaKey = (RSAKey) secretKey;
+    if (CIPHERTEXT_TYPE_BASE64.equalsIgnoreCase(ciphertextType)) {
+      if (rsaKey.getProviderClass() == null) {
+        return new String(
+          EncryptUtils.rsaDecryptBase64ByPirvateKey(
+            input, rsaKey.getPrivateKey()
+          )
+        );
+      } else {
+        throw new SecretRequestDecryptException(SECRET_PROVIDER_NOT_SUPPORT_BASE64.msg());
+      }
+    } else if (CIPHERTEXT_TYPE_HEX.equalsIgnoreCase(ciphertextType)) {
+      if (rsaKey.getProviderClass() == null) {
+        return new String(
+          EncryptUtils.rsaDecryptHexByPirvateKey(
+            input, rsaKey.getPrivateKey()
+          )
+        );
+      } else {
+        try {
+          return StringUtils.reverse(new String(
+            EncryptUtils.rsaDecryptHexByProviderPirvateKey(
+              input,
+              rsaKey.getModulus(),
+              rsaKey.getPrivateKey(),
+              rsaKey.getProviderClass().newInstance()
+            )
+          ));
+        } catch (InstantiationException | IllegalAccessException e) {
+          throw new SecretRequestDecryptException(SECRET_PROVIDER_FAIL.msg());
         }
-        return null;
+      }
     }
+    return null;
+  }
 
 }

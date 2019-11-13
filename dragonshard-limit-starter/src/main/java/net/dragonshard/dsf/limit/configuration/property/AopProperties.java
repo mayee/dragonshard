@@ -21,23 +21,23 @@ import org.springframework.stereotype.Component;
  * 本地限流配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.limit.aop")
 @Data
 public class AopProperties {
-    /**
-     * 扫描的包路径
-     */
-    private String scanPackages;
 
-    /**
-     * 是否无视aop异常, 默认 false
-     */
-    private Boolean exceptionIgnore = false;
+  /**
+   * 扫描的包路径
+   */
+  private String scanPackages;
+
+  /**
+   * 是否无视aop异常, 默认 false
+   */
+  private Boolean exceptionIgnore = false;
 
 
 }

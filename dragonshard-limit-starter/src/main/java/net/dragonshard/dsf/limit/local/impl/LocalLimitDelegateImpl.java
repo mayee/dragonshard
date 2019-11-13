@@ -24,32 +24,33 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Slf4j
 public class LocalLimitDelegateImpl implements LimitDelegate {
 
-    @Autowired
-    private LimitExecutor limitExecutor;
-    private LimitProperties limitProperties;
+  @Autowired
+  private LimitExecutor limitExecutor;
+  private LimitProperties limitProperties;
 
-    public LocalLimitDelegateImpl(LimitProperties limitProperties) {
-        this.limitProperties = limitProperties;
+  public LocalLimitDelegateImpl(LimitProperties limitProperties) {
+    this.limitProperties = limitProperties;
+  }
+
+  @Override
+  public Object invoke(MethodInvocation invocation, String key, int limitPeriod, int limitCount)
+    throws Throwable {
+    boolean status = true;
+    try {
+      status = limitExecutor.tryAccess(key, limitPeriod, limitCount);
+    } catch (Exception e) {
+      if (limitProperties.getAop().getExceptionIgnore()) {
+        log.error("Exception occurs while Limit", e);
+        return invocation.proceed();
+      } else {
+        throw e;
+      }
     }
 
-    @Override
-    public Object invoke(MethodInvocation invocation, String key, int limitPeriod, int limitCount) throws Throwable {
-        boolean status = true;
-        try {
-            status = limitExecutor.tryAccess(key, limitPeriod, limitCount);
-        } catch (Exception e) {
-            if (limitProperties.getAop().getExceptionIgnore()) {
-                log.error("Exception occurs while Limit", e);
-                return invocation.proceed();
-            } else {
-                throw e;
-            }
-        }
-
-        if (status) {
-            return invocation.proceed();
-        } else {
-            throw new RequestReachMaxLimitException();
-        }
+    if (status) {
+      return invocation.proceed();
+    } else {
+      throw new RequestReachMaxLimitException();
     }
+  }
 }

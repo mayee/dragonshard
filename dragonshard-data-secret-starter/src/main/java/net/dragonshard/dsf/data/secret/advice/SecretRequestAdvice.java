@@ -13,7 +13,19 @@
 
 package net.dragonshard.dsf.data.secret.advice;
 
+import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.ALGORITHM_AES;
+import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.ALGORITHM_RSA;
+import static net.dragonshard.dsf.web.core.enums.DsfErrorCodeEnum.SECRET_DECRYPT_BODY_FAIL;
+
 import com.google.common.collect.Sets;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Type;
+import java.nio.charset.Charset;
+import java.security.Provider;
+import java.util.Set;
 import lombok.extern.slf4j.Slf4j;
 import net.dragonshard.dsf.data.secret.algorithm.AbstractRequestDecrypt;
 import net.dragonshard.dsf.data.secret.algorithm.RequestAESDecrypt;
@@ -35,19 +47,6 @@ import org.springframework.util.StreamUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.RequestBodyAdviceAdapter;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Type;
-import java.nio.charset.Charset;
-import java.security.Provider;
-import java.util.Set;
-
-import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.ALGORITHM_AES;
-import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.ALGORITHM_RSA;
-import static net.dragonshard.dsf.web.core.enums.DsfErrorCodeEnum.SECRET_DECRYPT_BODY_FAIL;
-
 
 /**
  * 执行于convertMessage之前
@@ -61,135 +60,139 @@ import static net.dragonshard.dsf.web.core.enums.DsfErrorCodeEnum.SECRET_DECRYPT
 @Order(1)
 @ConditionalOnProperty(prefix = "dragonshard.secret", name = "enabled", matchIfMissing = true)
 public class SecretRequestAdvice extends RequestBodyAdviceAdapter {
-    @Autowired
-    private AESProperties aesProperties;
-    @Autowired
-    private RSAProperties rsaProperties;
 
-    // 支持的加密算法
-    private final Set<String> ALGORITHM_SET = Sets.newHashSet(
-            ALGORITHM_AES,
-            ALGORITHM_RSA
-    );
+  @Autowired
+  private AESProperties aesProperties;
+  @Autowired
+  private RSAProperties rsaProperties;
 
-    /**
-     * 是否支持加密消息体
-     *
-     * @param methodParameter methodParameter
-     * @return true/false
-     */
-    private boolean supportSecretRequest(MethodParameter methodParameter) {
-        Class currentClass = methodParameter.getContainingClass();
+  // 支持的加密算法
+  private final Set<String> ALGORITHM_SET = Sets.newHashSet(
+    ALGORITHM_AES,
+    ALGORITHM_RSA
+  );
 
-        //类注解
-        Annotation classAnnotation = currentClass.getAnnotation(SecretBody.class);
-        //方法注解
-        SecretBody methodAnnotation = methodParameter.getMethodAnnotation(SecretBody.class);
-        //如果类与方法均不存在注解，则排除
-        if (classAnnotation == null && methodAnnotation == null) {
-            return false;
-        }
+  /**
+   * 是否支持加密消息体
+   *
+   * @param methodParameter methodParameter
+   * @return true/false
+   */
+  private boolean supportSecretRequest(MethodParameter methodParameter) {
+    Class currentClass = methodParameter.getContainingClass();
 
-        boolean classAnnotationCheck = classAnnotation != null
-                && (
-                // 含有排除标识
-                ((SecretBody) classAnnotation).exclude()
-                        // 或者是不支持的加密类型
-                        || notSupportAlgorithm(((SecretBody) classAnnotation).value()));
-        if (classAnnotationCheck) {
-            return false;
-        }
-
-        boolean methodAnnotationCheck = methodAnnotation != null
-                && (
-                // 含有排除标识
-                methodAnnotation.exclude()
-                        // 或者是不支持的加密类型
-                        || notSupportAlgorithm(methodAnnotation.value()));
-        if (methodAnnotationCheck) {
-            return false;
-        }
-
-        return true;
+    //类注解
+    Annotation classAnnotation = currentClass.getAnnotation(SecretBody.class);
+    //方法注解
+    SecretBody methodAnnotation = methodParameter.getMethodAnnotation(SecretBody.class);
+    //如果类与方法均不存在注解，则排除
+    if (classAnnotation == null && methodAnnotation == null) {
+      return false;
     }
 
-    @Override
-    public boolean supports(MethodParameter methodParameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) {
-        return supportSecretRequest(methodParameter);
+    boolean classAnnotationCheck = classAnnotation != null
+      && (
+      // 含有排除标识
+      ((SecretBody) classAnnotation).exclude()
+        // 或者是不支持的加密类型
+        || notSupportAlgorithm(((SecretBody) classAnnotation).value()));
+    if (classAnnotationCheck) {
+      return false;
     }
 
-    @Override
-    public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter, Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
-        String httpBody = decryptBody(inputMessage, parameter);
-        if (httpBody == null) {
-            throw new SecretRequestDecryptException(SECRET_DECRYPT_BODY_FAIL.msg());
+    boolean methodAnnotationCheck = methodAnnotation != null
+      && (
+      // 含有排除标识
+      methodAnnotation.exclude()
+        // 或者是不支持的加密类型
+        || notSupportAlgorithm(methodAnnotation.value()));
+    if (methodAnnotationCheck) {
+      return false;
+    }
+
+    return true;
+  }
+
+  @Override
+  public boolean supports(MethodParameter methodParameter, Type targetType,
+    Class<? extends HttpMessageConverter<?>> converterType) {
+    return supportSecretRequest(methodParameter);
+  }
+
+  @Override
+  public HttpInputMessage beforeBodyRead(HttpInputMessage inputMessage, MethodParameter parameter,
+    Type targetType, Class<? extends HttpMessageConverter<?>> converterType) throws IOException {
+    String httpBody = decryptBody(inputMessage, parameter);
+    if (httpBody == null) {
+      throw new SecretRequestDecryptException(SECRET_DECRYPT_BODY_FAIL.msg());
+    }
+    return new SecretHttpMessage(new ByteArrayInputStream(httpBody.getBytes()),
+      inputMessage.getHeaders());
+  }
+
+  /**
+   * 解密消息体
+   *
+   * @param inputMessage 消息体
+   * @return 明文
+   */
+  private String decryptBody(HttpInputMessage inputMessage, MethodParameter parameter) {
+    try {
+      InputStream encryptStream = inputMessage.getBody();
+      String encryptBody = StreamUtils.copyToString(encryptStream, Charset.defaultCharset());
+
+      if (log.isDebugEnabled()) {
+        log.debug("Decrypt body for input > {}", encryptBody);
+      }
+
+      SecretBody secretBodyAnnotation = (SecretBody) getAlgorithmValue(parameter);
+      if (secretBodyAnnotation != null) {
+        String algorithmName = secretBodyAnnotation.value();
+        String ciphertextType = secretBodyAnnotation.ciphertextType();
+        if (ALGORITHM_AES.equalsIgnoreCase(algorithmName)) {
+          AESKey aesKey = new AESKey(aesProperties.getKey());
+          AbstractRequestDecrypt requestDecrypt = new RequestAESDecrypt(ciphertextType, aesKey);
+          return requestDecrypt.decryptBody(encryptBody);
+        } else if (ALGORITHM_RSA.equalsIgnoreCase(algorithmName)) {
+          RSAKey rsaKey = new RSAKey(
+            rsaProperties.getPublicKey(),
+            rsaProperties.getPrivateKey(),
+            rsaProperties.getModulus(),
+            null
+          );
+          Class<? extends Provider>[] providerClass = secretBodyAnnotation.providerClass();
+          if (providerClass.length > 0) {
+            rsaKey.setProviderClass(providerClass[0]);
+          }
+          AbstractRequestDecrypt requestDecrypt = new RequestRSADecrypt(ciphertextType, rsaKey);
+          return requestDecrypt.decryptBody(encryptBody);
         }
-        return new SecretHttpMessage(new ByteArrayInputStream(httpBody.getBytes()), inputMessage.getHeaders());
+      } else {
+        return encryptBody;
+      }
+
+    } catch (Exception e) {
+      log.warn(e.getMessage());
     }
+    return null;
+  }
 
-    /**
-     * 解密消息体
-     *
-     * @param inputMessage 消息体
-     * @return 明文
-     */
-    private String decryptBody(HttpInputMessage inputMessage, MethodParameter parameter) {
-        try {
-            InputStream encryptStream = inputMessage.getBody();
-            String encryptBody = StreamUtils.copyToString(encryptStream, Charset.defaultCharset());
-
-            if (log.isDebugEnabled()) {
-                log.debug("Decrypt body for input > {}", encryptBody);
-            }
-
-            SecretBody secretBodyAnnotation = (SecretBody) getAlgorithmValue(parameter);
-            if(secretBodyAnnotation != null){
-                String algorithmName = secretBodyAnnotation.value();
-                String ciphertextType = secretBodyAnnotation.ciphertextType();
-                if(ALGORITHM_AES.equalsIgnoreCase(algorithmName)){
-                    AESKey aesKey = new AESKey(aesProperties.getKey());
-                    AbstractRequestDecrypt requestDecrypt = new RequestAESDecrypt(ciphertextType, aesKey);
-                    return requestDecrypt.decryptBody(encryptBody);
-                }else if(ALGORITHM_RSA.equalsIgnoreCase(algorithmName)){
-                    RSAKey rsaKey = new RSAKey(
-                            rsaProperties.getPublicKey(),
-                            rsaProperties.getPrivateKey(),
-                            rsaProperties.getModulus(),
-                            null
-                    );
-                    Class<? extends Provider>[] providerClass = secretBodyAnnotation.providerClass();
-                    if(providerClass.length > 0){
-                        rsaKey.setProviderClass(providerClass[0]);
-                    }
-                    AbstractRequestDecrypt requestDecrypt = new RequestRSADecrypt(ciphertextType, rsaKey);
-                    return requestDecrypt.decryptBody(encryptBody);
-                }
-            }else{
-                return encryptBody;
-            }
-
-        } catch (Exception e) {
-            log.warn(e.getMessage());
-        }
-        return null;
+  private SecretBody getAlgorithmValue(MethodParameter parameter) {
+    // 先找方法注解
+    SecretBody methodAnnotation = parameter.getMethodAnnotation(SecretBody.class);
+    if (methodAnnotation != null && !methodAnnotation.exclude()) {
+      return methodAnnotation;
     }
-
-    private SecretBody getAlgorithmValue(MethodParameter parameter){
-        // 先找方法注解
-        SecretBody methodAnnotation = parameter.getMethodAnnotation(SecretBody.class);
-        if(methodAnnotation != null && !methodAnnotation.exclude()){
-            return methodAnnotation;
-        }
-        Class currentClass = parameter.getContainingClass();
-        Annotation classAnnotation = currentClass.getAnnotation(SecretBody.class);
-        if(classAnnotation != null){
-            return (SecretBody) classAnnotation;
-        }
-        return null;
+    Class currentClass = parameter.getContainingClass();
+    Annotation classAnnotation = currentClass.getAnnotation(SecretBody.class);
+    if (classAnnotation != null) {
+      return (SecretBody) classAnnotation;
     }
+    return null;
+  }
 
-    private boolean notSupportAlgorithm(String algorithmName){
-        return !ALGORITHM_SET.contains(algorithmName.toUpperCase());
-    }
+  private boolean notSupportAlgorithm(String algorithmName) {
+    return !ALGORITHM_SET.contains(algorithmName.toUpperCase());
+  }
 
 }

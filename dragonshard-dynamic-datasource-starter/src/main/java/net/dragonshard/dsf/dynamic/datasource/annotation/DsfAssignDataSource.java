@@ -13,7 +13,11 @@
 package net.dragonshard.dsf.dynamic.datasource.annotation;
 
 
-import java.lang.annotation.*;
+import java.lang.annotation.Documented;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
  * 注解在类上或方法上来切换数据源
@@ -26,10 +30,10 @@ import java.lang.annotation.*;
 @Documented
 public @interface DsfAssignDataSource {
 
-    /**
-     * 组名或者具体数据源名称或者spel参数(#开头)
-     *
-     * @return 数据源名称
-     */
-    String value();
+  /**
+   * 组名或者具体数据源名称或者spel参数(#开头)
+   *
+   * @return 数据源名称
+   */
+  String value();
 }

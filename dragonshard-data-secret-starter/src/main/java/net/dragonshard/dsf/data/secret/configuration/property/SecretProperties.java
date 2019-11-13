@@ -22,23 +22,23 @@ import org.springframework.stereotype.Component;
  * 加密消息检验配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.secret")
 @Data
 public class SecretProperties {
-    /**
-     * 是否开启
-     */
-    private boolean enabled = true;
 
-    @NestedConfigurationProperty
-    private AESProperties aes = new AESProperties();
+  /**
+   * 是否开启
+   */
+  private boolean enabled = true;
 
-    @NestedConfigurationProperty
-    private RSAProperties rsa = new RSAProperties();
+  @NestedConfigurationProperty
+  private AESProperties aes = new AESProperties();
+
+  @NestedConfigurationProperty
+  private RSAProperties rsa = new RSAProperties();
 
 }

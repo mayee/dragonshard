@@ -22,31 +22,30 @@ import org.springframework.stereotype.Component;
  * 限流配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.limit")
 @Data
 public class LimitProperties {
 
-    /**
-     * 是否开启
-     */
-    private boolean enabled;
+  /**
+   * 是否开启
+   */
+  private boolean enabled;
 
-    /**
-     * 前缀, 默认 DsfLimit
-     */
-    private String prefix = "DsfLimit";
+  /**
+   * 前缀, 默认 DsfLimit
+   */
+  private String prefix = "DsfLimit";
 
-    /**
-     * 限流类型, local 或 redis
-     */
-    private String type;
+  /**
+   * 限流类型, local 或 redis
+   */
+  private String type;
 
-    @NestedConfigurationProperty
-    private AopProperties aop = new AopProperties();
+  @NestedConfigurationProperty
+  private AopProperties aop = new AopProperties();
 
 }

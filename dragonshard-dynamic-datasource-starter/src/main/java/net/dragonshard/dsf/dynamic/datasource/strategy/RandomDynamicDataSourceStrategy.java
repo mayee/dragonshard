@@ -12,9 +12,9 @@
  */
 package net.dragonshard.dsf.dynamic.datasource.strategy;
 
-import javax.sql.DataSource;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
+import javax.sql.DataSource;
 
 /**
  * 随机策略
@@ -24,8 +24,8 @@ import java.util.concurrent.ThreadLocalRandom;
  */
 public class RandomDynamicDataSourceStrategy implements DynamicDataSourceStrategy {
 
-    @Override
-    public DataSource determineDataSource(List<DataSource> dataSources) {
-        return dataSources.get(ThreadLocalRandom.current().nextInt(dataSources.size()));
-    }
+  @Override
+  public DataSource determineDataSource(List<DataSource> dataSources) {
+    return dataSources.get(ThreadLocalRandom.current().nextInt(dataSources.size()));
+  }
 }

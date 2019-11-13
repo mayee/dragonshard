@@ -21,16 +21,15 @@ import org.springframework.stereotype.Component;
  * ExponentialBackoffRetry 配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.id-generator.zookeeper.curator.retry-n-times")
 @Data
 public class RetryNTimesProperties {
 
-    private Integer count = 10;
-    private Integer sleepMsBetweenRetries = 2000;
+  private Integer count = 10;
+  private Integer sleepMsBetweenRetries = 2000;
 
 }

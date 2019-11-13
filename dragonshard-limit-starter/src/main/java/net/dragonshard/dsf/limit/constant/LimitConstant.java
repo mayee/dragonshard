@@ -17,15 +17,15 @@ package net.dragonshard.dsf.limit.constant;
  * 常量
  *
  * @author mayee
- * @date 2019-07-17
- *
  * @version v1.0
+ * @date 2019-07-17
  **/
 public class LimitConstant {
-    public static final String LIMIT_ENABLED = "dragonshard.limit.enabled";
 
-    public static final String LIMIT_TYPE = "dragonshard.limit.type";
+  public static final String LIMIT_ENABLED = "dragonshard.limit.enabled";
 
-    public static final String LIMIT_TYPE_REDIS = "redis";
-    public static final String LIMIT_TYPE_LOCAL = "local";
+  public static final String LIMIT_TYPE = "dragonshard.limit.type";
+
+  public static final String LIMIT_TYPE_REDIS = "redis";
+  public static final String LIMIT_TYPE_LOCAL = "local";
 }

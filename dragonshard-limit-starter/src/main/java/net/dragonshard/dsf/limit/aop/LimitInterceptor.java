@@ -14,6 +14,9 @@
 package net.dragonshard.dsf.limit.aop;
 
 import com.nepxion.matrix.proxy.aop.AbstractInterceptor;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
+import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import net.dragonshard.dsf.core.toolkit.ExceptionUtils;
 import net.dragonshard.dsf.core.toolkit.KeyUtil;
@@ -23,74 +26,72 @@ import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.annotation.Resource;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
-
 /**
  * 拦截器
  *
  * @author mayee
- * @date 2019-07-16
- *
  * @version v1.0
+ * @date 2019-07-16
  **/
 @Slf4j
 public class LimitInterceptor extends AbstractInterceptor {
 
-    @Autowired
-    private LimitProperties limitProperties;
-    @Resource
-    private LimitDelegate limitDelegate;
+  @Autowired
+  private LimitProperties limitProperties;
+  @Resource
+  private LimitDelegate limitDelegate;
 
-    @Override
-    public Object invoke(MethodInvocation invocation) throws Throwable {
-        Limit limitAnnotation = getLimitAnnotation(invocation);
-        if (limitAnnotation != null) {
-            String name = limitAnnotation.name();
-            String key = limitAnnotation.key();
-            int limitPeriod = limitAnnotation.limitPeriod();
-            int limitCount = limitAnnotation.limitCount();
+  @Override
+  public Object invoke(MethodInvocation invocation) throws Throwable {
+    Limit limitAnnotation = getLimitAnnotation(invocation);
+    if (limitAnnotation != null) {
+      String name = limitAnnotation.name();
+      String key = limitAnnotation.key();
+      int limitPeriod = limitAnnotation.limitPeriod();
+      int limitCount = limitAnnotation.limitCount();
 
-            return invoke(invocation, limitAnnotation, name, key, limitPeriod, limitCount);
-        }
-
-        return invocation.proceed();
+      return invoke(invocation, limitAnnotation, name, key, limitPeriod, limitCount);
     }
 
-    private Limit getLimitAnnotation(MethodInvocation invocation) {
-        Method method = invocation.getMethod();
-        if (method.isAnnotationPresent(Limit.class)) {
-            return method.getAnnotation(Limit.class);
-        }
+    return invocation.proceed();
+  }
 
-        return null;
+  private Limit getLimitAnnotation(MethodInvocation invocation) {
+    Method method = invocation.getMethod();
+    if (method.isAnnotationPresent(Limit.class)) {
+      return method.getAnnotation(Limit.class);
     }
 
-    private Object invoke(MethodInvocation invocation, Annotation annotation, String name, String key, int limitPeriod, int limitCount) throws Throwable {
-        if (StringUtils.isEmpty(name)) {
-            throw ExceptionUtils.get("Annotation [Limit]'s name is null or empty");
-        }
+    return null;
+  }
 
-        if (StringUtils.isEmpty(key)) {
-            throw ExceptionUtils.get("Annotation [Limit]'s key is null or empty");
-        }
-
-        String spelKey = null;
-        try {
-            spelKey = getSpelKey(invocation, key);
-        } catch (Exception e) {
-            spelKey = key;
-        }
-        String compositeKey = KeyUtil.getCompositeKey(limitProperties.getPrefix(), name, spelKey);
-
-        if (log.isDebugEnabled()) {
-            String proxyType = getProxyType(invocation);
-            String proxiedClassName = getProxiedClassName(invocation);
-            String methodName = getMethodName(invocation);
-            log.debug("Intercepted for annotation - Limit [key={}, limitPeriod={}, limitCount={}, proxyType={}, proxiedClass={}, method={}]", compositeKey, limitPeriod, limitCount, proxyType, proxiedClassName, methodName);
-        }
-
-        return limitDelegate.invoke(invocation, compositeKey, limitPeriod, limitCount);
+  private Object invoke(MethodInvocation invocation, Annotation annotation, String name, String key,
+    int limitPeriod, int limitCount) throws Throwable {
+    if (StringUtils.isEmpty(name)) {
+      throw ExceptionUtils.get("Annotation [Limit]'s name is null or empty");
     }
+
+    if (StringUtils.isEmpty(key)) {
+      throw ExceptionUtils.get("Annotation [Limit]'s key is null or empty");
+    }
+
+    String spelKey = null;
+    try {
+      spelKey = getSpelKey(invocation, key);
+    } catch (Exception e) {
+      spelKey = key;
+    }
+    String compositeKey = KeyUtil.getCompositeKey(limitProperties.getPrefix(), name, spelKey);
+
+    if (log.isDebugEnabled()) {
+      String proxyType = getProxyType(invocation);
+      String proxiedClassName = getProxiedClassName(invocation);
+      String methodName = getMethodName(invocation);
+      log.debug(
+        "Intercepted for annotation - Limit [key={}, limitPeriod={}, limitCount={}, proxyType={}, proxiedClass={}, method={}]",
+        compositeKey, limitPeriod, limitCount, proxyType, proxiedClassName, methodName);
+    }
+
+    return limitDelegate.invoke(invocation, compositeKey, limitPeriod, limitCount);
+  }
 }

@@ -17,26 +17,26 @@ package net.dragonshard.dsf.limit.exception;
  * 请求达到上限异常
  *
  * @author mayee
- * @date 2019-07-01
- *
  * @version v1.0
+ * @date 2019-07-01
  **/
 public class RequestReachMaxLimitException extends RuntimeException {
-    private static final long serialVersionUID = -141175108507800840L;
 
-    public RequestReachMaxLimitException() {
-        super();
-    }
+  private static final long serialVersionUID = -141175108507800840L;
 
-    public RequestReachMaxLimitException(String message) {
-        super(message);
-    }
+  public RequestReachMaxLimitException() {
+    super();
+  }
 
-    public RequestReachMaxLimitException(String message, Throwable cause) {
-        super(message, cause);
-    }
+  public RequestReachMaxLimitException(String message) {
+    super(message);
+  }
 
-    public RequestReachMaxLimitException(Throwable cause) {
-        super(cause);
-    }
+  public RequestReachMaxLimitException(String message, Throwable cause) {
+    super(message, cause);
+  }
+
+  public RequestReachMaxLimitException(Throwable cause) {
+    super(cause);
+  }
 }

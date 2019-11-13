@@ -21,28 +21,28 @@ import org.springframework.stereotype.Component;
  * 加密消息检验配置(AES)
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.secret.aes")
 @Data
 public class AESProperties {
-    /**
-     * 是否开启
-     */
-    private boolean enabled;
 
-    /**
-     * 密钥
-     */
-    private String key;
+  /**
+   * 是否开启
+   */
+  private boolean enabled;
 
-    /**
-     * 相关数据
-     */
-    private String associatedData;
+  /**
+   * 密钥
+   */
+  private String key;
+
+  /**
+   * 相关数据
+   */
+  private String associatedData;
 
 
 }

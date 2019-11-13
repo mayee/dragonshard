@@ -22,19 +22,18 @@ import org.springframework.stereotype.Component;
  * ID生成器配置
  *
  * @author mayee
- * @date 2019-07-08
- *
  * @version v1.0
+ * @date 2019-07-08
  **/
 @Component
 @ConfigurationProperties(prefix = "dragonshard.id-generator")
 @Data
 public class IdGeneratorProperties {
 
-    @NestedConfigurationProperty
-    private LocalIdGeneratorProperties local = new LocalIdGeneratorProperties();
+  @NestedConfigurationProperty
+  private LocalIdGeneratorProperties local = new LocalIdGeneratorProperties();
 
-    @NestedConfigurationProperty
-    private RedisIdGeneratorProperties redis = new RedisIdGeneratorProperties();
+  @NestedConfigurationProperty
+  private RedisIdGeneratorProperties redis = new RedisIdGeneratorProperties();
 
 }

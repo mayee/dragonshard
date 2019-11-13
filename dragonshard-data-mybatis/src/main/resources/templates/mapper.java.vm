@@ -11,9 +11,10 @@
  *   limitations under the License.
  */
 package ${package.Mapper};
-
-import ${package.Entity}.${entity};
-import ${superMapperClassPackage};
+${package.Entity}
+  .${entity};
+  ${superMapperClassPackage}
+  ;
 
 /**
  * <p>
@@ -27,5 +28,5 @@ interface ${table.mapperName} : ${superMapperClass}<${entity}>
 #else
 public interface ${table.mapperName} extends ${superMapperClass}<${entity}> {
 
-}
+  }
 #end

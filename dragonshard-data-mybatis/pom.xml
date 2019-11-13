@@ -1,68 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <parent>
-        <artifactId>dragonshard</artifactId>
-        <groupId>net.dragonshard</groupId>
-        <version>${revision}</version>
-    </parent>
+  <parent>
+    <artifactId>dragonshard</artifactId>
+    <groupId>net.dragonshard</groupId>
+    <version>${revision}</version>
+  </parent>
 
-    <artifactId>dragonshard-data-mybatis</artifactId>
-    <packaging>jar</packaging>
+  <artifactId>dragonshard-data-mybatis</artifactId>
+  <packaging>jar</packaging>
 
-    <name>dragonshard-data-mybatis</name>
-    <url>https://dragonshard.net</url>
+  <name>dragonshard-data-mybatis</name>
+  <url>https://dragonshard.net</url>
 
 
-    <dependencies>
-        <dependency>
-            <groupId>net.dragonshard</groupId>
-            <artifactId>dragonshard-web-core-starter</artifactId>
-        </dependency>
+  <dependencies>
+    <dependency>
+      <groupId>net.dragonshard</groupId>
+      <artifactId>dragonshard-web-core-starter</artifactId>
+    </dependency>
 
-        <!--mybatis-plus-->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-generator</artifactId>
-        </dependency>
+    <!--mybatis-plus-->
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-boot-starter</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.baomidou</groupId>
+      <artifactId>mybatis-plus-generator</artifactId>
+    </dependency>
 
-        <dependency>
-            <groupId>org.apache.velocity</groupId>
-            <artifactId>velocity-engine-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-bean-validators</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.mapstruct</groupId>
-                    <artifactId>mapstruct</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.google.code.findbugs</groupId>
-                    <artifactId>jsr305</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.javassist</groupId>
-                    <artifactId>javassist</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <dependency>
+      <groupId>org.apache.velocity</groupId>
+      <artifactId>velocity-engine-core</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-bean-validators</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>io.springfox</groupId>
+      <artifactId>springfox-swagger2</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.mapstruct</groupId>
+          <artifactId>mapstruct</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.code.findbugs</groupId>
+          <artifactId>jsr305</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.javassist</groupId>
+          <artifactId>javassist</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 
 </project>

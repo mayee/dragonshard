@@ -26,11 +26,11 @@ import net.dragonshard.dsf.data.secret.algorithm.key.SecretKey;
 @Data
 public abstract class AbstractRequestDecrypt {
 
-    SecretKey secretKey;
-    BodyDecrypt bodyDecrypt;
+  SecretKey secretKey;
+  BodyDecrypt bodyDecrypt;
 
-    public String decryptBody(String input){
-        return bodyDecrypt.decryptBody(input, secretKey);
-    }
+  public String decryptBody(String input) {
+    return bodyDecrypt.decryptBody(input, secretKey);
+  }
 
 }

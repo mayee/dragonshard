@@ -12,54 +12,49 @@
  */
 package net.dragonshard.dsf.web.core.bean;
 
+import static net.dragonshard.dsf.web.core.common.WebCoreConstants.LOG.DSF_API_TRACE_ID;
+
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import javax.servlet.http.HttpServletRequest;
 import net.dragonshard.dsf.web.core.framework.model.BizErrorCode;
 import net.dragonshard.dsf.web.core.framework.util.ResponseUtils;
 import org.springframework.http.HttpStatus;
 
-import javax.servlet.http.HttpServletRequest;
-import java.io.Serializable;
-import java.time.LocalDateTime;
-
-import static net.dragonshard.dsf.web.core.common.WebCoreConstants.LOG.DSF_API_TRACE_ID;
-
 /**
- * GET: 200 OK
- * POST: 201 Created
- * PUT: 200 OK
- * PATCH: 200 OK
- * DELETE: 204 No Content
- * 接口返回(多态)
+ * GET: 200 OK POST: 201 Created PUT: 200 OK PATCH: 200 OK DELETE: 204 No Content 接口返回(多态)
  *
  * @author Caratacus
  * @author Mayee
  */
 public class Result<T> implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    public static Result<Void> success(HttpStatus status) {
-        return SuccessResult.<Void>builder().status(status.value()).build();
+  public static Result<Void> success(HttpStatus status) {
+    return SuccessResult.<Void>builder().status(status.value()).build();
 
-    }
+  }
 
-    public static <T> Result<T> success(T object) {
-        return success(object, HttpStatus.OK);
+  public static <T> Result<T> success(T object) {
+    return success(object, HttpStatus.OK);
 
-    }
+  }
 
-    public static <T> Result<T> success(T object, HttpStatus status) {
-        return SuccessResult.<T>builder().status(status.value()).data(object).build();
+  public static <T> Result<T> success(T object, HttpStatus status) {
+    return SuccessResult.<T>builder().status(status.value()).data(object).build();
 
-    }
+  }
 
-    public static Result failure(HttpServletRequest request, BizErrorCode errorCode, Exception exception) {
-        return ResponseUtils.exceptionMsg(FailedResult.builder().msg(errorCode.getMsg()), exception)
-                .traceId((String) request.getAttribute(DSF_API_TRACE_ID))
-                .code(errorCode.getError())
-                .show(errorCode.isShow())
-                .time(LocalDateTime.now())
-                .status(errorCode.getHttpCode())
-                .build();
-    }
+  public static Result failure(HttpServletRequest request, BizErrorCode errorCode,
+    Exception exception) {
+    return ResponseUtils.exceptionMsg(FailedResult.builder().msg(errorCode.getMsg()), exception)
+      .traceId((String) request.getAttribute(DSF_API_TRACE_ID))
+      .code(errorCode.getError())
+      .show(errorCode.isShow())
+      .time(LocalDateTime.now())
+      .status(errorCode.getHttpCode())
+      .build();
+  }
 
 }

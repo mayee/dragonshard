@@ -25,11 +25,12 @@ import net.dragonshard.dsf.core.toolkit.StringUtils;
  **/
 public class DsfP6SpyLogger implements MessageFormattingStrategy {
 
-    @Override
-    public String formatMessage(final int connectionId, final String now, final long elapsed, final String category, final String prepared, final String sql, final String url) {
-        return StringUtils.isNotEmpty(sql) ? "P6SPY Consume Time > " + elapsed + " ms " +
-                "\nP6SPY Execute SQL  > " + P6Util.singleLine(sql) + "\n" : null;
-    }
+  @Override
+  public String formatMessage(final int connectionId, final String now, final long elapsed,
+    final String category, final String prepared, final String sql, final String url) {
+    return StringUtils.isNotEmpty(sql) ? "P6SPY Consume Time > " + elapsed + " ms " +
+      "\nP6SPY Execute SQL  > " + P6Util.singleLine(sql) + "\n" : null;
+  }
 
 
 }

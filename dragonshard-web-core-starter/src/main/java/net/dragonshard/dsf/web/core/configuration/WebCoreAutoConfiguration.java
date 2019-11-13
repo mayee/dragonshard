@@ -13,9 +13,9 @@
 
 package net.dragonshard.dsf.web.core.configuration;
 
+import lombok.extern.slf4j.Slf4j;
 import net.dragonshard.dsf.web.core.configuration.property.WebCoreProperties;
 import net.dragonshard.dsf.web.core.filter.RequestConvertFilter;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
@@ -28,40 +28,39 @@ import org.springframework.context.annotation.Import;
  * 启动类
  *
  * @author mayee
- * @date 2019-07-18
- *
  * @version v1.0
+ * @date 2019-07-18
  **/
 @Slf4j
 @Configuration
 @Import({
-        JacksonAutoConfiguration.class,
-        WebCoreProperties.class
+  JacksonAutoConfiguration.class,
+  WebCoreProperties.class
 })
 @ConditionalOnProperty(prefix = "dragonshard.web-core", name = "enabled", havingValue = "true", matchIfMissing = true)
 public class WebCoreAutoConfiguration {
 
-    @Value("${server.servlet.context-path:/}")
-    private String contextPath;
+  @Value("${server.servlet.context-path:/}")
+  private String contextPath;
 
-    private final WebCoreProperties webCoreProperties;
+  private final WebCoreProperties webCoreProperties;
 
-    @Autowired
-    public WebCoreAutoConfiguration(WebCoreProperties webCoreProperties) {
-        this.webCoreProperties = webCoreProperties;
-    }
+  @Autowired
+  public WebCoreAutoConfiguration(WebCoreProperties webCoreProperties) {
+    this.webCoreProperties = webCoreProperties;
+  }
 
-    @Bean
-    @ConditionalOnMissingBean
-    public WebCoreMvcAutoConfiguration webMvcConfiguration() {
-        return new WebCoreMvcAutoConfiguration(webCoreProperties);
-    }
+  @Bean
+  @ConditionalOnMissingBean
+  public WebCoreMvcAutoConfiguration webMvcConfiguration() {
+    return new WebCoreMvcAutoConfiguration(webCoreProperties);
+  }
 
-    @Bean
-    @ConditionalOnMissingBean
-    public RequestConvertFilter requestConvertFilter() {
-        return new RequestConvertFilter();
-    }
+  @Bean
+  @ConditionalOnMissingBean
+  public RequestConvertFilter requestConvertFilter() {
+    return new RequestConvertFilter();
+  }
 
 
 }

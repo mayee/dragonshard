@@ -28,28 +28,28 @@ import org.springframework.http.ResponseEntity;
  **/
 public class WebController extends AbstractWebController {
 
-    @Override
-    public <T> ResponseEntity<Result<T>> success(T object) {
-        return success(object, null, HttpStatus.OK);
-    }
+  @Override
+  public <T> ResponseEntity<Result<T>> success(T object) {
+    return success(object, null, HttpStatus.OK);
+  }
 
-    @Override
-    public ResponseEntity success() {
-        return success(HttpStatus.OK);
-    }
+  @Override
+  public ResponseEntity success() {
+    return success(HttpStatus.OK);
+  }
 
-    @Override
-    public <T> ResponseEntity<Result<T>> success(T object, HttpHeaders headers, HttpStatus status) {
-        return new ResponseEntity<Result<T>>(
-                SuccessResult.<T>builder().data(object).status(status.value()).build(), headers, status);
-    }
+  @Override
+  public <T> ResponseEntity<Result<T>> success(T object, HttpHeaders headers, HttpStatus status) {
+    return new ResponseEntity<Result<T>>(
+      SuccessResult.<T>builder().data(object).status(status.value()).build(), headers, status);
+  }
 
-    @Override
-    public <T> ResponseEntity<Result<T>> success(HttpStatus status) {
-        HttpHeaders httpHeaders = new HttpHeaders();
-        httpHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
-        return new ResponseEntity<Result<T>>(
-                SuccessResult.<T>builder().status(status.value()).build(), httpHeaders, status);
-    }
+  @Override
+  public <T> ResponseEntity<Result<T>> success(HttpStatus status) {
+    HttpHeaders httpHeaders = new HttpHeaders();
+    httpHeaders.setContentType(MediaType.APPLICATION_JSON_UTF8);
+    return new ResponseEntity<Result<T>>(
+      SuccessResult.<T>builder().status(status.value()).build(), httpHeaders, status);
+  }
 
 }

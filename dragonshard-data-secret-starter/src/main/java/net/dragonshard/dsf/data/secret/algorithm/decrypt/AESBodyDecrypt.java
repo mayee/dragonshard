@@ -14,38 +14,37 @@
 package net.dragonshard.dsf.data.secret.algorithm.decrypt;
 
 
+import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.CIPHERTEXT_TYPE_BASE64;
+import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.CIPHERTEXT_TYPE_HEX;
+
 import net.dragonshard.dsf.core.toolkit.EncryptUtils;
 import net.dragonshard.dsf.data.secret.algorithm.key.AESKey;
 import net.dragonshard.dsf.data.secret.algorithm.key.SecretKey;
-
-import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.CIPHERTEXT_TYPE_BASE64;
-import static net.dragonshard.dsf.web.core.common.WebCoreConstants.SECRET.CIPHERTEXT_TYPE_HEX;
 
 /**
  * 消息体解密
  *
  * @author mayee
- * @date 2019-05-03
- *
  * @version v1.0
+ * @date 2019-05-03
  **/
 public class AESBodyDecrypt implements BodyDecrypt {
 
-    private String ciphertextType;
+  private String ciphertextType;
 
-    public AESBodyDecrypt(String ciphertextType) {
-        this.ciphertextType = ciphertextType;
-    }
+  public AESBodyDecrypt(String ciphertextType) {
+    this.ciphertextType = ciphertextType;
+  }
 
-    @Override
-    public String decryptBody(String input, SecretKey secretKey) {
-        AESKey aesKey = (AESKey) secretKey;
-        if (CIPHERTEXT_TYPE_BASE64.equalsIgnoreCase(ciphertextType)) {
-            return EncryptUtils.aesDecryptBase64(input, aesKey.getKey());
-        } else if (CIPHERTEXT_TYPE_HEX.equalsIgnoreCase(ciphertextType)) {
-            return EncryptUtils.aesDecryptHex(input, aesKey.getKey());
-        }
-        return null;
+  @Override
+  public String decryptBody(String input, SecretKey secretKey) {
+    AESKey aesKey = (AESKey) secretKey;
+    if (CIPHERTEXT_TYPE_BASE64.equalsIgnoreCase(ciphertextType)) {
+      return EncryptUtils.aesDecryptBase64(input, aesKey.getKey());
+    } else if (CIPHERTEXT_TYPE_HEX.equalsIgnoreCase(ciphertextType)) {
+      return EncryptUtils.aesDecryptHex(input, aesKey.getKey());
     }
+    return null;
+  }
 
 }

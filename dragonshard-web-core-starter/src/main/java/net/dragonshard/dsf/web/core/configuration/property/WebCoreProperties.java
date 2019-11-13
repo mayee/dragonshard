@@ -22,24 +22,24 @@ import org.springframework.stereotype.Component;
  * web-core 配置文件
  *
  * @author mayee
- * @date 2019-06-28
- *
  * @version v1.0
+ * @date 2019-06-28
  **/
 @Data
 @Component
 @ConfigurationProperties(prefix = "dragonshard.web-core")
 public class WebCoreProperties {
-    /**
-     * 是否开启
-     */
-    private boolean enabled = true;
 
-    @NestedConfigurationProperty
-    private JacksonProperties jackson = new JacksonProperties();
+  /**
+   * 是否开启
+   */
+  private boolean enabled = true;
 
-    @NestedConfigurationProperty
-    private VersionProperties version = new VersionProperties();
+  @NestedConfigurationProperty
+  private JacksonProperties jackson = new JacksonProperties();
+
+  @NestedConfigurationProperty
+  private VersionProperties version = new VersionProperties();
 
 
 }

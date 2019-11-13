@@ -14,21 +14,22 @@
 package net.dragonshard.dsf.id.generator.zookeeper.exception;
 
 public class CuratorException extends RuntimeException {
-    private static final long serialVersionUID = 851864048447611118L;
 
-    public CuratorException() {
-        super();
-    }
+  private static final long serialVersionUID = 851864048447611118L;
 
-    public CuratorException(String message) {
-        super(message);
-    }
+  public CuratorException() {
+    super();
+  }
 
-    public CuratorException(String message, Throwable cause) {
-        super(message, cause);
-    }
+  public CuratorException(String message) {
+    super(message);
+  }
 
-    public CuratorException(Throwable cause) {
-        super(cause);
-    }
+  public CuratorException(String message, Throwable cause) {
+    super(message, cause);
+  }
+
+  public CuratorException(Throwable cause) {
+    super(cause);
+  }
 }
