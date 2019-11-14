@@ -1,0 +1,74 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties",
+      "name": "dragonshard.upload.local",
+      "type": "net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties",
+      "name": "dragonshard.upload.local.file",
+      "sourceMethod": "getFile()",
+      "type": "net.dragonshard.dsf.upload.local.configuration.properties.FileProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.FileProperties",
+      "name": "dragonshard.upload.local.file",
+      "type": "net.dragonshard.dsf.upload.local.configuration.properties.FileProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties",
+      "name": "dragonshard.upload.local.signature",
+      "sourceMethod": "getSignature()",
+      "type": "net.dragonshard.dsf.upload.local.configuration.properties.SignatureProperties"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.SignatureProperties",
+      "name": "dragonshard.upload.local.signature",
+      "type": "net.dragonshard.dsf.upload.local.configuration.properties.SignatureProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties",
+      "defaultValue": true,
+      "name": "dragonshard.upload.local.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.FileProperties",
+      "name": "dragonshard.upload.local.file.dir",
+      "description": "存储路径",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.SignatureProperties",
+      "defaultValue": true,
+      "name": "dragonshard.upload.local.signature.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.SignatureProperties",
+      "defaultValue": "bdb98f3eaeb7b966804b",
+      "name": "dragonshard.upload.local.signature.secret-key",
+      "description": "用于生成签名的密钥",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.SignatureProperties",
+      "defaultValue": 1800,
+      "name": "dragonshard.upload.local.signature.timeout-second",
+      "description": "签名过期时间（秒），默认 30分钟",
+      "type": "java.lang.Long"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties",
+      "name": "dragonshard.upload.local.url-prefix",
+      "description": "请求图片时的网址前缀",
+      "type": "java.lang.String"
+    }
+  ]
+}
