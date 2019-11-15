@@ -11,10 +11,9 @@
  *   limitations under the License.
  */
 package ${package.Service};
-${package.Entity}
-  .${entity};
-  ${superServiceClassPackage}
-  ;
+
+import ${package.Entity}.${entity};
+import ${superServiceClassPackage};
 
 /**
  * <p>

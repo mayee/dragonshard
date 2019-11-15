@@ -10,17 +10,14 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-package ${package.ServiceImpl}import org.springframework.stereotype.Service;
+package ${package.ServiceImpl};
 
-;
-${package.Entity}
-  .${entity};
-  ${package.Mapper}
-  .${table.mapperName};
-  ${package.Service}
-  .${table.serviceName};
-  ${superServiceImplClassPackage}
-  ;
+import ${package.Entity}.${entity};
+import ${package.Mapper}.${table.mapperName};
+import ${package.Service}.${table.serviceName};
+import ${superServiceImplClassPackage};
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * <p>

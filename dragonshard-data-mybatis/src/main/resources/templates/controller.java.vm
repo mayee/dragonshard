@@ -10,22 +10,22 @@
  *   See the License for the specific language governing permissions and
  *   limitations under the License.
  */
-package $!{package.Controller}import io.swagger.annotations.Api;
-import lombok.extern.slf4j.Slf4j;
-import net.dragonshard.dsf.web.core.mapping.ApiVersion;
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+package $!{package.Controller};
 
-;
+import net.dragonshard.dsf.web.core.mapping.ApiVersion;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.http.MediaType;
+import org.springframework.validation.annotation.Validated;
+
+import io.swagger.annotations.Api;
 #if($!{restControllerStyle})
+import org.springframework.web.bind.annotation.RestController;
 #else
+import org.springframework.stereotype.Controller;
 #end
 #if($!{superControllerClassPackage})
-  $!{superControllerClassPackage}
-  ;
+import $!{superControllerClassPackage};
 #end
 
 /**
@@ -36,7 +36,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author $!{author}
  */
 @Slf4j
-@Api(tags = {"$!{entity}"}, description = "$!{table.comment}相关接口")
+@Api(tags = {"$!{entity}" }, description = "$!{table.comment}相关接口")
 #if($!{restControllerStyle})
 @RestController
 @ApiVersion(1)

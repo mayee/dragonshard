@@ -11,10 +11,9 @@
  *   limitations under the License.
  */
 package ${package.Mapper};
-${package.Entity}
-  .${entity};
-  ${superMapperClassPackage}
-  ;
+
+import ${package.Entity}.${entity};
+import ${superMapperClassPackage};
 
 /**
  * <p>

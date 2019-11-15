@@ -35,3 +35,6 @@ dragonshard-data-redis-starter/target/
 dragonshard-dynamic-datasource-starter/target/
 dragonshard-web-core-starter/target/
 dragonshard-upload-local-starter/target/
+dragonshard-data-secret-starter/target/
+dragonshard-id-generator-starter/target/
+dragonshard-limit-starter/target/

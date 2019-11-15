@@ -34,7 +34,7 @@
     <url>https://github.com/mayee/dragonshard</url>
     <connection>scm:git@github.com:mayee/dragonshard.git</connection>
     <developerConnection>scm:git@github.com:mayee/dragonshard.git</developerConnection>
-    <tag>dragonshard-1.2.0-SNAPSHOT</tag>
+    <tag>dragonshard-1.2.0</tag>
   </scm>
 
   <developers>
@@ -68,7 +68,7 @@
   </distributionManagement>
 
   <properties>
-    <revision>1.2.0</revision>
+    <revision>1.2.1</revision>
 
     <!-- The spring-boot version should be the same as the parent version above -->
     <spring-boot.version>2.1.3.RELEASE</spring-boot.version>
