@@ -11,24 +11,19 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
+package net.dragonshard.dsf.upload.local.tinypng.condition;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import net.dragonshard.dsf.upload.local.constant.UploadLocalConstant;
+import net.dragonshard.dsf.web.core.condition.DragonshardCondition;
 
 /**
- * 配置文件
+ * 压缩启动判断（tinypng）
  *
  * @author mayee
  **/
-@Data
-@Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local.file")
-public class FileProperties {
+public class TinypngCondition extends DragonshardCondition {
 
-  /**
-   * 存储路径
-   */
-  private String dir;
+  public TinypngCondition() {
+    super(UploadLocalConstant.COMPRESS_TYPE, UploadLocalConstant.COMPRESS_TYPE_TINYPNG);
+  }
 }

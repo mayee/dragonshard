@@ -11,20 +11,19 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.framework.service;
+package net.dragonshard.dsf.upload.local.framework.service;
 
 import java.io.IOException;
 import java.io.InputStream;
-import net.dragonshard.dsf.upload.local.configuration.common.model.UploadRequest;
-import net.dragonshard.dsf.upload.local.configuration.common.model.UploadResult;
-import net.dragonshard.dsf.upload.local.configuration.common.model.UploadToken;
+import net.dragonshard.dsf.upload.local.common.model.UploadRequest;
+import net.dragonshard.dsf.upload.local.common.model.UploadResult;
+import net.dragonshard.dsf.upload.local.common.model.UploadToken;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 上传顶层接口
  *
  * @author mayee
- * @version v1.0
  **/
 public interface IUploadLocalService {
 

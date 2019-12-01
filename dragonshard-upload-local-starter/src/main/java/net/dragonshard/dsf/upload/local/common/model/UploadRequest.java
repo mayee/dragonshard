@@ -11,30 +11,31 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.exception;
+package net.dragonshard.dsf.upload.local.common.model;
+
+import lombok.Data;
 
 /**
- * 上传token验证失败异常
+ * 上传请求
  *
  * @author mayee
  **/
-public class UploadTokenValidException extends RuntimeException {
+@Data
+public class UploadRequest {
 
-  private static final long serialVersionUID = -410549815275769303L;
+  /**
+   * 是否覆盖 0.否 1.是
+   */
+  private Integer isCover = 1;
 
-  public UploadTokenValidException() {
-    super();
-  }
+  /**
+   * 要存储的文件名称
+   */
+  private String fileName;
 
-  public UploadTokenValidException(String message) {
-    super(message);
-  }
+  /**
+   * 时间戳
+   */
+  private Long timestamp;
 
-  public UploadTokenValidException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  public UploadTokenValidException(Throwable cause) {
-    super(cause);
-  }
 }

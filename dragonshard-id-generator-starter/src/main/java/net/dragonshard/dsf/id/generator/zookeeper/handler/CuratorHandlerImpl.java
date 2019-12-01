@@ -49,7 +49,7 @@ public class CuratorHandlerImpl implements CuratorHandler {
 
   // 创建Curator，并初始化根节点
   @PostConstruct
-  private void initialize() throws Exception {
+  private void init() throws Exception {
     try {
       create();
 

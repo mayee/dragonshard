@@ -11,30 +11,21 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.exception;
+package net.dragonshard.dsf.upload.local.strategy;
 
 /**
- * 上传token签名超时异常
+ * 压缩策略
  *
  * @author mayee
  **/
-public class UploadTokenTimeoutException extends RuntimeException {
+@FunctionalInterface
+public interface ICompressStrategy {
 
-  private static final long serialVersionUID = -6746593915647134134L;
+  /**
+   * 压缩处理
+   *
+   * @param filePath 待压缩的文件路径
+   */
+  void compress(String filePath);
 
-  public UploadTokenTimeoutException() {
-    super();
-  }
-
-  public UploadTokenTimeoutException(String message) {
-    super(message);
-  }
-
-  public UploadTokenTimeoutException(String message, Throwable cause) {
-    super(message, cause);
-  }
-
-  public UploadTokenTimeoutException(Throwable cause) {
-    super(cause);
-  }
 }

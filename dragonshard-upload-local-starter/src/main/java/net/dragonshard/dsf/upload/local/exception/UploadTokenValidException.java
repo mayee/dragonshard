@@ -11,19 +11,30 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.common.model;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
+package net.dragonshard.dsf.upload.local.exception;
 
 /**
+ * 上传token验证失败异常
+ *
  * @author mayee
  **/
-@Data
-@AllArgsConstructor
-public class UploadToken {
+public class UploadTokenValidException extends RuntimeException {
 
-  private String token;
+  private static final long serialVersionUID = -410549815275769303L;
 
-  private Long timestamp;
+  public UploadTokenValidException() {
+    super();
+  }
+
+  public UploadTokenValidException(String message) {
+    super(message);
+  }
+
+  public UploadTokenValidException(String message, Throwable cause) {
+    super(message, cause);
+  }
+
+  public UploadTokenValidException(Throwable cause) {
+    super(cause);
+  }
 }

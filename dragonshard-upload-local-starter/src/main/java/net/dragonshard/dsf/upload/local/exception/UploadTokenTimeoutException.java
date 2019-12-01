@@ -11,19 +11,30 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.common.model;
-
-import lombok.Data;
+package net.dragonshard.dsf.upload.local.exception;
 
 /**
- * 上传成功返回对象
+ * 上传token签名超时异常
  *
  * @author mayee
  **/
-@Data
-public class UploadResult {
+public class UploadTokenTimeoutException extends RuntimeException {
 
-  private String url;
+  private static final long serialVersionUID = -6746593915647134134L;
 
-  private String fileName;
+  public UploadTokenTimeoutException() {
+    super();
+  }
+
+  public UploadTokenTimeoutException(String message) {
+    super(message);
+  }
+
+  public UploadTokenTimeoutException(String message, Throwable cause) {
+    super(message, cause);
+  }
+
+  public UploadTokenTimeoutException(Throwable cause) {
+    super(cause);
+  }
 }

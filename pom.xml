@@ -13,6 +13,7 @@
     <module>dragonshard-limit-starter</module>
     <module>dragonshard-id-generator-starter</module>
     <module>dragonshard-upload-local-starter</module>
+    <module>dragonshard-tinypng-starter</module>
   </modules>
 
   <parent>
@@ -34,7 +35,7 @@
     <url>https://github.com/mayee/dragonshard</url>
     <connection>scm:git@github.com:mayee/dragonshard.git</connection>
     <developerConnection>scm:git@github.com:mayee/dragonshard.git</developerConnection>
-    <tag>dragonshard-1.2.0</tag>
+    <tag>dragonshard-1.2.1</tag>
   </scm>
 
   <developers>
@@ -121,6 +122,7 @@
     <redisson.version>3.7.5</redisson.version>
     <curator.version>2.12.0</curator.version>
     <pagehelper.version>5.1.6</pagehelper.version>
+    <tinypng.version>1.6.4</tinypng.version>
 
     <!-- Mybatis -->
     <mybatis-plus-boot-starter.version>3.2.0</mybatis-plus-boot-starter.version>
@@ -193,6 +195,11 @@
       <dependency>
         <groupId>net.dragonshard</groupId>
         <artifactId>dragonshard-data-redis-starter</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <dependency>
+        <groupId>net.dragonshard</groupId>
+        <artifactId>dragonshard-tinypng-starter</artifactId>
         <version>${revision}</version>
       </dependency>
 
@@ -448,6 +455,13 @@
         <groupId>com.alibaba</groupId>
         <artifactId>druid-spring-boot-starter</artifactId>
         <version>${druid-spring-boot-starter.version}</version>
+      </dependency>
+
+      <!--tinypng-->
+      <dependency>
+        <groupId>com.tinify</groupId>
+        <artifactId>tinify</artifactId>
+        <version>${tinypng.version}</version>
       </dependency>
 
       <!-- Encrypt libs -->

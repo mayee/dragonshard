@@ -11,40 +11,38 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
+package net.dragonshard.dsf.tinypng.configuration.property;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
 
 /**
  * 配置文件
  *
  * @author mayee
+ * @version v1.0
  **/
 @Data
 @Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local")
-public class UploadLocalProperties {
+@ConfigurationProperties(prefix = "dragonshard.tinypng")
+public class TinypngProperties {
 
   /**
    * 是否开启
    */
   private Boolean enabled = true;
-
   /**
-   * 请求图片时的网址前缀
+   * 用于认证
    */
-  private String urlPrefix;
-
-  @NestedConfigurationProperty
-  private SignatureProperties signature = new SignatureProperties();
-
-  @NestedConfigurationProperty
-  private FileProperties file = new FileProperties();
-
-  @NestedConfigurationProperty
-  private CompressProperties compress = new CompressProperties();
+  private String apiKey;
+  /**
+   * 严格模式，默认false
+   */
+  private Boolean strict = false;
+  /**
+   * 代理
+   */
+  private String proxy;
 
 }

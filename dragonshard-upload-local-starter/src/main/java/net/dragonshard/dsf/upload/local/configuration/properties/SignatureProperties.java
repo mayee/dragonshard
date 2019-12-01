@@ -30,7 +30,7 @@ public class SignatureProperties {
   /**
    * 是否开启
    */
-  private Boolean enabled = true;
+  private Boolean enabled = false;
   /**
    * 用于生成签名的密钥
    */

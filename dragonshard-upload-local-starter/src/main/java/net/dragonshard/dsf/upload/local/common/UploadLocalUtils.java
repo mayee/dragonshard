@@ -11,7 +11,7 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.common;
+package net.dragonshard.dsf.upload.local.common;
 
 import java.util.Map;
 import java.util.Objects;
@@ -31,6 +31,9 @@ import org.springframework.util.StringUtils;
 public class UploadLocalUtils {
 
   public static final int MILLIS = 1000;
+  private static final String IMAGE_FORMAT_JPG = "jpg";
+  private static final String IMAGE_FORMAT_JPEG = "jpeg";
+  private static final String IMAGE_FORMAT_PNG = "png";
 
   /**
    * 生成md5
@@ -97,6 +100,19 @@ public class UploadLocalUtils {
       return fileName.substring(suffixIndex + 1);
     }
     return "";
+  }
+
+  /**
+   * 判断图片格式是否可以被 tinypng 进行压缩
+   *
+   * @param fileName 文件名
+   * @return true 可以，false 不可以
+   */
+  public static boolean validCompressWithTinypng(String fileName){
+    String fileFormatLowerCase = fileSuffix(fileName).toLowerCase();
+    return IMAGE_FORMAT_JPG.equals(fileFormatLowerCase)
+      || IMAGE_FORMAT_JPEG.equals(fileFormatLowerCase)
+      || IMAGE_FORMAT_PNG.equals(fileFormatLowerCase);
   }
 
 }

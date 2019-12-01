@@ -51,7 +51,7 @@ public class RedisIdGeneratorImpl implements RedisIdGenerator {
 
   @SuppressWarnings({"unchecked", "rawtypes"})
   @PostConstruct
-  public void initialize() {
+  public void init() {
     String luaScript = buildLuaScript();
     redisScript = new DefaultRedisScript(luaScript, List.class);
   }

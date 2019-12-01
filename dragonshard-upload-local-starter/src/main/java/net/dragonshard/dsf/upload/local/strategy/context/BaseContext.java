@@ -11,24 +11,32 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
+package net.dragonshard.dsf.upload.local.strategy.context;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import java.util.ArrayList;
+import java.util.List;
+import net.dragonshard.dsf.upload.local.strategy.ICompressStrategy;
 
 /**
- * 配置文件
+ * 上下文抽象类
  *
  * @author mayee
  **/
-@Data
-@Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local.file")
-public class FileProperties {
+public abstract class BaseContext {
+
+  private List<ICompressStrategy> strategyList = new ArrayList<>();
+
+  public void process(String filePath) {
+    initBuildStrategy(strategyList);
+    for (int i = 0, n = strategyList.size(); i < n; i++) {
+      strategyList.get(i).compress(filePath);
+    }
+  }
 
   /**
-   * 存储路径
+   * 设置参与压缩的策略。
+   *
+   * @param strategyList 策略集合
    */
-  private String dir;
+  protected abstract void initBuildStrategy(List<ICompressStrategy> strategyList);
 }

@@ -11,22 +11,16 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.framework.service.impl;
-
-import net.dragonshard.dsf.upload.local.configuration.framework.service.base.AbstractUploadLocalService;
-import net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties;
+package net.dragonshard.dsf.upload.local.tinypng.service;
 
 /**
- * 简单实现
+ * 异步压缩接口
  *
  * @author mayee
- * @version v1.0
  **/
-public class SampleUploadServiceImpl extends AbstractUploadLocalService {
+@FunctionalInterface
+public interface IAsyncCompressService {
 
-  public SampleUploadServiceImpl(
-    UploadLocalProperties uploadLocalProperties) {
-    super(uploadLocalProperties);
-  }
+  void compress(String filePath);
 
 }

@@ -15,36 +15,26 @@ package net.dragonshard.dsf.upload.local.configuration.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.NestedConfigurationProperty;
 import org.springframework.stereotype.Component;
 
 /**
- * 配置文件
+ * 压缩配置
  *
  * @author mayee
  **/
-@Data
 @Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local")
-public class UploadLocalProperties {
+@ConfigurationProperties(prefix = "dragonshard.upload.local.compress")
+@Data
+public class CompressProperties {
 
   /**
-   * 是否开启
+   * 是否开启，默认 false
    */
-  private Boolean enabled = true;
+  private boolean enabled = false;
 
   /**
-   * 请求图片时的网址前缀
+   * 压缩实现类型, 当前仅支持 tinypng
    */
-  private String urlPrefix;
-
-  @NestedConfigurationProperty
-  private SignatureProperties signature = new SignatureProperties();
-
-  @NestedConfigurationProperty
-  private FileProperties file = new FileProperties();
-
-  @NestedConfigurationProperty
-  private CompressProperties compress = new CompressProperties();
+  private String type = "tinypng";
 
 }

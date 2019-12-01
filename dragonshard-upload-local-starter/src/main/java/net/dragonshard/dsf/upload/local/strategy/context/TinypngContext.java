@@ -11,24 +11,21 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
+package net.dragonshard.dsf.upload.local.strategy.context;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import java.util.List;
+import net.dragonshard.dsf.upload.local.strategy.ICompressStrategy;
+import net.dragonshard.dsf.upload.local.tinypng.strategy.TinypngStrategy;
 
 /**
- * 配置文件
+ * tinypng 上下文
  *
  * @author mayee
  **/
-@Data
-@Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local.file")
-public class FileProperties {
+public class TinypngContext extends BaseContext {
 
-  /**
-   * 存储路径
-   */
-  private String dir;
+  @Override
+  protected void initBuildStrategy(List<ICompressStrategy> strategyList) {
+    strategyList.add(new TinypngStrategy());
+  }
 }

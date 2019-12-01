@@ -66,12 +66,16 @@ public class RedisAutoConfiguration {
     return CacheService.initCache(cacheService);
   }
 
-  /**
-   * 验证规则 <br> 默认加载 dragonshard.redis.biz-prefix <br> 如果该参数为空则加载 spring.application.name <br>
-   * 如果二者都为空，抛出异常启动终止
-   */
+
   @PostConstruct
-  public void validRequiredParams() {
+  public void init() {
+    validRequiredParams();
+  }
+
+  /**
+   * 默认加载 dragonshard.redis.biz-prefix, 如果该参数为空则加载 spring.application.name, 如果二者都为空，抛出异常启动终止
+   */
+  private void validRequiredParams() {
     if (StringUtils.isEmpty(applicationName)) {
       Preconditions.checkArgument(StringUtils.isNotEmpty(redisProperties.getBizPrefix()),
         "Missing required configuration items: dragonshard.redis.biz-prefix");

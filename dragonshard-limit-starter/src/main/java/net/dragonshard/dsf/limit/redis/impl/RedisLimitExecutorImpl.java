@@ -40,7 +40,7 @@ public class RedisLimitExecutorImpl implements LimitExecutor {
   }
 
   @PostConstruct
-  public void initialize() {
+  public void init() {
     String luaScript = buildLuaScript();
     redisScript = new DefaultRedisScript<Number>(luaScript, Number.class);
   }

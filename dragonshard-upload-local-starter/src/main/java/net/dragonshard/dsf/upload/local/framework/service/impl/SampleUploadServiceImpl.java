@@ -11,24 +11,22 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
+package net.dragonshard.dsf.upload.local.framework.service.impl;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties;
+import net.dragonshard.dsf.upload.local.framework.service.base.AbstractUploadLocalService;
+import net.dragonshard.dsf.upload.local.tinypng.service.IAsyncCompressService;
 
 /**
- * 配置文件
+ * 文件上传实现
  *
  * @author mayee
  **/
-@Data
-@Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local.file")
-public class FileProperties {
+public class SampleUploadServiceImpl extends AbstractUploadLocalService {
 
-  /**
-   * 存储路径
-   */
-  private String dir;
+  public SampleUploadServiceImpl(
+    UploadLocalProperties uploadLocalProperties, IAsyncCompressService asyncCompressService) {
+    super(uploadLocalProperties, asyncCompressService);
+  }
+
 }

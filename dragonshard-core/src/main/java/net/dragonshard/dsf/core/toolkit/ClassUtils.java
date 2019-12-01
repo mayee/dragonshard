@@ -104,7 +104,7 @@ public final class ClassUtils {
       constructor.setAccessible(true);
       return constructor.newInstance();
     } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
-      throw ExceptionUtils.get("实例化对象时出现错误,请尝试给 %s 添加无参的构造方法", e, clazz.getName());
+      throw ExceptionUtils.get("An error occurred while instantiating the object, try adding a no-argument constructor to %s", e, clazz.getName());
     }
   }
 
@@ -120,7 +120,7 @@ public final class ClassUtils {
     try {
       return Class.forName(name);
     } catch (ClassNotFoundException e) {
-      throw ExceptionUtils.get("找不到指定的class！请仅在明确确定会有 class 的时候，调用该方法", e);
+      throw ExceptionUtils.get("The specified class could not be found!", e);
     }
   }
 
@@ -148,5 +148,20 @@ public final class ClassUtils {
     Assert.notNull(fqClassName, "Class name must not be null");
     int lastDotIndex = fqClassName.lastIndexOf(PACKAGE_SEPARATOR);
     return (lastDotIndex != -1 ? fqClassName.substring(0, lastDotIndex) : "");
+  }
+
+  /**
+   * 判断class是否存在，不会初始化静态变量
+   *
+   * @param name 类的全路径
+   * @return true 存在, false 不存在
+   */
+  public static boolean isPresent(String name) {
+    try {
+      Thread.currentThread().getContextClassLoader().loadClass(name);
+      return true;
+    } catch (ClassNotFoundException e) {
+      return false;
+    }
   }
 }

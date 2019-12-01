@@ -1,0 +1,38 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "net.dragonshard.dsf.tinypng.configuration.property.TinypngProperties",
+      "name": "dragonshard.tinypng",
+      "type": "net.dragonshard.dsf.tinypng.configuration.property.TinypngProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "net.dragonshard.dsf.tinypng.configuration.property.TinypngProperties",
+      "name": "dragonshard.tinypng.api-key",
+      "description": "用于认证",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.tinypng.configuration.property.TinypngProperties",
+      "defaultValue": true,
+      "name": "dragonshard.tinypng.enabled",
+      "description": "是否开启",
+      "type": "java.lang.Boolean"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.tinypng.configuration.property.TinypngProperties",
+      "name": "dragonshard.tinypng.proxy",
+      "description": "代理",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "net.dragonshard.dsf.tinypng.configuration.property.TinypngProperties",
+      "defaultValue": false,
+      "name": "dragonshard.tinypng.strict",
+      "description": "严格模式，默认false",
+      "type": "java.lang.Boolean"
+    }
+  ]
+}

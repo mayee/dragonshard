@@ -1,6 +1,6 @@
 
 
-<img src="https://github.com/mayee/img-folder/blob/master/ds-logo_96.png" height="48px" alt="logo">
+<img src="https://images.gitee.com/uploads/images/2019/1116/133635_a1ce419c_445103.png" height="48px" alt="logo">
 
 
 
@@ -51,8 +51,11 @@ Dragonshard ( official site: [https://dragonshard.net](https://dragonshard.net) 
 ## Latest version
 
 ```xml
-<version>1.2.0</version>
+<version>1.2.1</version>
 ```
+
+## Contact us
+feedback@dragonshard.net
 
 ## License
 

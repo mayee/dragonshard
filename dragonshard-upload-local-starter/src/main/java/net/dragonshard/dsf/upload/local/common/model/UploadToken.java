@@ -11,24 +11,19 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
+package net.dragonshard.dsf.upload.local.common.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 /**
- * 配置文件
- *
  * @author mayee
  **/
 @Data
-@Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local.file")
-public class FileProperties {
+@AllArgsConstructor
+public class UploadToken {
 
-  /**
-   * 存储路径
-   */
-  private String dir;
+  private String token;
+
+  private Long timestamp;
 }

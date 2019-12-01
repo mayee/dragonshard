@@ -11,24 +11,28 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
-
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+package net.dragonshard.dsf.tinypng.framework.service;
 
 /**
- * 配置文件
+ * 顶层接口
  *
  * @author mayee
  **/
-@Data
-@Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local.file")
-public class FileProperties {
+public interface ITinypngService {
 
   /**
-   * 存储路径
+   * 压缩并保存
+   *
+   * @param fromFilePath 输入文件
+   * @param toFilePath 输出文件
    */
-  private String dir;
+  void compressAndSave(String fromFilePath, String toFilePath);
+
+  /**
+   * 获取本月的压缩计数
+   *
+   * @return 压缩数
+   */
+  int getCompressionCount();
+
 }

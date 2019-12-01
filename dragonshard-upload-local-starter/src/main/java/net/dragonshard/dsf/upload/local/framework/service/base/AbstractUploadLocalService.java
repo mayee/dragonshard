@@ -11,9 +11,9 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.framework.service.base;
+package net.dragonshard.dsf.upload.local.framework.service.base;
 
-import static net.dragonshard.dsf.upload.local.configuration.common.UploadLocalUtils.MILLIS;
+import static net.dragonshard.dsf.upload.local.common.UploadLocalUtils.MILLIS;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -23,14 +23,17 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import net.dragonshard.dsf.upload.local.configuration.common.UploadLocalUtils;
-import net.dragonshard.dsf.upload.local.configuration.common.model.UploadRequest;
-import net.dragonshard.dsf.upload.local.configuration.common.model.UploadResult;
-import net.dragonshard.dsf.upload.local.configuration.common.model.UploadToken;
-import net.dragonshard.dsf.upload.local.configuration.exception.UploadTokenTimeoutException;
-import net.dragonshard.dsf.upload.local.configuration.exception.UploadTokenValidException;
-import net.dragonshard.dsf.upload.local.configuration.framework.service.IUploadLocalService;
+import lombok.extern.slf4j.Slf4j;
+import net.dragonshard.dsf.core.toolkit.TimeUtils;
+import net.dragonshard.dsf.upload.local.common.UploadLocalUtils;
+import net.dragonshard.dsf.upload.local.common.model.UploadRequest;
+import net.dragonshard.dsf.upload.local.common.model.UploadResult;
+import net.dragonshard.dsf.upload.local.common.model.UploadToken;
 import net.dragonshard.dsf.upload.local.configuration.properties.UploadLocalProperties;
+import net.dragonshard.dsf.upload.local.exception.UploadTokenTimeoutException;
+import net.dragonshard.dsf.upload.local.exception.UploadTokenValidException;
+import net.dragonshard.dsf.upload.local.framework.service.IUploadLocalService;
+import net.dragonshard.dsf.upload.local.tinypng.service.IAsyncCompressService;
 import org.springframework.util.StreamUtils;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
@@ -39,22 +42,23 @@ import org.springframework.web.multipart.MultipartFile;
  * 抽象骨架
  *
  * @author mayee
- * @version v1.0
  **/
+@Slf4j
 public abstract class AbstractUploadLocalService implements IUploadLocalService {
-
-  protected static final DateTimeFormatter FILE_NAME_FORMATTER = DateTimeFormatter
+  private static final DateTimeFormatter FILE_NAME_FORMATTER = DateTimeFormatter
     .ofPattern("yyyyMMddHHmmssSS");
   private UploadLocalProperties uploadLocalConfig;
+  private IAsyncCompressService asyncCompressService;
 
   public AbstractUploadLocalService(
-    UploadLocalProperties uploadLocalProperties) {
+    UploadLocalProperties uploadLocalProperties, IAsyncCompressService asyncCompressService) {
     this.uploadLocalConfig = uploadLocalProperties;
+    this.asyncCompressService = asyncCompressService;
   }
 
   @Override
   public UploadToken preload(UploadRequest uploadRequest) {
-    long timestamp = System.currentTimeMillis();
+    long timestamp = TimeUtils.getCurrentMillisecond();
     uploadRequest.setTimestamp(timestamp);
     return new UploadToken(UploadLocalUtils.signWithSort(uploadRequest,
       uploadLocalConfig.getSignature().getSecretKey()), timestamp);
@@ -108,6 +112,7 @@ public abstract class AbstractUploadLocalService implements IUploadLocalService 
     }
     try (FileOutputStream fileOutputStream = new FileOutputStream(file)) {
       fileOutputStream.write(multipartFile.getBytes());
+      asyncCompress(file.getPath());
     }
     return uploadSuccess(fileName);
   }
@@ -118,6 +123,21 @@ public abstract class AbstractUploadLocalService implements IUploadLocalService 
       return Files.readAllBytes(Paths.get(uploadLocalConfig.getFile().getDir(), fileName));
     } catch (IOException e) {
       return new byte[]{};
+    }
+  }
+
+  /**
+   * 异步压缩
+   *
+   * @param filePath 文件路径
+   */
+  private void asyncCompress(String filePath) {
+    if (uploadLocalConfig.getCompress().isEnabled()) {
+      if (asyncCompressService == null) {
+        log.warn("[DSE-UL-1]No compression services available -> {}", filePath);
+      } else {
+        asyncCompressService.compress(filePath);
+      }
     }
   }
 
@@ -165,16 +185,16 @@ public abstract class AbstractUploadLocalService implements IUploadLocalService 
     if (!uploadLocalConfig.getSignature().getEnabled()) {
       return;
     } else if (token == null) {
-      throw new UploadTokenValidException("Signature Token required!");
+      throw new UploadTokenValidException("[DSE-UL-5]Signature Token required!");
     }
     if (System.currentTimeMillis() - uploadRequest.getTimestamp()
       > uploadLocalConfig.getSignature().getTimeoutSecond() * MILLIS) {
-      throw new UploadTokenTimeoutException("Signature timed out, please regenerate!");
+      throw new UploadTokenTimeoutException("[DSE-UL-6]Signature timed out, please regenerate!");
     }
     boolean success = UploadLocalUtils.signWithSort(
       uploadRequest, uploadLocalConfig.getSignature().getSecretKey()).equals(token);
     if (!success) {
-      throw new UploadTokenValidException("Signature error!");
+      throw new UploadTokenValidException("[DSE-UL-7]Signature error!");
     }
   }
 

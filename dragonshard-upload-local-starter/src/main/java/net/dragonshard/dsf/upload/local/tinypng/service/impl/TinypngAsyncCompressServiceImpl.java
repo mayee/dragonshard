@@ -11,24 +11,17 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
+package net.dragonshard.dsf.upload.local.tinypng.service.impl;
 
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+import lombok.extern.slf4j.Slf4j;
+import net.dragonshard.dsf.upload.local.tinypng.service.base.BaseTinypngAsyncCompressService;
 
 /**
- * 配置文件
+ * 实现异步压缩
  *
  * @author mayee
  **/
-@Data
-@Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local.file")
-public class FileProperties {
+@Slf4j
+public class TinypngAsyncCompressServiceImpl extends BaseTinypngAsyncCompressService {
 
-  /**
-   * 存储路径
-   */
-  private String dir;
 }

@@ -11,24 +11,17 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.properties;
-
-import lombok.Data;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
+package net.dragonshard.dsf.upload.local.constant;
 
 /**
- * 配置文件
+ * 常量
  *
  * @author mayee
  **/
-@Data
-@Component
-@ConfigurationProperties(prefix = "dragonshard.upload.local.file")
-public class FileProperties {
+public class UploadLocalConstant {
 
-  /**
-   * 存储路径
-   */
-  private String dir;
+  public static final String COMPRESS_TYPE = "dragonshard.upload.local.compress.type";
+
+  public static final String COMPRESS_TYPE_TINYPNG = "tinypng";
+
 }

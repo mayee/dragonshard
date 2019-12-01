@@ -11,31 +11,19 @@
  *   limitations under the License.
  */
 
-package net.dragonshard.dsf.upload.local.configuration.common.model;
+package net.dragonshard.dsf.upload.local.common.model;
 
 import lombok.Data;
 
 /**
- * 上传请求
+ * 上传成功返回对象
  *
  * @author mayee
  **/
 @Data
-public class UploadRequest {
+public class UploadResult {
 
-  /**
-   * 是否覆盖 0.否 1.是
-   */
-  private Integer isCover = 1;
+  private String url;
 
-  /**
-   * 要存储的文件名称
-   */
   private String fileName;
-
-  /**
-   * 时间戳
-   */
-  private Long timestamp;
-
 }
