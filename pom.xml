@@ -91,7 +91,7 @@
     <maven.javadoc.skip>true</maven.javadoc.skip>
 
     <!-- Encrypt -->
-    <bcprov-jdk15on.version>1.54</bcprov-jdk15on.version>
+    <bcprov-jdk15on.version>1.67</bcprov-jdk15on.version>
 
     <!-- AOP -->
     <matrix-aop-starter.version>2.0.7</matrix-aop-starter.version>
