@@ -115,7 +115,7 @@
     <servlet-api.version>4.0.1</servlet-api.version>
     <modelmapper.version>2.3.1</modelmapper.version>
     <p6spy.version>3.8.0</p6spy.version>
-    <jackson.version>2.10.0</jackson.version>
+    <jackson.version>2.12.6.1</jackson.version>
     <jpinyin.version>1.1.8</jpinyin.version>
     <validation-api.version>2.0.1.Final</validation-api.version>
     <hibernate-validation.version>6.1.5.Final</hibernate-validation.version>
